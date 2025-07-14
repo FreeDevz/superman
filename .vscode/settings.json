@@ -1,0 +1,25 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+    "java.format.settings.profile": "GoogleStyle",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "java.saveActions.organizeImports": true,
+    "java.sources.organizeImports.staticStarThreshold": 5,
+    "java.sources.organizeImports.starThreshold": 5,
+    "files.exclude": {
+        "**/build": true,
+        "**/.gradle": true,
+        "**/target": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "gradle.nestedProjects": true,
+    "java.import.gradle.enabled": true,
+    "java.import.gradle.wrapper.enabled": true,
+    "java.jdt.ls.java.home": "/Users/androwijaya/devspace/java/jdk-17.0.9.jdk/Contents/Home"
+}

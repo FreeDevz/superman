@@ -1,0 +1,46 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example.App",
+            "projectName": "superman"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "superman_53fd7497"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "com.example.App",
+            "projectName": "java-cursor-demo",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "Debug App",
+            "request": "launch",
+            "mainClass": "com.example.App",
+            "projectName": "java-cursor-demo",
+            "console": "integratedTerminal",
+            "stopOnEntry": false
+        },
+        {
+            "type": "java",
+            "name": "Gradle: Run App",
+            "request": "launch",
+            "mainClass": "com.example.App",
+            "projectName": "java-cursor-demo",
+            "console": "integratedTerminal",
+            "args": "",
+            "vmArgs": ""
+        }
+    ]
+}

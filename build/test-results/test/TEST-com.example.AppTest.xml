@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.AppTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-07-14T09:55:49" hostname="Mac" time="0.012">
+  <properties/>
+  <testcase name="Test main method runs without errors" classname="com.example.AppTest" time="0.01"/>
+  <testcase name="Test basic functionality" classname="com.example.AppTest" time="0.001"/>
+  <system-out><![CDATA[Hello, Java in Cursor!
+Welcome Developer! You're using Java 21
+Nice to meet you, Developer!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
