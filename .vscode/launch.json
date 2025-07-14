@@ -3,6 +3,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AddTwoNumbers",
+            "request": "launch",
+            "mainClass": "com.example.leetcode.AddTwoNumbers",
+            "projectName": "superman"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "com.example.App",

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.leetcode.AddTwoNumbersTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2025-07-14T13:22:31" hostname="Mac" time="0.007">
+  <properties/>
+  <testcase name="Test recursive solution with example 1" classname="com.example.leetcode.AddTwoNumbersTest" time="0.0"/>
+  <testcase name="Test helper method: listToArray" classname="com.example.leetcode.AddTwoNumbersTest" time="0.0"/>
+  <testcase name="Test case 1: [2,4,3] + [5,6,4] = [7,0,8]" classname="com.example.leetcode.AddTwoNumbersTest" time="0.0"/>
+  <testcase name="Test case 2: [0] + [0] = [0]" classname="com.example.leetcode.AddTwoNumbersTest" time="0.0"/>
+  <testcase name="Test case 3: [9,9,9,9,9,9,9] + [9,9,9,9] = [8,9,9,9,0,0,0,1]" classname="com.example.leetcode.AddTwoNumbersTest" time="0.0"/>
+  <testcase name="Test case 4: Different lengths [9,9] + [1] = [0,0,1]" classname="com.example.leetcode.AddTwoNumbersTest" time="0.001"/>
+  <testcase name="Test case 6: No carry [1,2,3] + [4,5,6] = [5,7,9]" classname="com.example.leetcode.AddTwoNumbersTest" time="0.0"/>
+  <testcase name="Test case 5: Single digits [5] + [5] = [0,1]" classname="com.example.leetcode.AddTwoNumbersTest" time="0.001"/>
+  <testcase name="Test helper method: createList" classname="com.example.leetcode.AddTwoNumbersTest" time="0.0"/>
+  <testcase name="Test edge case: null array" classname="com.example.leetcode.AddTwoNumbersTest" time="0.0"/>
+  <testcase name="Test edge case: empty list" classname="com.example.leetcode.AddTwoNumbersTest" time="0.0"/>
+  <testcase name="Test recursive solution with carry at end" classname="com.example.leetcode.AddTwoNumbersTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
