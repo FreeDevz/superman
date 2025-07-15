@@ -66,7 +66,7 @@ java -cp build/classes/java/main com.example.leetcode.AddTwoNumbers
 
 ## Key Features
 
-- ✅ **Java 17** with Gradle Kotlin DSL
+- ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework
 - ✅ **Comprehensive test coverage**
 - ✅ **LeetCode algorithm solutions**
@@ -76,8 +76,8 @@ java -cp build/classes/java/main com.example.leetcode.AddTwoNumbers
 ## Development
 
 ### Prerequisites
-- Java 17 or later
-- Gradle (wrapper included)
+- Java 21 or later (currently using Java 21.0.6)
+- Gradle 8.14.3 (wrapper included)
 - Cursor IDE with Java extensions
 
 ### Useful Commands
