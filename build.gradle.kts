@@ -1,6 +1,6 @@
 plugins {
-    id("java")
-    id("application")
+    java
+    application
 }
 
 group = "com.example"
@@ -12,28 +12,29 @@ repositories {
 
 dependencies {
     // JUnit 5 for testing
-    add("testImplementation", "org.junit.jupiter:junit-jupiter:5.10.0")
-    add("testRuntimeOnly", "org.junit.platform:junit-platform-launcher")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
-configure<JavaApplication> {
+application {
     mainClass.set("com.example.App")
 }
 
-configure<JavaPluginExtension> {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
 }
 
-tasks.named<Test>("test") {
+tasks.test {
     useJUnitPlatform()
 }
 
-tasks.named<JavaCompile>("compileJava") {
+tasks.compileJava {
     options.encoding = "UTF-8"
 }
 
-tasks.named<JavaCompile>("compileTestJava") {
+tasks.compileTestJava {
     options.encoding = "UTF-8"
 }
 
