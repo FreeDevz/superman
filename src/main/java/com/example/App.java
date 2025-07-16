@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.leetcode.AddTwoNumbers;
+import com.example.leetcode.LongestSubstringWithoutRepeating;
 
 /**
  * Main application demonstrating Java development in Cursor This includes the LeetCode Add Two
@@ -23,8 +24,14 @@ public class App {
         System.out.println("\n=== LeetCode Solutions ===");
 
         // Demonstrate the Add Two Numbers solution
-        System.out.println("Running LeetCode: Add Two Numbers");
+        System.out.println("1. Running LeetCode: Add Two Numbers");
         demonstrateAddTwoNumbers();
+
+        System.out.println("\n" + "=".repeat(50));
+
+        // Demonstrate the Longest Substring Without Repeating Characters solution
+        System.out.println("2. Running LeetCode: Longest Substring Without Repeating Characters");
+        demonstrateLongestSubstring();
     }
 
     /**
@@ -52,5 +59,25 @@ public class App {
         System.out.println("Input:  l1 = " + l1 + ", l2 = " + l2);
         System.out.println("Output: " + result);
         System.out.println("✓ Solution working correctly!");
+    }
+
+    /**
+     * Demonstrates the Longest Substring Without Repeating Characters LeetCode solution
+     */
+    private static void demonstrateLongestSubstring() {
+        LongestSubstringWithoutRepeating solution = new LongestSubstringWithoutRepeating();
+
+        // Test with the classic examples
+        String[] testCases = {"abcabcbb", // Expected: 3 ("abc")
+                "bbbbb", // Expected: 1 ("b")
+                "pwwkew" // Expected: 3 ("wke")
+        };
+
+        for (String testCase : testCases) {
+            int result = solution.lengthOfLongestSubstring(testCase);
+            System.out.printf("Input: \"%s\" -> Length: %d%n", testCase, result);
+        }
+
+        System.out.println("✓ All solutions working correctly!");
     }
 }

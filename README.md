@@ -9,11 +9,13 @@ src/
 ├── main/java/com/example/
 │   ├── App.java                           # Main application class
 │   └── leetcode/
-│       └── AddTwoNumbers.java             # LeetCode: Add Two Numbers solution
+│       ├── AddTwoNumbers.java             # LeetCode: Add Two Numbers solution
+│       └── LongestSubstringWithoutRepeating.java  # LeetCode: Longest Substring solution
 └── test/java/com/example/
     ├── AppTest.java                       # Unit tests
     └── leetcode/
-        └── AddTwoNumbersTest.java         # LeetCode solution tests
+        ├── AddTwoNumbersTest.java         # LeetCode: Add Two Numbers tests
+        └── LongestSubstringWithoutRepeatingTest.java  # LeetCode: Longest Substring tests
 build.gradle                              # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -62,6 +64,29 @@ Explanation: 342 + 465 = 807
 **Run specific solution**:
 ```bash
 java -cp build/classes/java/main com.example.leetcode.AddTwoNumbers
+```
+
+### 2. Longest Substring Without Repeating Characters (Problem #3)
+- **Location**: `src/main/java/com/example/leetcode/LongestSubstringWithoutRepeating.java`
+- **Description**: Find the length of the longest substring without repeating characters
+- **Time Complexity**: O(n) (sliding window approach)
+- **Space Complexity**: O(min(m,n)) where m is charset size
+
+**Examples**:
+```java
+Input: "abcabcbb" -> Output: 3 (substring "abc")
+Input: "bbbbb"    -> Output: 1 (substring "b")
+Input: "pwwkew"   -> Output: 3 (substring "wke")
+```
+
+**Multiple implementations included**:
+- ✅ **HashMap approach** (most efficient)
+- ✅ **HashSet approach** (alternative sliding window)
+- ✅ **Brute force approach** (for comparison)
+
+**Run specific solution**:
+```bash
+java -cp build/classes/java/main com.example.leetcode.LongestSubstringWithoutRepeating
 ```
 
 ## Key Features
