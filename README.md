@@ -14,14 +14,16 @@ src/
 │       ├── AddTwoNumbers.java             # LeetCode #2: Add Two Numbers
 │       ├── LongestSubstringWithoutRepeating.java  # LeetCode #3: Longest Substring
 │       ├── LongestPalindromicSubstring.java        # LeetCode #5: Longest Palindromic Substring
-│       └── ZigZagConversion.java          # LeetCode #6: ZigZag Conversion
+│       ├── ZigZagConversion.java          # LeetCode #6: ZigZag Conversion
+│       └── IntegerToRoman.java            # LeetCode #12: Integer to Roman
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
         ├── AddTwoNumbersTest.java         # LeetCode #2 tests
         ├── LongestSubstringWithoutRepeatingTest.java  # LeetCode #3 tests
         ├── LongestPalindromicSubstringTest.java       # LeetCode #5 tests (72 test cases!)
-        └── ZigZagConversionTest.java      # LeetCode #6 tests (114+ test cases!)
+        ├── ZigZagConversionTest.java      # LeetCode #6 tests (114+ test cases!)
+        └── IntegerToRomanTest.java        # LeetCode #12 tests (278 test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -72,7 +74,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **4 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **5 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -154,11 +156,40 @@ Y   I   R
 
 **Testing**: 114+ comprehensive test cases testing all approaches and edge cases!
 
+### 5. Integer to Roman (LeetCode #12)
+- **Location**: `src/main/java/com/example/leetcode/IntegerToRoman.java`
+- **Description**: Convert integer (1-3999) to Roman numeral with proper subtractive notation
+- **Multiple Approaches**: 4 different algorithms + comprehensive utilities
+
+**Algorithms implemented**:
+- 🏆 **Greedy Arrays**: O(1) time, O(1) space - *Recommended for interviews (fastest)*
+- 📚 **Greedy Map**: O(1) time, O(1) space - *Most readable and maintainable*
+- ⚡ **Lookup Table**: O(1) time, O(1) space - *Maximum performance with pre-computation*
+- 🎓 **Recursive**: O(1) time, O(1) space - *Educational demonstration*
+
+**Examples**:
+```java
+Input: 3    -> Output: "III"
+Input: 4    -> Output: "IV"
+Input: 9    -> Output: "IX"
+Input: 58   -> Output: "LVIII"
+Input: 1994 -> Output: "MCMXCIV"
+```
+
+**Special Features**:
+- 🏛️ **Roman Numeral Validation**: Proper rule checking for valid Roman numerals
+- 📊 **Construction Analysis**: Step-by-step breakdown showing numeral building
+- 🔍 **Subtractive Detection**: Identifies IV, IX, XL, XC, CD, CM cases
+- 📏 **Length Analysis**: Roman numeral string length calculation
+- ⚙️ **Utility Methods**: Character values, validation, pattern analysis
+
+**Testing**: 278 comprehensive test cases with cross-validation between all approaches!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **200+ comprehensive test cases** across all solutions
+- ✅ **550+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -192,6 +223,7 @@ Y   I   R
 ./gradlew test --tests "*LongestSubstring*"
 ./gradlew test --tests "*LongestPalindromic*"
 ./gradlew test --tests "*ZigZagConversion*"
+./gradlew test --tests "*IntegerToRoman*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -199,7 +231,7 @@ Y   I   R
 ```bash
 ./gradlew clean              # Clean build artifacts
 ./gradlew compileJava        # Compile source code
-./gradlew test               # Run all 200+ tests
+./gradlew test               # Run all 550+ tests
 ./gradlew build              # Build the entire project
 ./gradlew run                # Run with all algorithm demonstrations
 ```
@@ -222,8 +254,9 @@ This project serves as:
 | Longest Substring | Medium | O(n) time, O(k) space | 3 approaches | Comprehensive |
 | Longest Palindrome | Medium | O(n) time, O(n) space | 4 approaches | 72 tests |
 | ZigZag Conversion | Medium | O(n) time, O(1) space | 4 approaches | 114+ tests |
+| Integer to Roman | Medium | O(1) time, O(1) space | 4 approaches | 278 tests |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 4 LeetCode problems + Algorithm analysis = **200+ test cases** and **12 different algorithmic approaches**!
+**Total**: 5 LeetCode problems + Algorithm analysis = **550+ test cases** and **16 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
