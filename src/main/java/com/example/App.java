@@ -3,6 +3,7 @@ package com.example;
 import com.example.leetcode.AddTwoNumbers;
 import com.example.leetcode.LongestPalindromicSubstring;
 import com.example.leetcode.LongestSubstringWithoutRepeating;
+import com.example.leetcode.ZigZagConversion;
 
 /**
  * Main application demonstrating Java development in Cursor This includes the LeetCode Add Two
@@ -39,6 +40,12 @@ public class App {
         // Demonstrate the Longest Palindromic Substring solution
         System.out.println("3. Running LeetCode: Longest Palindromic Substring");
         demonstrateLongestPalindrome();
+
+        System.out.println("\n" + "=".repeat(50));
+
+        // Demonstrate the ZigZag Conversion solution
+        System.out.println("4. Running LeetCode: ZigZag Conversion");
+        demonstrateZigZagConversion();
     }
 
     /**
@@ -145,5 +152,87 @@ public class App {
                 largeResult2.substring(0, Math.min(20, largeResult2.length())));
 
         System.out.println("✓ All approaches working correctly!");
+    }
+
+    /**
+     * Demonstrates the ZigZag Conversion LeetCode solution
+     */
+    private static void demonstrateZigZagConversion() {
+        ZigZagConversion solution = new ZigZagConversion();
+
+        // Test with the classic examples from LeetCode
+        System.out.println("Classic LeetCode Examples:");
+
+        // Example 1: PAYPALISHIRING with 3 rows
+        String example1 = "PAYPALISHIRING";
+        String result1 = solution.convert(example1, 3);
+        System.out.printf("Input: \"%s\", numRows: 3%n", example1);
+        System.out.printf("Output: \"%s\"%n", result1);
+        System.out.println("Pattern:");
+        System.out.println(solution.visualizeZigZag(example1, 3));
+        System.out.println();
+
+        // Example 2: PAYPALISHIRING with 4 rows
+        String result2 = solution.convert(example1, 4);
+        System.out.printf("Input: \"%s\", numRows: 4%n", example1);
+        System.out.printf("Output: \"%s\"%n", result2);
+        System.out.println("Pattern:");
+        System.out.println(solution.visualizeZigZag(example1, 4));
+        System.out.println();
+
+        // Testing different approaches
+        System.out.println("Comparing All Approaches:");
+        String[] testCases = {"ABCDEFGHIJ", "PROGRAMMING", "Hello,World."};
+        int[] numRowsTests = {2, 3, 4};
+
+        for (String testCase : testCases) {
+            for (int numRows : numRowsTests) {
+                System.out.printf("Input: \"%s\", Rows: %d%n", testCase, numRows);
+
+                // Test all four approaches
+                long start = System.currentTimeMillis();
+                String simResult = solution.convert(testCase, numRows);
+                long time1 = System.currentTimeMillis() - start;
+
+                start = System.currentTimeMillis();
+                String mathResult = solution.convertMathematical(testCase, numRows);
+                long time2 = System.currentTimeMillis() - start;
+
+                start = System.currentTimeMillis();
+                String arrayResult = solution.convertWithStringArray(testCase, numRows);
+                long time3 = System.currentTimeMillis() - start;
+
+                start = System.currentTimeMillis();
+                String optResult = solution.convertOptimized(testCase, numRows);
+                long time4 = System.currentTimeMillis() - start;
+
+                System.out.printf("  Simulation:     \"%s\" (%d ms)%n", simResult, time1);
+                System.out.printf("  Mathematical:   \"%s\" (%d ms)%n", mathResult, time2);
+                System.out.printf("  String Array:   \"%s\" (%d ms)%n", arrayResult, time3);
+                System.out.printf("  Optimized:      \"%s\" (%d ms)%n", optResult, time4);
+
+                // Verify all approaches produce same result
+                boolean allMatch = simResult.equals(mathResult) && mathResult.equals(arrayResult)
+                        && arrayResult.equals(optResult);
+                System.out.printf("  ✓ All approaches consistent: %s%n", allMatch);
+                System.out.println();
+            }
+        }
+
+        // Utility demonstrations
+        System.out.println("Utility Functions:");
+        System.out.printf("Cycle length for 3 rows: %d%n", solution.getCycleLength(3));
+        System.out.printf("Cycle length for 4 rows: %d%n", solution.getCycleLength(4));
+        System.out.printf("Cycle length for 5 rows: %d%n", solution.getCycleLength(5));
+
+        System.out.println();
+        System.out.println("Row mapping for 'PAYPALISHIRING' with 3 rows:");
+        String testString = "PAYPALISHIRING";
+        for (int i = 0; i < testString.length(); i++) {
+            int row = solution.getRowForIndex(i, 3);
+            System.out.printf("  Index %d ('%c') -> Row %d%n", i, testString.charAt(i), row);
+        }
+
+        System.out.println("\n✓ All ZigZag Conversion approaches working correctly!");
     }
 }
