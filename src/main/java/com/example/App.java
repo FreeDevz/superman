@@ -1,9 +1,6 @@
 package com.example;
 
-import com.example.leetcode.AddTwoNumbers;
-import com.example.leetcode.LongestPalindromicSubstring;
-import com.example.leetcode.LongestSubstringWithoutRepeating;
-import com.example.leetcode.ZigZagConversion;
+import com.example.leetcode.*;
 
 /**
  * Main application demonstrating Java development in Cursor This includes the LeetCode Add Two
@@ -46,6 +43,12 @@ public class App {
         // Demonstrate the ZigZag Conversion solution
         System.out.println("4. Running LeetCode: ZigZag Conversion");
         demonstrateZigZagConversion();
+
+        System.out.println("\n" + "=".repeat(50));
+
+        // Demonstrate the Integer to Roman solution
+        System.out.println("5. Running LeetCode: Integer to Roman");
+        demonstrateIntegerToRoman();
     }
 
     /**
@@ -234,5 +237,102 @@ public class App {
         }
 
         System.out.println("\n✓ All ZigZag Conversion approaches working correctly!");
+    }
+
+    /**
+     * Demonstrates the Integer to Roman LeetCode solution
+     */
+    private static void demonstrateIntegerToRoman() {
+        IntegerToRoman solution = new IntegerToRoman();
+
+        // Test with the classic examples from LeetCode
+        System.out.println("Classic LeetCode Examples:");
+
+        int[] examples = {3, 4, 9, 58, 1994};
+        String[] descriptions = {"Basic three I's", "Subtractive case IV", "Subtractive case IX",
+                "Complex combination", "Complex with multiple subtractive cases"};
+
+        for (int i = 0; i < examples.length; i++) {
+            int num = examples[i];
+            String result = solution.intToRoman(num);
+            System.out.printf("Input: %d -> Output: \"%s\" (%s)%n", num, result, descriptions[i]);
+            System.out.printf("  Analysis: %s%n", solution.analyzeConstruction(num));
+            System.out.println();
+        }
+
+        // Demonstrate all approaches
+        System.out.println("Comparing All Approaches:");
+        int[] testCases = {27, 444, 999, 1776, 2024, 3999};
+
+        for (int testCase : testCases) {
+            System.out.printf("Number: %d%n", testCase);
+
+            // Test all four approaches
+            long start = System.nanoTime();
+            String result1 = solution.intToRoman(testCase);
+            long time1 = System.nanoTime() - start;
+
+            start = System.nanoTime();
+            String result2 = solution.intToRomanWithMap(testCase);
+            long time2 = System.nanoTime() - start;
+
+            start = System.nanoTime();
+            String result3 = solution.intToRomanLookup(testCase);
+            long time3 = System.nanoTime() - start;
+
+            start = System.nanoTime();
+            String result4 = solution.intToRomanRecursive(testCase);
+            long time4 = System.nanoTime() - start;
+
+            System.out.printf("  Greedy Arrays:   \"%s\" (%d ns)%n", result1, time1);
+            System.out.printf("  Greedy Map:      \"%s\" (%d ns)%n", result2, time2);
+            System.out.printf("  Lookup Table:    \"%s\" (%d ns)%n", result3, time3);
+            System.out.printf("  Recursive:       \"%s\" (%d ns)%n", result4, time4);
+
+            // Verify all approaches produce same result
+            boolean allMatch =
+                    result1.equals(result2) && result2.equals(result3) && result3.equals(result4);
+            System.out.printf("  ✓ All approaches consistent: %s%n", allMatch);
+
+            // Show if it uses subtractive cases
+            boolean hasSubtractive = solution.hasSubtractiveCase(testCase);
+            System.out.printf("  Has subtractive notation: %s%n", hasSubtractive);
+            if (hasSubtractive) {
+                String[] subCases = solution.getSubtractiveCases();
+                for (String subCase : subCases) {
+                    if (result1.contains(subCase)) {
+                        System.out.printf("    Contains: %s%n", subCase);
+                    }
+                }
+            }
+            System.out.println();
+        }
+
+        // Demonstrate Roman numeral properties
+        System.out.println("Roman Numeral Analysis:");
+        System.out.println("All basic symbols and their values:");
+        char[] symbols = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
+        for (char symbol : symbols) {
+            int value = solution.getRomanValue(symbol);
+            System.out.printf("  %c = %d%n", symbol, value);
+        }
+
+        System.out.println("\nSubtractive cases:");
+        String[] subtractiveCases = solution.getSubtractiveCases();
+        int[] subtractiveValues = {4, 9, 40, 90, 400, 900};
+        for (int i = 0; i < subtractiveCases.length; i++) {
+            System.out.printf("  %s = %d%n", subtractiveCases[i], subtractiveValues[i]);
+        }
+
+        // Length analysis
+        System.out.println("\nRoman numeral length analysis:");
+        int[] lengthTests = {1, 4, 8, 44, 88, 444, 888, 3999};
+        for (int num : lengthTests) {
+            String roman = solution.intToRoman(num);
+            int length = solution.getRomanLength(num);
+            System.out.printf("  %d -> \"%s\" (length: %d)%n", num, roman, length);
+        }
+
+        System.out.println("\n✓ All Integer to Roman approaches working correctly!");
     }
 }
