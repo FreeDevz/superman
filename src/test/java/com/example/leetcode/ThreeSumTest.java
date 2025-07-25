@@ -419,30 +419,33 @@ public class ThreeSumTest {
         boolean skipBruteForce = input.length > 20;
 
         long[] times = new long[4];
-        List<List<Integer>>[] results = new List[4];
+        List<List<List<Integer>>> results = new ArrayList<>(4);
+        for (int i = 0; i < 4; i++) {
+            results.add(null);
+        }
 
         // Measure each approach
-        times[0] = solution.measureExecutionTime(() -> results[0] = solution.threeSum(input));
+        times[0] = solution.measureExecutionTime(() -> results.set(0, solution.threeSum(input)));
 
         if (!skipBruteForce) {
             times[1] = solution
-                    .measureExecutionTime(() -> results[1] = solution.threeSumBruteForce(input));
+                    .measureExecutionTime(() -> results.set(1, solution.threeSumBruteForce(input)));
         }
 
-        times[2] =
-                solution.measureExecutionTime(() -> results[2] = solution.threeSumHashSet(input));
+        times[2] = solution
+                .measureExecutionTime(() -> results.set(2, solution.threeSumHashSet(input)));
 
-        times[3] =
-                solution.measureExecutionTime(() -> results[3] = solution.threeSumOptimized(input));
+        times[3] = solution
+                .measureExecutionTime(() -> results.set(3, solution.threeSumOptimized(input)));
 
         // Verify all produce same results (except brute force for large arrays)
         if (!skipBruteForce) {
-            assertTrue(solution.compareResults(results[0], results[1]),
+            assertTrue(solution.compareResults(results.get(0), results.get(1)),
                     description + ": Main and Brute Force should match");
         }
-        assertTrue(solution.compareResults(results[0], results[2]),
+        assertTrue(solution.compareResults(results.get(0), results.get(2)),
                 description + ": Main and Hash Set should match");
-        assertTrue(solution.compareResults(results[0], results[3]),
+        assertTrue(solution.compareResults(results.get(0), results.get(3)),
                 description + ": Main and Optimized should match");
 
         // All should complete within reasonable time (100ms)
