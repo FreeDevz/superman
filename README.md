@@ -15,7 +15,8 @@ src/
 │       ├── LongestSubstringWithoutRepeating.java  # LeetCode #3: Longest Substring
 │       ├── LongestPalindromicSubstring.java        # LeetCode #5: Longest Palindromic Substring
 │       ├── ZigZagConversion.java          # LeetCode #6: ZigZag Conversion
-│       └── IntegerToRoman.java            # LeetCode #12: Integer to Roman
+│       ├── IntegerToRoman.java            # LeetCode #12: Integer to Roman
+│       └── ThreeSum.java                  # LeetCode #15: 3Sum
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -23,7 +24,8 @@ src/
         ├── LongestSubstringWithoutRepeatingTest.java  # LeetCode #3 tests
         ├── LongestPalindromicSubstringTest.java       # LeetCode #5 tests (72 test cases!)
         ├── ZigZagConversionTest.java      # LeetCode #6 tests (114+ test cases!)
-        └── IntegerToRomanTest.java        # LeetCode #12 tests (278 test cases!)
+        ├── IntegerToRomanTest.java        # LeetCode #12 tests (278 test cases!)
+        └── ThreeSumTest.java              # LeetCode #15 tests (84 test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -74,7 +76,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **5 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **6 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -185,11 +187,38 @@ Input: 1994 -> Output: "MCMXCIV"
 
 **Testing**: 278 comprehensive test cases with cross-validation between all approaches!
 
+### 6. 3Sum (LeetCode #15)
+- **Location**: `src/main/java/com/example/leetcode/ThreeSum.java`
+- **Description**: Find all unique triplets in array that sum to zero
+- **Multiple Approaches**: 4 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Sorting + Two Pointers**: O(n²) time, O(1) space - *Optimal solution (recommended)*
+- 📚 **Brute Force**: O(n³) time, O(k) space - *Educational baseline*
+- ⚡ **Hash Set**: O(n²) time, O(n) space - *Alternative O(n²) approach*
+- 🔧 **Optimized Two Pointers**: O(n²) time, O(1) space - *Enhanced with early termination*
+
+**Examples**:
+```java
+Input: [-1,0,1,2,-1,-4] -> Output: [[-1,-1,2],[-1,0,1]]
+Input: [0,1,1]          -> Output: []
+Input: [0,0,0]          -> Output: [[0,0,0]]
+```
+
+**Special Features**:
+- 🎯 **Duplicate Handling**: Automatically skips duplicate triplets
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: All positive, all negative, multiple zeros
+- 📈 **Optimization**: Early termination and aggressive duplicate skipping
+
+**Testing**: 84 comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **550+ comprehensive test cases** across all solutions
+- ✅ **630+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -224,6 +253,7 @@ Input: 1994 -> Output: "MCMXCIV"
 ./gradlew test --tests "*LongestPalindromic*"
 ./gradlew test --tests "*ZigZagConversion*"
 ./gradlew test --tests "*IntegerToRoman*"
+./gradlew test --tests "*ThreeSum*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -231,7 +261,7 @@ Input: 1994 -> Output: "MCMXCIV"
 ```bash
 ./gradlew clean              # Clean build artifacts
 ./gradlew compileJava        # Compile source code
-./gradlew test               # Run all 550+ tests
+./gradlew test               # Run all 630+ tests
 ./gradlew build              # Build the entire project
 ./gradlew run                # Run with all algorithm demonstrations
 ```
@@ -255,8 +285,9 @@ This project serves as:
 | Longest Palindrome | Medium | O(n) time, O(n) space | 4 approaches | 72 tests |
 | ZigZag Conversion | Medium | O(n) time, O(1) space | 4 approaches | 114+ tests |
 | Integer to Roman | Medium | O(1) time, O(1) space | 4 approaches | 278 tests |
+| 3Sum | Medium | O(n²) time, O(1) space | 4 approaches | 84 tests |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 5 LeetCode problems + Algorithm analysis = **550+ test cases** and **16 different algorithmic approaches**!
+**Total**: 6 LeetCode problems + Algorithm analysis = **630+ test cases** and **20 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
