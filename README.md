@@ -17,7 +17,8 @@ src/
 │       ├── LongestPalindromicSubstring.java        # LeetCode #5: Longest Palindromic Substring
 │       ├── ZigZagConversion.java          # LeetCode #6: ZigZag Conversion
 │       ├── IntegerToRoman.java            # LeetCode #12: Integer to Roman
-│       └── ThreeSum.java                  # LeetCode #15: 3Sum
+│       ├── ThreeSum.java                  # LeetCode #15: 3Sum
+│       └── BinaryTreeInorderTraversal.java # LeetCode #94: Binary Tree Inorder Traversal
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -27,7 +28,8 @@ src/
         ├── LongestPalindromicSubstringTest.java       # LeetCode #5 tests (72 test cases!)
         ├── ZigZagConversionTest.java      # LeetCode #6 tests (114+ test cases!)
         ├── IntegerToRomanTest.java        # LeetCode #12 tests (278 test cases!)
-        └── ThreeSumTest.java              # LeetCode #15 tests (84 test cases!)
+        ├── ThreeSumTest.java              # LeetCode #15 tests (84 test cases!)
+        └── BinaryTreeInorderTraversalTest.java # LeetCode #94 tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -78,7 +80,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **7 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **8 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -245,11 +247,41 @@ Input: ["interspecies","interstellar","interstate"] -> Output: "inters"
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 8. Binary Tree Inorder Traversal (LeetCode #94)
+- **Location**: `src/main/java/com/example/leetcode/BinaryTreeInorderTraversal.java`
+- **Description**: Given the root of a binary tree, return the inorder traversal of its nodes' values
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Recursive**: O(n) time, O(h) space - *Most intuitive and commonly used*
+- ⚡ **Iterative with Stack**: O(n) time, O(h) space - *Simulates recursion with stack*
+- 🌟 **Morris Traversal**: O(n) time, O(1) space - *Most space-efficient (constant space)*
+- 🔄 **Two Stacks**: O(n) time, O(n) space - *Explicit state tracking approach*
+- 🔍 **Hash Set**: O(n) time, O(n) space - *Tracks visited nodes for correct order*
+
+**Examples**:
+```java
+Input: [1,null,2,3] -> Output: [1,3,2]
+Input: [1,2,3,4,5,6,7] -> Output: [4,2,5,1,6,3,7]
+Input: [10,5,15,3,7,12,18] -> Output: [3,5,7,10,12,15,18]
+```
+
+**Special Features**:
+- 🎯 **Multiple Algorithmic Approaches**: 5 different solutions for comprehensive learning
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Null trees, empty trees, single nodes, skewed trees
+- 📈 **Constraint Handling**: Handles LeetCode constraints (100 nodes, values -100 to 100)
+- 🌳 **Tree Utilities**: Tree creation, statistics, validation, and conversion methods
+- 🔧 **Structure Preservation**: Ensures tree structure remains intact after traversal
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **700+ comprehensive test cases** across all solutions
+- ✅ **800+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -286,6 +318,7 @@ Input: ["interspecies","interstellar","interstate"] -> Output: "inters"
 ./gradlew test --tests "*IntegerToRoman*"
 ./gradlew test --tests "*ThreeSum*"
 ./gradlew test --tests "*LongestCommonPrefix*"
+./gradlew test --tests "*BinaryTreeInorderTraversal*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -319,8 +352,9 @@ This project serves as:
 | ZigZag Conversion | Medium | O(n) time, O(1) space | 4 approaches | 114+ tests |
 | Integer to Roman | Medium | O(1) time, O(1) space | 4 approaches | 278 tests |
 | 3Sum | Medium | O(n²) time, O(1) space | 4 approaches | 84 tests |
+| Binary Tree Inorder | Easy | O(n) time, O(h) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 7 LeetCode problems + Algorithm analysis = **700+ test cases** and **25 different algorithmic approaches**!
+**Total**: 8 LeetCode problems + Algorithm analysis = **800+ test cases** and **30 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
