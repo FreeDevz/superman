@@ -9,8 +9,7 @@ import java.util.*;
  * 
  * Inorder traversal visits nodes in this order: left subtree → root → right subtree
  * 
- * Examples:
- * Input: root = [1,null,2,3] Output: [1,3,2]
+ * Examples: Input: root = [1,null,2,3] Output: [1,3,2]
  * 
  * Input: root = [] Output: []
  * 
@@ -240,8 +239,8 @@ public class BinaryTreeInorderTraversal {
      * subtree first 3. Mark nodes as processed when visiting 4. Handle right subtree after
      * processing current node
      * 
-     * Time Complexity: O(n) where n is the number of nodes Space Complexity: O(n) for stack and hash
-     * set
+     * Time Complexity: O(n) where n is the number of nodes Space Complexity: O(n) for stack and
+     * hash set
      */
     public List<Integer> inorderTraversalHashSet(TreeNode root) {
         List<Integer> result = new ArrayList<>();
