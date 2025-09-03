@@ -13,6 +13,7 @@ src/
 │   └── leetcode/
 │       ├── AddTwoNumbers.java             # LeetCode #2: Add Two Numbers
 │       ├── LongestSubstringWithoutRepeating.java  # LeetCode #3: Longest Substring
+│       ├── LongestCommonPrefix.java       # LeetCode #14: Longest Common Prefix
 │       ├── LongestPalindromicSubstring.java        # LeetCode #5: Longest Palindromic Substring
 │       ├── ZigZagConversion.java          # LeetCode #6: ZigZag Conversion
 │       ├── IntegerToRoman.java            # LeetCode #12: Integer to Roman
@@ -22,6 +23,7 @@ src/
     └── leetcode/
         ├── AddTwoNumbersTest.java         # LeetCode #2 tests
         ├── LongestSubstringWithoutRepeatingTest.java  # LeetCode #3 tests
+        ├── LongestCommonPrefixTest.java   # LeetCode #14 tests (comprehensive test cases!)
         ├── LongestPalindromicSubstringTest.java       # LeetCode #5 tests (72 test cases!)
         ├── ZigZagConversionTest.java      # LeetCode #6 tests (114+ test cases!)
         ├── IntegerToRomanTest.java        # LeetCode #12 tests (278 test cases!)
@@ -76,7 +78,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **6 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **7 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -214,11 +216,40 @@ Input: [0,0,0]          -> Output: [[0,0,0]]
 
 **Testing**: 84 comprehensive test cases with performance benchmarking and cross-validation!
 
+### 7. Longest Common Prefix (LeetCode #14)
+- **Location**: `src/main/java/com/example/leetcode/LongestCommonPrefix.java`
+- **Description**: Find the longest common prefix string amongst an array of strings
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Horizontal Scanning**: O(S) time, O(1) space - *Most intuitive and efficient*
+- ⚡ **Vertical Scanning**: O(S) time, O(1) space - *Alternative efficient approach*
+- 🔄 **Divide and Conquer**: O(S) time, O(m log n) space - *Recursive approach*
+- 🔍 **Binary Search**: O(S log m) time, O(1) space - *Binary search on length*
+- 🌳 **Trie Data Structure**: O(S) time, O(S) space - *Advanced data structure approach*
+
+**Examples**:
+```java
+Input: ["flower","flow","flight"] -> Output: "fl"
+Input: ["dog","racecar","car"]    -> Output: ""
+Input: ["interspecies","interstellar","interstate"] -> Output: "inters"
+```
+
+**Special Features**:
+- 🎯 **Multiple Algorithmic Approaches**: 5 different solutions for learning
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Null strings, empty strings, single strings
+- 📈 **Constraint Handling**: Handles LeetCode constraints (200 strings, 200 chars each)
+- 🔧 **Utility Methods**: String statistics, result comparison, performance measurement
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **630+ comprehensive test cases** across all solutions
+- ✅ **700+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -254,6 +285,7 @@ Input: [0,0,0]          -> Output: [[0,0,0]]
 ./gradlew test --tests "*ZigZagConversion*"
 ./gradlew test --tests "*IntegerToRoman*"
 ./gradlew test --tests "*ThreeSum*"
+./gradlew test --tests "*LongestCommonPrefix*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -282,12 +314,13 @@ This project serves as:
 |---------|------------|-------------------|------------|------------|
 | Add Two Numbers | Medium | O(n) time, O(n) space | 1 approach | Standard |
 | Longest Substring | Medium | O(n) time, O(k) space | 3 approaches | Comprehensive |
+| Longest Common Prefix | Easy | O(S) time, O(1) space | 5 approaches | Comprehensive |
 | Longest Palindrome | Medium | O(n) time, O(n) space | 4 approaches | 72 tests |
 | ZigZag Conversion | Medium | O(n) time, O(1) space | 4 approaches | 114+ tests |
 | Integer to Roman | Medium | O(1) time, O(1) space | 4 approaches | 278 tests |
 | 3Sum | Medium | O(n²) time, O(1) space | 4 approaches | 84 tests |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 6 LeetCode problems + Algorithm analysis = **630+ test cases** and **20 different algorithmic approaches**!
+**Total**: 7 LeetCode problems + Algorithm analysis = **700+ test cases** and **25 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
