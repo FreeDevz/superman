@@ -17,8 +17,11 @@ src/
 │       ├── LongestPalindromicSubstring.java        # LeetCode #5: Longest Palindromic Substring
 │       ├── ZigZagConversion.java          # LeetCode #6: ZigZag Conversion
 │       ├── IntegerToRoman.java            # LeetCode #12: Integer to Roman
+│       ├── RomanToInteger.java            # LeetCode #13: Roman to Integer
 │       ├── ThreeSum.java                  # LeetCode #15: 3Sum
-│       └── BinaryTreeInorderTraversal.java # LeetCode #94: Binary Tree Inorder Traversal
+│       ├── BinaryTreeInorderTraversal.java # LeetCode #94: Binary Tree Inorder Traversal
+│       ├── RemoveDuplicatesFromSortedArray.java # LeetCode #26: Remove Duplicates from Sorted Array
+│       └── SearchInsertPosition.java # LeetCode #35: Search Insert Position
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -28,8 +31,11 @@ src/
         ├── LongestPalindromicSubstringTest.java       # LeetCode #5 tests (72 test cases!)
         ├── ZigZagConversionTest.java      # LeetCode #6 tests (114+ test cases!)
         ├── IntegerToRomanTest.java        # LeetCode #12 tests (278 test cases!)
+        ├── RomanToIntegerTest.java        # LeetCode #13 tests (164 test cases!)
         ├── ThreeSumTest.java              # LeetCode #15 tests (84 test cases!)
-        └── BinaryTreeInorderTraversalTest.java # LeetCode #94 tests (comprehensive test cases!)
+        ├── BinaryTreeInorderTraversalTest.java # LeetCode #94 tests (comprehensive test cases!)
+        ├── RemoveDuplicatesFromSortedArrayTest.java # LeetCode #26 tests (comprehensive test cases!)
+        └── SearchInsertPositionTest.java # LeetCode #35 tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -80,7 +86,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **8 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **11 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -191,7 +197,38 @@ Input: 1994 -> Output: "MCMXCIV"
 
 **Testing**: 278 comprehensive test cases with cross-validation between all approaches!
 
-### 6. 3Sum (LeetCode #15)
+### 6. Roman to Integer (LeetCode #13)
+- **Location**: `src/main/java/com/example/leetcode/RomanToInteger.java`
+- **Description**: Convert Roman numeral string to integer with proper subtractive notation handling
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Left-to-Right with Lookahead**: O(n) time, O(1) space - *Recommended for interviews (most intuitive)*
+- 📚 **HashMap with Lookahead**: O(n) time, O(1) space - *Most readable and maintainable*
+- ⚡ **Right-to-Left Processing**: O(n) time, O(1) space - *Alternative approach avoiding lookahead*
+- 🔧 **Subtractive Pairs Lookup**: O(n) time, O(1) space - *Explicit subtractive case handling*
+- 🎯 **Array-Based Lookup**: O(n) time, O(1) space - *Maximum performance with O(1) character lookup*
+
+**Examples**:
+```java
+Input: "III"     -> Output: 3
+Input: "IV"      -> Output: 4
+Input: "IX"      -> Output: 9
+Input: "LVIII"   -> Output: 58
+Input: "MCMXCIV" -> Output: 1994
+```
+
+**Special Features**:
+- 🏛️ **Roman Numeral Validation**: Proper rule checking for valid Roman numerals
+- 📊 **Conversion Analysis**: Step-by-step breakdown showing numeral conversion process
+- 🔍 **Subtractive Detection**: Identifies IV, IX, XL, XC, CD, CM cases
+- 📏 **Character Analysis**: Character counting and frequency analysis
+- ⚙️ **Utility Methods**: Validation, analysis, and performance comparison tools
+- 🧪 **Cross-Validation**: All approaches produce identical results
+
+**Testing**: 164 comprehensive test cases with cross-validation between all approaches!
+
+### 7. 3Sum (LeetCode #15)
 - **Location**: `src/main/java/com/example/leetcode/ThreeSum.java`
 - **Description**: Find all unique triplets in array that sum to zero
 - **Multiple Approaches**: 4 different algorithms with comprehensive analysis
@@ -218,7 +255,7 @@ Input: [0,0,0]          -> Output: [[0,0,0]]
 
 **Testing**: 84 comprehensive test cases with performance benchmarking and cross-validation!
 
-### 7. Longest Common Prefix (LeetCode #14)
+### 8. Longest Common Prefix (LeetCode #14)
 - **Location**: `src/main/java/com/example/leetcode/LongestCommonPrefix.java`
 - **Description**: Find the longest common prefix string amongst an array of strings
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -247,7 +284,7 @@ Input: ["interspecies","interstellar","interstate"] -> Output: "inters"
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 8. Binary Tree Inorder Traversal (LeetCode #94)
+### 9. Binary Tree Inorder Traversal (LeetCode #94)
 - **Location**: `src/main/java/com/example/leetcode/BinaryTreeInorderTraversal.java`
 - **Description**: Given the root of a binary tree, return the inorder traversal of its nodes' values
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -277,11 +314,69 @@ Input: [10,5,15,3,7,12,18] -> Output: [3,5,7,10,12,15,18]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 10. Remove Duplicates from Sorted Array (LeetCode #26)
+- **Location**: `src/main/java/com/example/leetcode/RemoveDuplicatesFromSortedArray.java`
+- **Description**: Remove duplicates from sorted array in-place and return count of unique elements
+- **Multiple Approaches**: 4 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Two Pointers**: O(n) time, O(1) space - *Optimal solution (recommended)*
+- 📚 **HashSet Approach**: O(n) time, O(n) space - *Educational approach (not in-place)*
+- 🔧 **Brute Force with Array Copy**: O(n) time, O(n) space - *Learning tool*
+- ⚡ **Optimized Two Pointers**: O(n) time, O(1) space - *Enhanced with early termination*
+
+**Examples**:
+```java
+Input: [1,1,2]                    -> Output: 2, nums = [1,2,_]
+Input: [0,0,1,1,1,2,2,3,3,4]     -> Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+Input: [1]                        -> Output: 1, nums = [1]
+Input: [1,1,1,1]                  -> Output: 1, nums = [1,_,_,_]
+```
+
+**Special Features**:
+- 🎯 **In-place Modification**: Modifies array without extra space (optimal approach)
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Empty arrays, single elements, all duplicates, no duplicates
+- 📈 **Constraint Handling**: Handles LeetCode constraints (30,000 elements, -100 to 100 values)
+- 🔧 **Utility Methods**: Array printing, debugging, and performance measurement tools
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 11. Search Insert Position (LeetCode #35)
+- **Location**: `src/main/java/com/example/leetcode/SearchInsertPosition.java`
+- **Description**: Find the index where a target value should be inserted in a sorted array to maintain order
+- **Multiple Approaches**: 4 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Binary Search**: O(log n) time, O(1) space - *Optimal solution (recommended)*
+- ⚡ **Alternative Binary Search**: O(log n) time, O(1) space - *Explicit insert position logic*
+- 🔄 **Recursive Binary Search**: O(log n) time, O(log n) space - *Recursive approach*
+- 📚 **Linear Search**: O(n) time, O(1) space - *Educational baseline (not optimal)*
+
+**Examples**:
+```java
+Input: [1,3,5,6], target = 5 -> Output: 2 (target found)
+Input: [1,3,5,6], target = 2 -> Output: 1 (insert at index 1)
+Input: [1,3,5,6], target = 7 -> Output: 4 (insert at end)
+Input: [1,3,5,6], target = 0 -> Output: 0 (insert at beginning)
+```
+
+**Special Features**:
+- 🎯 **Binary Search Mastery**: Classic binary search implementation with insert position logic
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Single elements, two elements, negative numbers, large arrays
+- 📈 **Constraint Handling**: Handles LeetCode constraints (10,000 elements, -10,000 to 10,000 values)
+- 🔧 **Utility Methods**: Multiple solution approaches for comprehensive learning
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **800+ comprehensive test cases** across all solutions
+- ✅ **1000+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -316,9 +411,12 @@ Input: [10,5,15,3,7,12,18] -> Output: [3,5,7,10,12,15,18]
 ./gradlew test --tests "*LongestPalindromic*"
 ./gradlew test --tests "*ZigZagConversion*"
 ./gradlew test --tests "*IntegerToRoman*"
+./gradlew test --tests "*RomanToInteger*"
 ./gradlew test --tests "*ThreeSum*"
 ./gradlew test --tests "*LongestCommonPrefix*"
 ./gradlew test --tests "*BinaryTreeInorderTraversal*"
+./gradlew test --tests "*RemoveDuplicatesFromSortedArray*"
+./gradlew test --tests "*SearchInsertPosition*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -326,7 +424,7 @@ Input: [10,5,15,3,7,12,18] -> Output: [3,5,7,10,12,15,18]
 ```bash
 ./gradlew clean              # Clean build artifacts
 ./gradlew compileJava        # Compile source code
-./gradlew test               # Run all 630+ tests
+./gradlew test               # Run all 1000+ tests
 ./gradlew build              # Build the entire project
 ./gradlew run                # Run with all algorithm demonstrations
 ```
@@ -351,10 +449,13 @@ This project serves as:
 | Longest Palindrome | Medium | O(n) time, O(n) space | 4 approaches | 72 tests |
 | ZigZag Conversion | Medium | O(n) time, O(1) space | 4 approaches | 114+ tests |
 | Integer to Roman | Medium | O(1) time, O(1) space | 4 approaches | 278 tests |
+| Roman to Integer | Easy | O(n) time, O(1) space | 5 approaches | 164 tests |
 | 3Sum | Medium | O(n²) time, O(1) space | 4 approaches | 84 tests |
 | Binary Tree Inorder | Easy | O(n) time, O(h) space | 5 approaches | Comprehensive |
+| Remove Duplicates | Easy | O(n) time, O(1) space | 4 approaches | Comprehensive |
+| Search Insert Position | Easy | O(log n) time, O(1) space | 4 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 8 LeetCode problems + Algorithm analysis = **800+ test cases** and **30 different algorithmic approaches**!
+**Total**: 11 LeetCode problems + Algorithm analysis = **1100+ test cases** and **43 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪

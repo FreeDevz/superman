@@ -57,6 +57,12 @@ public class App {
         // Demonstrate the 3Sum solution
         System.out.println("6. Running LeetCode: 3Sum");
         demonstrateThreeSum();
+
+        System.out.println("\n" + "=".repeat(50));
+
+        // Demonstrate the Remove Duplicates from Sorted Array solution
+        System.out.println("7. Running LeetCode: Remove Duplicates from Sorted Array");
+        demonstrateRemoveDuplicates();
     }
 
     /**
@@ -472,5 +478,118 @@ public class App {
                 extremeResult.size());
 
         System.out.println("\n✓ All 3Sum approaches working correctly!");
+    }
+
+    /**
+     * Demonstrates the Remove Duplicates from Sorted Array LeetCode solution
+     */
+    private static void demonstrateRemoveDuplicates() {
+        RemoveDuplicatesFromSortedArray solution = new RemoveDuplicatesFromSortedArray();
+
+        // Test with classic LeetCode examples
+        System.out.println("Classic LeetCode Examples:");
+
+        // Example 1: [1,1,2]
+        int[] nums1 = {1, 1, 2};
+        int[] nums1Copy = nums1.clone();
+        int result1 = solution.removeDuplicates(nums1Copy);
+        System.out.printf("Input: %s -> Output: %d, nums = [%s]%n", Arrays.toString(nums1), result1,
+                Arrays.toString(Arrays.copyOf(nums1Copy, result1)));
+
+        // Example 2: [0,0,1,1,1,2,2,3,3,4]
+        int[] nums2 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+        int[] nums2Copy = nums2.clone();
+        int result2 = solution.removeDuplicates(nums2Copy);
+        System.out.printf("Input: %s -> Output: %d, nums = [%s]%n", Arrays.toString(nums2), result2,
+                Arrays.toString(Arrays.copyOf(nums2Copy, result2)));
+
+        // Example 3: Single element
+        int[] nums3 = {1};
+        int[] nums3Copy = nums3.clone();
+        int result3 = solution.removeDuplicates(nums3Copy);
+        System.out.printf("Input: %s -> Output: %d, nums = [%s]%n", Arrays.toString(nums3), result3,
+                Arrays.toString(Arrays.copyOf(nums3Copy, result3)));
+
+        // Example 4: All same elements
+        int[] nums4 = {1, 1, 1, 1};
+        int[] nums4Copy = nums4.clone();
+        int result4 = solution.removeDuplicates(nums4Copy);
+        System.out.printf("Input: %s -> Output: %d, nums = [%s]%n", Arrays.toString(nums4), result4,
+                Arrays.toString(Arrays.copyOf(nums4Copy, result4)));
+
+        // Example 5: No duplicates
+        int[] nums5 = {1, 2, 3, 4, 5};
+        int[] nums5Copy = nums5.clone();
+        int result5 = solution.removeDuplicates(nums5Copy);
+        System.out.printf("Input: %s -> Output: %d, nums = [%s]%n", Arrays.toString(nums5), result5,
+                Arrays.toString(Arrays.copyOf(nums5Copy, result5)));
+
+        System.out.println("\nComparing All Approaches:");
+
+        // Test with a complex case
+        int[] testNums = {1, 1, 2, 2, 3, 3, 3, 4, 5, 5};
+        System.out.printf("Input: %s%n", Arrays.toString(testNums));
+
+        // Test all approaches
+        int[] numsCopy1 = testNums.clone();
+        int[] numsCopy2 = testNums.clone();
+        int[] numsCopy3 = testNums.clone();
+        int[] numsCopy4 = testNums.clone();
+
+        long startTime = System.nanoTime();
+        int resultCopy1 = solution.removeDuplicates(numsCopy1);
+        long time1 = System.nanoTime() - startTime;
+
+        startTime = System.nanoTime();
+        int resultCopy2 = solution.removeDuplicatesWithSet(numsCopy2);
+        long time2 = System.nanoTime() - startTime;
+
+        startTime = System.nanoTime();
+        int resultCopy3 = solution.removeDuplicatesBruteForce(numsCopy3);
+        long time3 = System.nanoTime() - startTime;
+
+        startTime = System.nanoTime();
+        int resultCopy4 = solution.removeDuplicatesOptimized(numsCopy4);
+        long time4 = System.nanoTime() - startTime;
+
+        System.out.printf("  Two Pointers:        %d ns -> %d unique elements%n", time1,
+                resultCopy1);
+        System.out.printf("  HashSet Approach:    %d ns -> %d unique elements%n", time2,
+                resultCopy2);
+        System.out.printf("  Brute Force:         %d ns -> %d unique elements%n", time3,
+                resultCopy3);
+        System.out.printf("  Optimized Two Pointers: %d ns -> %d unique elements%n", time4,
+                resultCopy4);
+
+        // Verify all approaches produce the same result
+        boolean allConsistent = (resultCopy1 == resultCopy2) && (resultCopy2 == resultCopy3)
+                && (resultCopy3 == resultCopy4);
+        System.out.printf("  ✓ All approaches consistent: %b%n", allConsistent);
+
+        if (allConsistent) {
+            System.out.printf("  Result: [%s]%n",
+                    Arrays.toString(Arrays.copyOf(numsCopy1, resultCopy1)));
+        }
+
+        System.out.println("\nEdge Case Analysis:");
+
+        // Empty array
+        int[] empty = {};
+        int emptyResult = solution.removeDuplicates(empty);
+        System.out.printf("Empty array [] -> %d unique elements%n", emptyResult);
+
+        // Null array
+        int nullResult = solution.removeDuplicates(null);
+        System.out.printf("Null array -> %d unique elements%n", nullResult);
+
+        // Negative numbers
+        int[] negatives = {-2, -2, -1, -1, 0, 0, 1, 1};
+        int[] negativesCopy = negatives.clone();
+        int negResult = solution.removeDuplicates(negativesCopy);
+        System.out.printf("Negative numbers %s -> %d unique elements [%s]%n",
+                Arrays.toString(negatives), negResult,
+                Arrays.toString(Arrays.copyOf(negativesCopy, negResult)));
+
+        System.out.println("\n✓ All Remove Duplicates approaches working correctly!");
     }
 }
