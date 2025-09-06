@@ -21,7 +21,12 @@ src/
 │       ├── ThreeSum.java                  # LeetCode #15: 3Sum
 │       ├── BinaryTreeInorderTraversal.java # LeetCode #94: Binary Tree Inorder Traversal
 │       ├── RemoveDuplicatesFromSortedArray.java # LeetCode #26: Remove Duplicates from Sorted Array
-│       └── SearchInsertPosition.java # LeetCode #35: Search Insert Position
+│       ├── SearchInsertPosition.java # LeetCode #35: Search Insert Position
+│       ├── FindFirstOccurrenceInString.java # LeetCode #28: Find the Index of the First Occurrence in a String
+│       ├── AddBinary.java # LeetCode #67: Add Binary
+│       ├── PlusOne.java # LeetCode #66: Plus One
+│       ├── SqrtX.java # LeetCode #69: Sqrt(x)
+│       └── ClimbingStairs.java # LeetCode #70: Climbing Stairs
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -35,7 +40,12 @@ src/
         ├── ThreeSumTest.java              # LeetCode #15 tests (84 test cases!)
         ├── BinaryTreeInorderTraversalTest.java # LeetCode #94 tests (comprehensive test cases!)
         ├── RemoveDuplicatesFromSortedArrayTest.java # LeetCode #26 tests (comprehensive test cases!)
-        └── SearchInsertPositionTest.java # LeetCode #35 tests (comprehensive test cases!)
+        ├── SearchInsertPositionTest.java # LeetCode #35 tests (comprehensive test cases!)
+        ├── FindFirstOccurrenceInStringTest.java # LeetCode #28 tests (comprehensive test cases!)
+        ├── AddBinaryTest.java # LeetCode #67 tests (comprehensive test cases!)
+        ├── PlusOneTest.java # LeetCode #66 tests (comprehensive test cases!)
+        ├── SqrtXTest.java # LeetCode #69 tests (comprehensive test cases!)
+        └── ClimbingStairsTest.java # LeetCode #70 tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -86,7 +96,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **11 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **16 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -372,11 +382,175 @@ Input: [1,3,5,6], target = 0 -> Output: 0 (insert at beginning)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 12. Find the Index of the First Occurrence in a String (LeetCode #28)
+- **Location**: `src/main/java/com/example/leetcode/FindFirstOccurrenceInString.java`
+- **Description**: Find the index of the first occurrence of needle in haystack, or -1 if not found
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Built-in String.indexOf()**: O(n*m) time, O(1) space - *Most practical for production*
+- 📚 **Brute Force**: O(n*m) time, O(1) space - *Educational baseline approach*
+- ⚡ **KMP Algorithm**: O(n+m) time, O(m) space - *Optimal solution (recommended for interviews)*
+- 🔄 **Rolling Hash (Rabin-Karp)**: O(n+m) average, O(n*m) worst case, O(1) space - *Alternative O(n+m) approach*
+- 🔧 **Optimized Brute Force**: O(n*m) worst case, O(1) space - *Enhanced with early termination*
+
+**Examples**:
+```java
+Input: haystack = "sadbutsad", needle = "sad" -> Output: 0
+Input: haystack = "leetcode", needle = "leeto" -> Output: -1
+Input: haystack = "hello", needle = "ll" -> Output: 2
+Input: haystack = "mississippi", needle = "issip" -> Output: 4
+```
+
+**Special Features**:
+- 🎯 **Multiple Algorithmic Approaches**: 5 different solutions for comprehensive learning
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Null inputs, empty strings, single characters, large inputs
+- 📈 **Constraint Handling**: Handles LeetCode constraints (10,000 characters each)
+- 🔧 **Algorithm-Specific Optimizations**: KMP failure function, rolling hash collision handling
+- 🌟 **Educational Value**: Demonstrates classic string matching algorithms
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 13. Add Binary (LeetCode #67)
+- **Location**: `src/main/java/com/example/leetcode/AddBinary.java`
+- **Description**: Given two binary strings a and b, return their sum as a binary string
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Manual Addition with StringBuilder**: O(n) time, O(n) space - *Most efficient and interview-friendly (recommended)*
+- 📚 **Built-in BigInteger**: O(n) time, O(n) space - *Simple but has overhead for large inputs*
+- 🔧 **Manual Addition with Array**: O(n) time, O(n) space - *Alternative to StringBuilder approach*
+- 🔄 **Recursive Approach**: O(n) time, O(n) space - *Educational approach demonstrating problem structure*
+- ⚡ **Bit Manipulation**: O(n) time, O(n) space - *Advanced approach using bit operations*
+- 🎯 **Optimized Manual Addition**: O(n) time, O(n) space - *Enhanced with early termination*
+
+**Examples**:
+```java
+Input: a = "11", b = "1" -> Output: "100"
+Input: a = "1010", b = "1011" -> Output: "10101"
+Input: a = "0", b = "0" -> Output: "0"
+Input: a = "1111", b = "1111" -> Output: "11110"
+```
+
+**Special Features**:
+- 🎯 **Multiple Algorithmic Approaches**: 6 different solutions for comprehensive learning
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Null inputs, zero operands, single digits, maximum carry propagation
+- 📈 **Constraint Handling**: Handles LeetCode constraints (10,000 characters each)
+- 🔧 **Algorithm-Specific Optimizations**: Early termination, efficient string building
+- 🌟 **Educational Value**: Demonstrates binary arithmetic, carry propagation, and string manipulation
+- 💡 **Verification Tools**: Decimal conversion for result verification
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 14. Plus One (LeetCode #66)
+- **Location**: `src/main/java/com/example/leetcode/PlusOne.java`
+- **Description**: Increment a large integer represented as an array of digits by one
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Simple Iterative**: O(n) time, O(1) space - *Most efficient and interview-friendly (recommended)*
+- 🔄 **Recursive Approach**: O(n) time, O(n) space - *Educational approach demonstrating problem structure*
+- 📚 **String Conversion**: O(n) time, O(n) space - *Alternative approach using string manipulation*
+- ⚡ **Mathematical Approach**: O(n) time, O(1) space - *Optimized with mathematical operations*
+- 🎯 **Two-Pass Approach**: O(n) time, O(1) space - *Minimizes operations in best case*
+- 🔧 **Optimized In-Place**: O(n) time, O(1) space - *Modifies input when possible*
+
+**Examples**:
+```java
+Input: [1,2,3] -> Output: [1,2,4]
+Input: [4,3,2,1] -> Output: [4,3,2,2]
+Input: [9] -> Output: [1,0]
+Input: [9,9,9] -> Output: [1,0,0,0]
+```
+
+**Special Features**:
+- 🎯 **Multiple Algorithmic Approaches**: 6 different solutions for comprehensive learning
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Null inputs, empty arrays, single digits, all nines, carry propagation
+- 📈 **Constraint Handling**: Handles LeetCode constraints (100 digits, 0-9 values)
+- 🔧 **Algorithm-Specific Optimizations**: In-place modification, two-pass optimization
+- 🌟 **Educational Value**: Demonstrates array manipulation, carry handling, and space optimization
+- 💡 **Verification Tools**: Array-to-value conversion for result verification
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 15. Sqrt(x) (LeetCode #69)
+- **Location**: `src/main/java/com/example/leetcode/SqrtX.java`
+- **Description**: Compute the integer square root of a non-negative integer x without using built-in exponent functions
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Binary Search**: O(log x) time, O(1) space - *Most efficient and interview-friendly (recommended)*
+- 📚 **Newton's Method**: O(log x) time, O(1) space - *Mathematical approach with fast convergence*
+- 🔧 **Linear Search**: O(√x) time, O(1) space - *Educational baseline approach*
+- ⚡ **Bit Manipulation**: O(log x) time, O(1) space - *Advanced approach using bit operations*
+- 🎯 **Exponential Search**: O(log x) time, O(1) space - *Alternative binary search with range finding*
+- 🔄 **Optimized Binary Search**: O(log x) time, O(1) space - *Production-ready with overflow protection*
+
+**Examples**:
+```java
+Input: 4 -> Output: 2
+Input: 8 -> Output: 2 (since 2² = 4 ≤ 8 < 3² = 9)
+Input: 9 -> Output: 3
+Input: 15 -> Output: 3 (since 3² = 9 ≤ 15 < 4² = 16)
+Input: 2147483647 -> Output: 46340
+```
+
+**Special Features**:
+- 🎯 **Multiple Algorithmic Approaches**: 6 different solutions for comprehensive learning
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Zero, one, perfect squares, non-perfect squares, maximum integer
+- 📈 **Constraint Handling**: Handles LeetCode constraints (0 ≤ x ≤ 2³¹ - 1)
+- 🔧 **Overflow Protection**: Prevents integer overflow in calculations
+- 🌟 **Educational Value**: Demonstrates binary search, mathematical methods, and bit manipulation
+- 💡 **Key Insight**: Avoid overflow by using division instead of multiplication
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 16. Climbing Stairs (LeetCode #70)
+- **Location**: `src/main/java/com/example/leetcode/ClimbingStairs.java`
+- **Description**: Find the number of distinct ways to climb to the top of a staircase with n steps, taking either 1 or 2 steps at a time
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Dynamic Programming (Bottom-up)**: O(n) time, O(1) space - *Most efficient and interview-friendly (recommended)*
+- 📚 **Dynamic Programming (Memoization)**: O(n) time, O(n) space - *Top-down approach with caching*
+- 🔄 **Recursive Solution**: O(2^n) time, O(n) space - *Educational baseline (exponential complexity)*
+- ⚡ **Matrix Exponentiation**: O(log n) time, O(1) space - *Advanced mathematical approach*
+- 🎯 **Fibonacci Formula**: O(1) time, O(1) space - *Direct mathematical computation*
+- 🔧 **Iterative Fibonacci**: O(n) time, O(1) space - *Simple and efficient approach*
+
+**Examples**:
+```java
+Input: n = 2 -> Output: 2 (1+1, 2)
+Input: n = 3 -> Output: 3 (1+1+1, 1+2, 2+1)
+Input: n = 4 -> Output: 5 (1+1+1+1, 1+1+2, 1+2+1, 2+1+1, 2+2)
+Input: n = 5 -> Output: 8 (follows Fibonacci sequence)
+```
+
+**Special Features**:
+- 🎯 **Fibonacci Pattern Recognition**: Demonstrates how the problem follows the Fibonacci sequence
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Minimum constraint (n=1), maximum constraint (n=45), Fibonacci sequence verification
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ n ≤ 45)
+- 🔧 **Algorithm-Specific Optimizations**: Space optimization, mathematical formulas, matrix operations
+- 🌟 **Educational Value**: Demonstrates dynamic programming, recursion, mathematical optimization, and Fibonacci properties
+- 💡 **Key Insight**: The number of ways to reach step n = ways to reach (n-1) + ways to reach (n-2)
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **1000+ comprehensive test cases** across all solutions
+- ✅ **1600+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -417,6 +591,11 @@ Input: [1,3,5,6], target = 0 -> Output: 0 (insert at beginning)
 ./gradlew test --tests "*BinaryTreeInorderTraversal*"
 ./gradlew test --tests "*RemoveDuplicatesFromSortedArray*"
 ./gradlew test --tests "*SearchInsertPosition*"
+./gradlew test --tests "*FindFirstOccurrenceInString*"
+./gradlew test --tests "*AddBinary*"
+./gradlew test --tests "*PlusOne*"
+./gradlew test --tests "*SqrtX*"
+./gradlew test --tests "*ClimbingStairs*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -424,7 +603,7 @@ Input: [1,3,5,6], target = 0 -> Output: 0 (insert at beginning)
 ```bash
 ./gradlew clean              # Clean build artifacts
 ./gradlew compileJava        # Compile source code
-./gradlew test               # Run all 1000+ tests
+./gradlew test               # Run all 1600+ tests
 ./gradlew build              # Build the entire project
 ./gradlew run                # Run with all algorithm demonstrations
 ```
@@ -454,8 +633,13 @@ This project serves as:
 | Binary Tree Inorder | Easy | O(n) time, O(h) space | 5 approaches | Comprehensive |
 | Remove Duplicates | Easy | O(n) time, O(1) space | 4 approaches | Comprehensive |
 | Search Insert Position | Easy | O(log n) time, O(1) space | 4 approaches | Comprehensive |
+| Find First Occurrence | Easy | O(n+m) time, O(m) space | 5 approaches | Comprehensive |
+| Add Binary | Easy | O(n) time, O(n) space | 6 approaches | Comprehensive |
+| Plus One | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
+| Sqrt(x) | Easy | O(log x) time, O(1) space | 6 approaches | Comprehensive |
+| Climbing Stairs | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 11 LeetCode problems + Algorithm analysis = **1100+ test cases** and **43 different algorithmic approaches**!
+**Total**: 16 LeetCode problems + Algorithm analysis = **1600+ test cases** and **72 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
