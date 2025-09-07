@@ -26,7 +26,8 @@ src/
 │       ├── AddBinary.java # LeetCode #67: Add Binary
 │       ├── PlusOne.java # LeetCode #66: Plus One
 │       ├── SqrtX.java # LeetCode #69: Sqrt(x)
-│       └── ClimbingStairs.java # LeetCode #70: Climbing Stairs
+│       ├── ClimbingStairs.java # LeetCode #70: Climbing Stairs
+│       └── MergeSortedArray.java # LeetCode #88: Merge Sorted Array
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -45,7 +46,8 @@ src/
         ├── AddBinaryTest.java # LeetCode #67 tests (comprehensive test cases!)
         ├── PlusOneTest.java # LeetCode #66 tests (comprehensive test cases!)
         ├── SqrtXTest.java # LeetCode #69 tests (comprehensive test cases!)
-        └── ClimbingStairsTest.java # LeetCode #70 tests (comprehensive test cases!)
+        ├── ClimbingStairsTest.java # LeetCode #70 tests (comprehensive test cases!)
+        └── MergeSortedArrayTest.java # LeetCode #88 tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -96,7 +98,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **16 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **17 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -546,11 +548,48 @@ Input: n = 5 -> Output: 8 (follows Fibonacci sequence)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 17. Merge Sorted Array (LeetCode #88)
+- **Location**: `src/main/java/com/example/leetcode/MergeSortedArray.java`
+- **Description**: Merge two sorted arrays in-place into nums1 without using extra space
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Two Pointers from End**: O(m + n) time, O(1) space - *Optimal solution (recommended)*
+- 📚 **Copy and Sort**: O((m + n) log(m + n)) time, O(1) space - *Simple but not optimal*
+- ⚡ **Auxiliary Array**: O(m + n) time, O(m + n) space - *Optimal time but uses extra space*
+- 🔧 **Two Pointers from Start**: O(m + n) time, O(m) space - *Alternative with backup array*
+- 🎯 **Optimized Two Pointers**: O(m + n) time, O(1) space - *Enhanced version of recommended approach*
+- 🔄 **Recursive Merge**: O(m + n) time, O(m + n) space - *Educational recursive approach*
+
+**Examples**:
+```java
+Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+
+Input: nums1 = [1], m = 1, nums2 = [], n = 0
+Output: [1]
+
+Input: nums1 = [0], m = 0, nums2 = [1], n = 1
+Output: [1]
+```
+
+**Special Features**:
+- 🎯 **In-place Merging**: Modifies nums1 without using extra space (optimal approach)
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Empty arrays, single elements, maximum constraints, negative numbers
+- 📈 **Constraint Handling**: Handles LeetCode constraints (200 elements, -10^9 to 10^9 values)
+- 🔧 **Algorithm-Specific Optimizations**: Space optimization, mathematical approaches, recursive solutions
+- 🌟 **Educational Value**: Demonstrates in-place array manipulation, two-pointer techniques, and merge algorithms
+- 💡 **Key Insight**: Work backwards from the end to avoid overwriting unprocessed elements
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **1600+ comprehensive test cases** across all solutions
+- ✅ **1700+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -596,6 +635,7 @@ Input: n = 5 -> Output: 8 (follows Fibonacci sequence)
 ./gradlew test --tests "*PlusOne*"
 ./gradlew test --tests "*SqrtX*"
 ./gradlew test --tests "*ClimbingStairs*"
+./gradlew test --tests "*MergeSortedArray*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -603,7 +643,7 @@ Input: n = 5 -> Output: 8 (follows Fibonacci sequence)
 ```bash
 ./gradlew clean              # Clean build artifacts
 ./gradlew compileJava        # Compile source code
-./gradlew test               # Run all 1600+ tests
+./gradlew test               # Run all 1700+ tests
 ./gradlew build              # Build the entire project
 ./gradlew run                # Run with all algorithm demonstrations
 ```
@@ -638,8 +678,9 @@ This project serves as:
 | Plus One | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Sqrt(x) | Easy | O(log x) time, O(1) space | 6 approaches | Comprehensive |
 | Climbing Stairs | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
+| Merge Sorted Array | Easy | O(m + n) time, O(1) space | 6 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 16 LeetCode problems + Algorithm analysis = **1600+ test cases** and **72 different algorithmic approaches**!
+**Total**: 17 LeetCode problems + Algorithm analysis = **1700+ test cases** and **78 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
