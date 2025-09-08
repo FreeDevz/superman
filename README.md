@@ -27,7 +27,8 @@ src/
 │       ├── PlusOne.java # LeetCode #66: Plus One
 │       ├── SqrtX.java # LeetCode #69: Sqrt(x)
 │       ├── ClimbingStairs.java # LeetCode #70: Climbing Stairs
-│       └── MergeSortedArray.java # LeetCode #88: Merge Sorted Array
+│       ├── MergeSortedArray.java # LeetCode #88: Merge Sorted Array
+│       └── ConvertSortedArrayToBST.java # LeetCode #108: Convert Sorted Array to Binary Search Tree
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -47,7 +48,8 @@ src/
         ├── PlusOneTest.java # LeetCode #66 tests (comprehensive test cases!)
         ├── SqrtXTest.java # LeetCode #69 tests (comprehensive test cases!)
         ├── ClimbingStairsTest.java # LeetCode #70 tests (comprehensive test cases!)
-        └── MergeSortedArrayTest.java # LeetCode #88 tests (comprehensive test cases!)
+        ├── MergeSortedArrayTest.java # LeetCode #88 tests (comprehensive test cases!)
+        └── ConvertSortedArrayToBSTTest.java # LeetCode #108 tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -98,7 +100,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **17 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **18 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -585,11 +587,48 @@ Output: [1]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 18. Convert Sorted Array to Binary Search Tree (LeetCode #108)
+- **Location**: `src/main/java/com/example/leetcode/ConvertSortedArrayToBST.java`
+- **Description**: Convert a sorted array into a height-balanced binary search tree
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Recursive Divide and Conquer**: O(n) time, O(log n) space - *Optimal solution (recommended)*
+- ⚡ **Iterative with Stack**: O(n) time, O(log n) space - *Avoids recursion stack overflow*
+- 🔧 **Recursive with Helper Class**: O(n) time, O(log n) space - *Object-oriented approach*
+- 📚 **Recursive with Array Copy**: O(n log n) time, O(n) space - *Educational approach with subarrays*
+- 🎯 **Optimized Recursive**: O(n) time, O(log n) space - *Enhanced with better variable naming*
+- 🔍 **Recursive with Validation**: O(n) time, O(log n) space - *Includes input validation*
+
+**Examples**:
+```java
+Input: nums = [-10,-3,0,5,9]
+Output: [0,-3,9,-10,null,5]
+
+Input: nums = [1,3]
+Output: [3,1]
+
+Input: nums = [1]
+Output: [1]
+```
+
+**Special Features**:
+- 🌳 **Height-Balanced Trees**: Ensures tree depth difference never exceeds 1
+- 📊 **BST Validation**: All approaches produce valid binary search trees
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Single elements, two elements, maximum constraints, negative numbers
+- 📈 **Constraint Handling**: Handles LeetCode constraints (10,000 elements, -10,000 to 10,000 values)
+- 🔧 **Tree Utilities**: Height calculation, balance checking, node counting, traversal methods
+- 🌟 **Educational Value**: Demonstrates divide-and-conquer, tree construction, and recursion
+- 💡 **Key Insight**: Always choose middle element as root to ensure height balance
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **1700+ comprehensive test cases** across all solutions
+- ✅ **1800+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -636,6 +675,7 @@ Output: [1]
 ./gradlew test --tests "*SqrtX*"
 ./gradlew test --tests "*ClimbingStairs*"
 ./gradlew test --tests "*MergeSortedArray*"
+./gradlew test --tests "*ConvertSortedArrayToBST*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -643,7 +683,7 @@ Output: [1]
 ```bash
 ./gradlew clean              # Clean build artifacts
 ./gradlew compileJava        # Compile source code
-./gradlew test               # Run all 1700+ tests
+./gradlew test               # Run all 1800+ tests
 ./gradlew build              # Build the entire project
 ./gradlew run                # Run with all algorithm demonstrations
 ```
@@ -679,8 +719,9 @@ This project serves as:
 | Sqrt(x) | Easy | O(log x) time, O(1) space | 6 approaches | Comprehensive |
 | Climbing Stairs | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Merge Sorted Array | Easy | O(m + n) time, O(1) space | 6 approaches | Comprehensive |
+| Convert Sorted Array to BST | Easy | O(n) time, O(log n) space | 6 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 17 LeetCode problems + Algorithm analysis = **1700+ test cases** and **78 different algorithmic approaches**!
+**Total**: 18 LeetCode problems + Algorithm analysis = **1800+ test cases** and **84 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
