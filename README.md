@@ -28,7 +28,9 @@ src/
 │       ├── SqrtX.java # LeetCode #69: Sqrt(x)
 │       ├── ClimbingStairs.java # LeetCode #70: Climbing Stairs
 │       ├── MergeSortedArray.java # LeetCode #88: Merge Sorted Array
-│       └── ConvertSortedArrayToBST.java # LeetCode #108: Convert Sorted Array to Binary Search Tree
+│       ├── ConvertSortedArrayToBST.java # LeetCode #108: Convert Sorted Array to Binary Search Tree
+│       ├── MaximumDepthOfBinaryTree.java # LeetCode #104: Maximum Depth of Binary Tree
+│       └── BalancedBinaryTree.java # LeetCode #110: Balanced Binary Tree
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -49,7 +51,9 @@ src/
         ├── SqrtXTest.java # LeetCode #69 tests (comprehensive test cases!)
         ├── ClimbingStairsTest.java # LeetCode #70 tests (comprehensive test cases!)
         ├── MergeSortedArrayTest.java # LeetCode #88 tests (comprehensive test cases!)
-        └── ConvertSortedArrayToBSTTest.java # LeetCode #108 tests (comprehensive test cases!)
+        ├── ConvertSortedArrayToBSTTest.java # LeetCode #108 tests (comprehensive test cases!)
+        ├── MaximumDepthOfBinaryTreeTest.java # LeetCode #104 tests (comprehensive test cases!)
+        └── BalancedBinaryTreeTest.java # LeetCode #110 tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -100,7 +104,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **18 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **20 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -624,11 +628,75 @@ Output: [1]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 19. Maximum Depth of Binary Tree (LeetCode #104)
+- **Location**: `src/main/java/com/example/leetcode/MaximumDepthOfBinaryTree.java`
+- **Description**: Find the maximum depth of a binary tree (number of nodes along longest path from root to leaf)
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Recursive DFS**: O(n) time, O(h) space - *Most intuitive and commonly used (recommended)*
+- ⚡ **Iterative BFS**: O(n) time, O(w) space - *Level-order traversal approach*
+- 🔧 **Iterative DFS**: O(n) time, O(h) space - *Simulates recursion with explicit stack*
+- 📚 **Optimized Recursive**: O(n) time, O(h) space - *Enhanced with better variable naming*
+- 🎯 **One-liner Recursive**: O(n) time, O(h) space - *Most concise version*
+- 🔍 **With Validation**: O(n) time, O(h) space - *Includes input validation and safety checks*
+
+**Examples**:
+```java
+Input: [3,9,20,null,null,15,7] -> Output: 3
+Input: [1,null,2]              -> Output: 2
+Input: [1]                     -> Output: 1
+Input: []                      -> Output: 0
+```
+
+**Special Features**:
+- 🌳 **Tree Utilities**: Tree creation, conversion, height calculation, balance checking
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Empty trees, single nodes, skewed trees, complete trees
+- 📈 **Constraint Handling**: Handles LeetCode constraints (10,000 nodes, -100 to 100 values)
+- 🔧 **Algorithm-Specific Optimizations**: Space optimization, early termination, validation
+- 🌟 **Educational Value**: Demonstrates tree traversal, recursion, iteration, and space complexity trade-offs
+- 💡 **Key Insight**: Maximum depth = 1 + max(left_depth, right_depth)
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 20. Balanced Binary Tree (LeetCode #110)
+- **Location**: `src/main/java/com/example/leetcode/BalancedBinaryTree.java`
+- **Description**: Determine if a binary tree is height-balanced (depth of two subtrees never differs by more than 1)
+- **Multiple Approaches**: 4 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Bottom-up Recursion**: O(n) time, O(h) space - *Optimal solution (recommended)*
+- 📚 **Top-down Recursion**: O(n²) time, O(h) space - *Educational approach with repeated height calculations*
+- ⚡ **Iterative with Stack**: O(n) time, O(h) space - *Alternative to recursion using explicit stack*
+- 🔧 **Enhanced Bottom-up**: O(n) time, O(h) space - *Optimized version with clearer separation of concerns*
+
+**Examples**:
+```java
+Input: [3,9,20,null,null,15,7] -> Output: true (balanced)
+Input: [1,2,2,3,3,null,null,4,4] -> Output: false (unbalanced)
+Input: [] -> Output: true (empty tree is balanced)
+Input: [1] -> Output: true (single node is balanced)
+```
+
+**Special Features**:
+- 🌳 **Tree Utilities**: Tree creation, conversion, height calculation, balance checking
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Empty trees, single nodes, skewed trees, perfectly balanced trees
+- 📈 **Constraint Handling**: Handles LeetCode constraints (5,000 nodes, -10⁴ to 10⁴ values)
+- 🔧 **Algorithm-Specific Optimizations**: Early termination, space optimization, mathematical properties
+- 🌟 **Educational Value**: Demonstrates tree traversal, recursion, iteration, and balance concepts
+- 💡 **Key Insight**: A tree is balanced if height difference ≤ 1 and both subtrees are balanced
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **1800+ comprehensive test cases** across all solutions
+- ✅ **2000+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -676,6 +744,8 @@ Output: [1]
 ./gradlew test --tests "*ClimbingStairs*"
 ./gradlew test --tests "*MergeSortedArray*"
 ./gradlew test --tests "*ConvertSortedArrayToBST*"
+./gradlew test --tests "*MaximumDepthOfBinaryTree*"
+./gradlew test --tests "*BalancedBinaryTree*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -683,7 +753,7 @@ Output: [1]
 ```bash
 ./gradlew clean              # Clean build artifacts
 ./gradlew compileJava        # Compile source code
-./gradlew test               # Run all 1800+ tests
+./gradlew test               # Run all 2000+ tests
 ./gradlew build              # Build the entire project
 ./gradlew run                # Run with all algorithm demonstrations
 ```
@@ -720,8 +790,10 @@ This project serves as:
 | Climbing Stairs | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Merge Sorted Array | Easy | O(m + n) time, O(1) space | 6 approaches | Comprehensive |
 | Convert Sorted Array to BST | Easy | O(n) time, O(log n) space | 6 approaches | Comprehensive |
+| Maximum Depth of Binary Tree | Easy | O(n) time, O(h) space | 6 approaches | Comprehensive |
+| Balanced Binary Tree | Easy | O(n) time, O(h) space | 4 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 18 LeetCode problems + Algorithm analysis = **1800+ test cases** and **84 different algorithmic approaches**!
+**Total**: 20 LeetCode problems + Algorithm analysis = **2000+ test cases** and **94 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
