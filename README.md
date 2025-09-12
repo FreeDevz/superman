@@ -30,7 +30,10 @@ src/
 │       ├── MergeSortedArray.java # LeetCode #88: Merge Sorted Array
 │       ├── ConvertSortedArrayToBST.java # LeetCode #108: Convert Sorted Array to Binary Search Tree
 │       ├── MaximumDepthOfBinaryTree.java # LeetCode #104: Maximum Depth of Binary Tree
-│       └── BalancedBinaryTree.java # LeetCode #110: Balanced Binary Tree
+│       ├── BalancedBinaryTree.java # LeetCode #110: Balanced Binary Tree
+│       ├── SingleNumber.java # LeetCode #136: Single Number
+│       ├── MinimumDepthOfBinaryTree.java # LeetCode #111: Minimum Depth of Binary Tree
+│       └── PascalsTriangleII.java # LeetCode #119: Pascal's Triangle II
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -53,7 +56,10 @@ src/
         ├── MergeSortedArrayTest.java # LeetCode #88 tests (comprehensive test cases!)
         ├── ConvertSortedArrayToBSTTest.java # LeetCode #108 tests (comprehensive test cases!)
         ├── MaximumDepthOfBinaryTreeTest.java # LeetCode #104 tests (comprehensive test cases!)
-        └── BalancedBinaryTreeTest.java # LeetCode #110 tests (comprehensive test cases!)
+        ├── BalancedBinaryTreeTest.java # LeetCode #110 tests (comprehensive test cases!)
+        ├── SingleNumberTest.java # LeetCode #136 tests (comprehensive test cases!)
+        ├── MinimumDepthOfBinaryTreeTest.java # LeetCode #111 tests (comprehensive test cases!)
+        └── PascalsTriangleIITest.java # LeetCode #119 tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -104,7 +110,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **20 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **23 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -692,6 +698,106 @@ Input: [1] -> Output: true (single node is balanced)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 21. Single Number (LeetCode #136)
+- **Location**: `src/main/java/com/example/leetcode/SingleNumber.java`
+- **Description**: Find the unique element in an array where every other element appears exactly twice
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **XOR Operation**: O(n) time, O(1) space - *Optimal solution (recommended)*
+- 📚 **HashSet Approach**: O(n) time, O(n) space - *Educational approach using set operations*
+- ⚡ **Mathematical Formula**: O(n) time, O(n) space - *Uses sum properties for unique elements*
+- 🔧 **HashMap Solution**: O(n) time, O(n) space - *Frequency counting approach*
+- 🎯 **Sorting Solution**: O(n log n) time, O(1) space - *Alternative approach with sorting*
+
+**Examples**:
+```java
+Input: [2,2,1] -> Output: 1
+Input: [4,1,2,1,2] -> Output: 4
+Input: [1] -> Output: 1
+Input: [-1,-1,-2] -> Output: -2
+```
+
+**Special Features**:
+- 🎯 **XOR Properties**: Demonstrates bitwise XOR properties (a ^ a = 0, a ^ 0 = a)
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Single elements, negative numbers, maximum constraints
+- 📈 **Constraint Handling**: Handles LeetCode constraints (30,000 elements, -30,000 to 30,000 values)
+- 🔧 **Algorithm-Specific Optimizations**: Space optimization, mathematical properties, bit manipulation
+- 🌟 **Educational Value**: Demonstrates XOR operations, hash tables, mathematical formulas, and sorting
+- 💡 **Key Insight**: XOR cancels out pairs, leaving only the single number
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 22. Minimum Depth of Binary Tree (LeetCode #111)
+- **Location**: `src/main/java/com/example/leetcode/MinimumDepthOfBinaryTree.java`
+- **Description**: Find the minimum depth of a binary tree (shortest path from root to nearest leaf node)
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Recursive DFS**: O(n) time, O(h) space - *Most intuitive and commonly used (recommended)*
+- ⚡ **Iterative BFS**: O(n) time, O(w) space - *Level-order traversal approach*
+- 🔧 **Iterative DFS with Stack**: O(n) time, O(h) space - *Simulates recursion with explicit stack*
+- 📚 **Level Order Traversal**: O(n) time, O(w) space - *Explicit depth tracking approach*
+- 🎯 **Morris Traversal**: O(n) time, O(1) space - *Constant space approach*
+- 🔍 **Optimized Recursive**: O(n) time, O(h) space - *Concise recursive version*
+
+**Examples**:
+```java
+Input: [3,9,20,null,null,15,7] -> Output: 2
+Input: [2,null,3,null,4,null,5,null,6] -> Output: 5
+Input: [1,2,3,4,5] -> Output: 2
+Input: [1] -> Output: 1
+Input: [] -> Output: 0
+```
+
+**Special Features**:
+- 🌳 **Tree Utilities**: Tree creation, conversion, height calculation, balance checking
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Empty trees, single nodes, skewed trees, complete trees
+- 📈 **Constraint Handling**: Handles LeetCode constraints (10^5 nodes, -1000 to 1000 values)
+- 🔧 **Algorithm-Specific Optimizations**: Space optimization, early termination, validation
+- 🌟 **Educational Value**: Demonstrates tree traversal, recursion, iteration, and space complexity trade-offs
+- 💡 **Key Insight**: Minimum depth = shortest path to a leaf node, must handle null subtrees correctly
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 23. Pascal's Triangle II (LeetCode #119)
+- **Location**: `src/main/java/com/example/leetcode/PascalsTriangleII.java`
+- **Description**: Return the kth (0-indexed) row of Pascal's triangle using efficient algorithms
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Iterative In-Place**: O(k²) time, O(k) space - *Most efficient and interview-friendly (recommended)*
+- ⚡ **Mathematical Formula**: O(k) time, O(k) space - *Fastest using combinatorial formula*
+- 🔧 **Recursive Approach**: O(2^k) time, O(k) space - *Educational but exponential complexity*
+- 📚 **Two Arrays**: O(k²) time, O(k) space - *Intuitive approach using previous row*
+- 🎯 **Combinatorial with Memoization**: O(k) time, O(k) space - *Optimized mathematical approach*
+- 🔍 **Dynamic Programming**: O(k²) time, O(k) space - *Clean iterative solution*
+
+**Examples**:
+```java
+Input: rowIndex = 3 -> Output: [1,3,3,1]
+Input: rowIndex = 0 -> Output: [1]
+Input: rowIndex = 1 -> Output: [1,1]
+Input: rowIndex = 4 -> Output: [1,4,6,4,1]
+Input: rowIndex = 5 -> Output: [1,5,10,10,5,1]
+```
+
+**Special Features**:
+- 🧮 **Mathematical Properties**: Demonstrates combinatorial formulas and Pascal's triangle properties
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Row index 0, 1, maximum constraint (33), large inputs
+- 📈 **Constraint Handling**: Handles LeetCode constraints (0 ≤ rowIndex ≤ 33)
+- 🔧 **Algorithm-Specific Optimizations**: In-place building, combinatorial calculations, memoization
+- 🌟 **Educational Value**: Demonstrates mathematical algorithms, recursion, dynamic programming, and optimization
+- 💡 **Key Insight**: Each element = C(n,k) = n!/(k!(n-k)!), build in-place from right to left
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
@@ -746,6 +852,9 @@ Input: [1] -> Output: true (single node is balanced)
 ./gradlew test --tests "*ConvertSortedArrayToBST*"
 ./gradlew test --tests "*MaximumDepthOfBinaryTree*"
 ./gradlew test --tests "*BalancedBinaryTree*"
+./gradlew test --tests "*SingleNumber*"
+./gradlew test --tests "*MinimumDepthOfBinaryTree*"
+./gradlew test --tests "*PascalsTriangleII*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -792,8 +901,11 @@ This project serves as:
 | Convert Sorted Array to BST | Easy | O(n) time, O(log n) space | 6 approaches | Comprehensive |
 | Maximum Depth of Binary Tree | Easy | O(n) time, O(h) space | 6 approaches | Comprehensive |
 | Balanced Binary Tree | Easy | O(n) time, O(h) space | 4 approaches | Comprehensive |
+| Single Number | Easy | O(n) time, O(1) space | 5 approaches | Comprehensive |
+| Minimum Depth of Binary Tree | Easy | O(n) time, O(h) space | 6 approaches | Comprehensive |
+| Pascal's Triangle II | Easy | O(k) time, O(k) space | 6 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 20 LeetCode problems + Algorithm analysis = **2000+ test cases** and **94 different algorithmic approaches**!
+**Total**: 23 LeetCode problems + Algorithm analysis = **2000+ test cases** and **111 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
