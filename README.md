@@ -33,7 +33,8 @@ src/
 │       ├── BalancedBinaryTree.java # LeetCode #110: Balanced Binary Tree
 │       ├── SingleNumber.java # LeetCode #136: Single Number
 │       ├── MinimumDepthOfBinaryTree.java # LeetCode #111: Minimum Depth of Binary Tree
-│       └── PascalsTriangleII.java # LeetCode #119: Pascal's Triangle II
+│       ├── PascalsTriangleII.java # LeetCode #119: Pascal's Triangle II
+│       └── BestTimeToBuyAndSellStock.java # LeetCode #121: Best Time to Buy and Sell Stock
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -59,7 +60,8 @@ src/
         ├── BalancedBinaryTreeTest.java # LeetCode #110 tests (comprehensive test cases!)
         ├── SingleNumberTest.java # LeetCode #136 tests (comprehensive test cases!)
         ├── MinimumDepthOfBinaryTreeTest.java # LeetCode #111 tests (comprehensive test cases!)
-        └── PascalsTriangleIITest.java # LeetCode #119 tests (comprehensive test cases!)
+        ├── PascalsTriangleIITest.java # LeetCode #119 tests (comprehensive test cases!)
+        └── BestTimeToBuyAndSellStockTest.java # LeetCode #121 tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -110,7 +112,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **23 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **24 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -798,6 +800,39 @@ Input: rowIndex = 5 -> Output: [1,5,10,10,5,1]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 24. Best Time to Buy and Sell Stock (LeetCode #121)
+- **Location**: `src/main/java/com/example/leetcode/BestTimeToBuyAndSellStock.java`
+- **Description**: Find maximum profit from buying and selling stock once using efficient algorithms
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **One Pass (Optimal)**: O(n) time, O(1) space - *Most efficient and interview-friendly (recommended)*
+- ⚡ **Brute Force**: O(n²) time, O(1) space - *Check all buy-sell combinations*
+- 🔧 **Dynamic Programming**: O(n) time, O(n) space - *Clear logic with state tracking*
+- 📚 **Peak Valley Analysis**: O(n) time, O(1) space - *Intuitive valley-peak approach*
+- 🎯 **Kadane's Algorithm**: O(n) time, O(1) space - *Convert to maximum subarray problem*
+- 🔍 **Divide and Conquer**: O(n log n) time, O(log n) space - *Educational recursive approach*
+
+**Examples**:
+```java
+Input: prices = [7,1,5,3,6,4] -> Output: 5 (Buy at 1, sell at 6)
+Input: prices = [7,6,4,3,1] -> Output: 0 (No profit possible)
+Input: prices = [1,2,3,4,5] -> Output: 4 (Buy at 1, sell at 5)
+Input: prices = [2,4,1] -> Output: 2 (Buy at 2, sell at 4)
+```
+
+**Special Features**:
+- 💰 **Financial Algorithm**: Demonstrates real-world stock trading optimization
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Null arrays, empty arrays, single elements, no profit scenarios
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ length ≤ 10⁵, 0 ≤ price ≤ 10⁴)
+- 🔧 **Algorithm-Specific Optimizations**: One-pass optimization, Kadane's algorithm, peak valley analysis
+- 🌟 **Educational Value**: Demonstrates greedy algorithms, dynamic programming, and optimization techniques
+- 💡 **Key Insight**: Track minimum price seen so far and calculate profit at each step
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
@@ -855,6 +890,7 @@ Input: rowIndex = 5 -> Output: [1,5,10,10,5,1]
 ./gradlew test --tests "*SingleNumber*"
 ./gradlew test --tests "*MinimumDepthOfBinaryTree*"
 ./gradlew test --tests "*PascalsTriangleII*"
+./gradlew test --tests "*BestTimeToBuyAndSellStock*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -904,8 +940,9 @@ This project serves as:
 | Single Number | Easy | O(n) time, O(1) space | 5 approaches | Comprehensive |
 | Minimum Depth of Binary Tree | Easy | O(n) time, O(h) space | 6 approaches | Comprehensive |
 | Pascal's Triangle II | Easy | O(k) time, O(k) space | 6 approaches | Comprehensive |
+| Best Time to Buy and Sell Stock | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 23 LeetCode problems + Algorithm analysis = **2000+ test cases** and **111 different algorithmic approaches**!
+**Total**: 24 LeetCode problems + Algorithm analysis = **2000+ test cases** and **117 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
