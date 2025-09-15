@@ -34,7 +34,9 @@ src/
 │       ├── SingleNumber.java # LeetCode #136: Single Number
 │       ├── MinimumDepthOfBinaryTree.java # LeetCode #111: Minimum Depth of Binary Tree
 │       ├── PascalsTriangleII.java # LeetCode #119: Pascal's Triangle II
-│       └── BestTimeToBuyAndSellStock.java # LeetCode #121: Best Time to Buy and Sell Stock
+│       ├── BestTimeToBuyAndSellStock.java # LeetCode #121: Best Time to Buy and Sell Stock
+│       ├── PrintInOrder.java # LeetCode #1114: Print in Order
+│       └── FindMostFrequentVowelAndConsonant.java # LeetCode #3541: Find Most Frequent Vowel and Consonant
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -61,7 +63,9 @@ src/
         ├── SingleNumberTest.java # LeetCode #136 tests (comprehensive test cases!)
         ├── MinimumDepthOfBinaryTreeTest.java # LeetCode #111 tests (comprehensive test cases!)
         ├── PascalsTriangleIITest.java # LeetCode #119 tests (comprehensive test cases!)
-        └── BestTimeToBuyAndSellStockTest.java # LeetCode #121 tests (comprehensive test cases!)
+        ├── BestTimeToBuyAndSellStockTest.java # LeetCode #121 tests (comprehensive test cases!)
+        ├── PrintInOrderTest.java # LeetCode #1114 tests (comprehensive test cases!)
+        └── FindMostFrequentVowelAndConsonantTest.java # LeetCode #3541 tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -112,7 +116,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **24 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **26 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -833,6 +837,70 @@ Input: prices = [2,4,1] -> Output: 2 (Buy at 2, sell at 4)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 25. Print in Order (LeetCode #1114)
+- **Location**: `src/main/java/com/example/leetcode/PrintInOrder.java`
+- **Description**: Ensure thread-safe execution order using multiple synchronization approaches
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Semaphore (Recommended)**: O(1) time, O(1) space - *Clean and intuitive synchronization*
+- ⚡ **CountDownLatch**: O(1) time, O(1) space - *Perfect for one-time coordination*
+- 🔧 **ReentrantLock with Condition**: O(1) time, O(1) space - *Fine-grained control over synchronization*
+- 📚 **AtomicInteger with Busy Wait**: O(1) time, O(1) space - *Lowest latency approach*
+- 🎯 **Synchronized with wait/notify**: O(1) time, O(1) space - *Classic Java synchronization*
+- 🔍 **CompletableFuture**: O(1) time, O(1) space - *Functional programming style*
+
+**Examples**:
+```java
+Input: [1,2,3] -> Output: "firstsecondthird"
+Input: [1,3,2] -> Output: "firstsecondthird"
+Input: [3,1,2] -> Output: "firstsecondthird"
+Input: [3,2,1] -> Output: "firstsecondthird"
+```
+
+**Special Features**:
+- 🧵 **Thread Synchronization**: Demonstrates multiple Java concurrency mechanisms
+- 📊 **Cross-Validation**: All approaches produce identical results regardless of execution order
+- ⚡ **Performance Analysis**: Live timing comparison between synchronization approaches
+- 🧪 **Edge Case Testing**: All possible execution orders, stress testing, concurrent execution
+- 📈 **Concurrency Patterns**: Semaphores, latches, locks, atomic operations, futures
+- 🔧 **Algorithm-Specific Optimizations**: Different synchronization strategies for various use cases
+- 🌟 **Educational Value**: Demonstrates thread safety, synchronization primitives, and concurrency patterns
+- 💡 **Key Insight**: Thread synchronization ensures correct execution order regardless of thread scheduling
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 26. Find Most Frequent Vowel and Consonant (LeetCode #3541)
+- **Location**: `src/main/java/com/example/leetcode/FindMostFrequentVowelAndConsonant.java`
+- **Description**: Find the sum of the maximum frequency of any vowel and the maximum frequency of any consonant in a string
+- **Multiple Approaches**: 4 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Frequency Array**: O(n) time, O(1) space - *Most efficient and interview-friendly (recommended)*
+- 📚 **HashMap Approach**: O(n) time, O(1) space - *Alternative using HashMap for frequency counting*
+- ⚡ **Single Pass**: O(n) time, O(1) space - *Count vowels and consonants separately in one pass*
+- 🔧 **Streams Approach**: O(n) time, O(1) space - *Functional programming style with Java streams*
+
+**Examples**:
+```java
+Input: "leetcode" -> Output: 4 (e appears 3 times max vowel, l,t,c,d each appear 1 time max consonant = 1)
+Input: "aeiou"    -> Output: 1 (each vowel appears once, no consonants)
+Input: "abcde"    -> Output: 2 (each character appears once: max vowel = 1, max consonant = 1)
+Input: "programming" -> Output: 3 (o,a,i each appear 1 time max vowel = 1, r,g,m each appear 2 times max consonant = 2)
+```
+
+**Special Features**:
+- 🎯 **Character Classification**: Automatically separates vowels (a,e,i,o,u) from consonants
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Single characters, all vowels, all consonants, maximum constraints
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ length ≤ 1000, lowercase letters only)
+- 🔧 **Algorithm-Specific Optimizations**: Array-based counting, HashMap alternatives, stream processing
+- 🌟 **Educational Value**: Demonstrates frequency counting, character classification, and multiple algorithmic approaches
+- 💡 **Key Insight**: Count frequencies separately for vowels and consonants, then find maximum of each group
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
@@ -891,6 +959,8 @@ Input: prices = [2,4,1] -> Output: 2 (Buy at 2, sell at 4)
 ./gradlew test --tests "*MinimumDepthOfBinaryTree*"
 ./gradlew test --tests "*PascalsTriangleII*"
 ./gradlew test --tests "*BestTimeToBuyAndSellStock*"
+./gradlew test --tests "*PrintInOrder*"
+./gradlew test --tests "*FindMostFrequentVowelAndConsonant*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -941,8 +1011,10 @@ This project serves as:
 | Minimum Depth of Binary Tree | Easy | O(n) time, O(h) space | 6 approaches | Comprehensive |
 | Pascal's Triangle II | Easy | O(k) time, O(k) space | 6 approaches | Comprehensive |
 | Best Time to Buy and Sell Stock | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
+| Print in Order | Easy | O(1) time, O(1) space | 6 approaches | Comprehensive |
+| Find Most Frequent Vowel and Consonant | Easy | O(n) time, O(1) space | 4 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 24 LeetCode problems + Algorithm analysis = **2000+ test cases** and **117 different algorithmic approaches**!
+**Total**: 26 LeetCode problems + Algorithm analysis = **2000+ test cases** and **127 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
