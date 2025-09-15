@@ -36,7 +36,11 @@ src/
 │       ├── PascalsTriangleII.java # LeetCode #119: Pascal's Triangle II
 │       ├── BestTimeToBuyAndSellStock.java # LeetCode #121: Best Time to Buy and Sell Stock
 │       ├── PrintInOrder.java # LeetCode #1114: Print in Order
-│       └── FindMostFrequentVowelAndConsonant.java # LeetCode #3541: Find Most Frequent Vowel and Consonant
+│       ├── FindMostFrequentVowelAndConsonant.java # LeetCode #3541: Find Most Frequent Vowel and Consonant
+│       ├── LinkedListCycle.java # LeetCode #141: Linked List Cycle
+│       ├── PrintFooBarAlternately.java # LeetCode #1115: Print FooBar Alternately
+│       ├── CustomersWhoNeverOrder.java # LeetCode #183: Customers Who Never Order
+│       └── ValidPalindrome.java # LeetCode #125: Valid Palindrome
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -65,7 +69,11 @@ src/
         ├── PascalsTriangleIITest.java # LeetCode #119 tests (comprehensive test cases!)
         ├── BestTimeToBuyAndSellStockTest.java # LeetCode #121 tests (comprehensive test cases!)
         ├── PrintInOrderTest.java # LeetCode #1114 tests (comprehensive test cases!)
-        └── FindMostFrequentVowelAndConsonantTest.java # LeetCode #3541 tests (comprehensive test cases!)
+        ├── FindMostFrequentVowelAndConsonantTest.java # LeetCode #3541 tests (comprehensive test cases!)
+        ├── LinkedListCycleTest.java # LeetCode #141 tests (comprehensive test cases!)
+        ├── PrintFooBarAlternatelyTest.java # LeetCode #1115 tests (comprehensive test cases!)
+        ├── CustomersWhoNeverOrderTest.java # LeetCode #183 tests (comprehensive test cases!)
+        └── ValidPalindromeTest.java # LeetCode #125 tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -116,7 +124,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **26 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **30 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -901,6 +909,138 @@ Input: "programming" -> Output: 3 (o,a,i each appear 1 time max vowel = 1, r,g,m
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 27. Linked List Cycle (LeetCode #141)
+- **Location**: `src/main/java/com/example/leetcode/LinkedListCycle.java`
+- **Description**: Determine if a linked list has a cycle using multiple detection algorithms
+- **Multiple Approaches**: 4 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Floyd's Cycle Detection (Tortoise and Hare)**: O(n) time, O(1) space - *Optimal solution (recommended)*
+- 📚 **HashSet Approach**: O(n) time, O(n) space - *Educational approach using visited node tracking*
+- ⚡ **Marking Nodes**: O(n) time, O(1) space - *Destructive approach modifying node values*
+- 🔧 **Reverse List**: O(n) time, O(1) space - *Alternative destructive approach*
+
+**Examples**:
+```java
+Input: head = [3,2,0,-4], pos = 1 -> Output: true (cycle exists)
+Input: head = [1,2], pos = 0 -> Output: true (cycle exists)
+Input: head = [1], pos = -1 -> Output: false (no cycle)
+Input: head = [], pos = -1 -> Output: false (empty list)
+```
+
+**Special Features**:
+- 🔄 **Cycle Detection**: Demonstrates classic Floyd's algorithm (tortoise and hare)
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Empty lists, single nodes, self-cycles, long lists
+- 📈 **Constraint Handling**: Handles LeetCode constraints (10,000 nodes, -10⁵ to 10⁵ values)
+- 🔧 **Algorithm-Specific Optimizations**: Space optimization, non-destructive vs destructive approaches
+- 🌟 **Educational Value**: Demonstrates linked list manipulation, cycle detection, and pointer techniques
+- 💡 **Key Insight**: Floyd's algorithm works because fast pointer will eventually catch slow pointer in a cycle
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 28. Print FooBar Alternately (LeetCode #1115)
+- **Location**: `src/main/java/com/example/leetcode/PrintFooBarAlternately.java`
+- **Description**: Coordinate two threads to print "foo" and "bar" alternately n times using multiple synchronization approaches
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Semaphore Approach**: O(n) time, O(1) space - *Most intuitive and interview-friendly (recommended)*
+- ⚡ **Atomic Integer Approach**: O(n) time, O(1) space - *Uses atomic counter with modulo operation*
+- 🔧 **ReentrantLock with Condition**: O(n) time, O(1) space - *Fine-grained control over synchronization*
+- 📚 **Synchronized Blocks**: O(n) time, O(1) space - *Classic Java synchronization with wait/notify*
+- 🎯 **Volatile Boolean**: O(n) time, O(1) space - *Simple but less efficient due to busy waiting*
+
+**Examples**:
+```java
+Input: n = 1 -> Output: "foobar"
+Input: n = 2 -> Output: "foobarfoobar"
+Input: n = 3 -> Output: "foobarfoobarfoobar"
+Input: n = 5 -> Output: "foobarfoobarfoobarfoobarfoobar"
+```
+
+**Special Features**:
+- 🧵 **Thread Synchronization**: Demonstrates multiple Java concurrency mechanisms
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between synchronization approaches
+- 🧪 **Edge Case Testing**: Minimum n=1, maximum n=1000, stress testing, concurrent execution
+- 📈 **Concurrency Patterns**: Semaphores, atomic operations, locks, synchronized blocks, volatile variables
+- 🔧 **Algorithm-Specific Optimizations**: Different synchronization strategies for various use cases
+- 🌟 **Educational Value**: Demonstrates thread safety, synchronization primitives, and concurrency patterns
+- 💡 **Key Insight**: Thread coordination ensures correct alternating output regardless of thread scheduling
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 29. Customers Who Never Order (LeetCode #183)
+- **Location**: `src/main/java/com/example/leetcode/CustomersWhoNeverOrder.java`
+- **Description**: Find all customers who never order anything using multiple SQL and Java approaches
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **SQL NOT IN**: O(n + m) time, O(m) space - *Most intuitive SQL approach (recommended)*
+- ⚡ **SQL LEFT JOIN**: O(n + m) time, O(m) space - *Efficient JOIN-based approach*
+- 🔧 **SQL NOT EXISTS**: O(n * m) time, O(1) space - *Subquery-based approach*
+- 📚 **Java HashSet**: O(n + m) time, O(m) space - *Most efficient Java approach*
+- 🎯 **Java Stream**: O(n + m) time, O(m) space - *Functional programming style*
+- 🔍 **Java Nested Loop**: O(n * m) time, O(1) space - *Educational brute force approach*
+
+**Examples**:
+```java
+Input: 
+Customers: [(1, "Joe"), (2, "Henry"), (3, "Sam"), (4, "Max")]
+Orders: [(1, 3), (2, 1)]
+
+Output: ["Henry", "Max"]
+```
+
+**Special Features**:
+- 🗄️ **SQL Query Generation**: Provides actual SQL queries for each approach
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: No customers, no orders, all customers ordered, duplicates
+- 📈 **Database Simulation**: Java implementations simulate database operations
+- 🔧 **Algorithm-Specific Optimizations**: HashSet for O(1) lookup, Streams for functional style
+- 🌟 **Educational Value**: Demonstrates SQL concepts, Java collections, and algorithm optimization
+- 💡 **Key Insight**: Use HashSet for O(1) lookup time in Java, or appropriate SQL JOINs for database queries
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 30. Valid Palindrome (LeetCode #125)
+- **Location**: `src/main/java/com/example/leetcode/ValidPalindrome.java`
+- **Description**: Determine if a string is a palindrome after removing non-alphanumeric characters and ignoring case
+- **Multiple Approaches**: 7 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Two Pointers**: O(n) time, O(1) space - *Optimal solution (recommended)*
+- ⚡ **String Preprocessing**: O(n) time, O(n) space - *Clean string first, then check*
+- 🔧 **Recursive**: O(n) time, O(n) space - *Recursive palindrome checking*
+- 📚 **Stack**: O(n) time, O(n) space - *Use stack to reverse and compare*
+- 🎯 **StringBuilder**: O(n) time, O(n) space - *Build cleaned string and reverse*
+- 🔍 **Character Array**: O(n) time, O(n) space - *Convert to char array and use two pointers*
+- 🌟 **Optimized Two Pointers**: O(n) time, O(1) space - *Enhanced with helper methods*
+
+**Examples**:
+```java
+Input: "A man, a plan, a canal: Panama" -> Output: true
+Input: "race a car" -> Output: false
+Input: " " -> Output: true
+Input: "Madam" -> Output: true
+Input: "12321" -> Output: true
+```
+
+**Special Features**:
+- 🔤 **Character Filtering**: Automatically removes non-alphanumeric characters
+- 📊 **Case Insensitive**: Handles mixed case correctly
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Empty strings, single characters, special characters, mixed alphanumeric
+- 📈 **Cross-Validation**: All approaches produce identical results
+- 🔧 **Algorithm-Specific Optimizations**: Two pointers for O(1) space, preprocessing for readability
+- 🌟 **Educational Value**: Demonstrates string manipulation, two-pointer technique, and palindrome concepts
+- 💡 **Key Insight**: Use two pointers from start and end, skip non-alphanumeric characters, compare case-insensitively
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
@@ -961,6 +1101,10 @@ Input: "programming" -> Output: 3 (o,a,i each appear 1 time max vowel = 1, r,g,m
 ./gradlew test --tests "*BestTimeToBuyAndSellStock*"
 ./gradlew test --tests "*PrintInOrder*"
 ./gradlew test --tests "*FindMostFrequentVowelAndConsonant*"
+./gradlew test --tests "*LinkedListCycle*"
+./gradlew test --tests "*PrintFooBarAlternately*"
+./gradlew test --tests "*CustomersWhoNeverOrder*"
+./gradlew test --tests "*ValidPalindrome*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -1013,8 +1157,12 @@ This project serves as:
 | Best Time to Buy and Sell Stock | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Print in Order | Easy | O(1) time, O(1) space | 6 approaches | Comprehensive |
 | Find Most Frequent Vowel and Consonant | Easy | O(n) time, O(1) space | 4 approaches | Comprehensive |
+| Linked List Cycle | Easy | O(n) time, O(1) space | 4 approaches | Comprehensive |
+| Print FooBar Alternately | Medium | O(n) time, O(1) space | 5 approaches | Comprehensive |
+| Customers Who Never Order | Easy | O(n + m) time, O(m) space | 6 approaches | Comprehensive |
+| Valid Palindrome | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 26 LeetCode problems + Algorithm analysis = **2000+ test cases** and **127 different algorithmic approaches**!
+**Total**: 30 LeetCode problems + Algorithm analysis = **2000+ test cases** and **149 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
