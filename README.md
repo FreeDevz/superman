@@ -40,7 +40,8 @@ src/
 │       ├── LinkedListCycle.java # LeetCode #141: Linked List Cycle
 │       ├── PrintFooBarAlternately.java # LeetCode #1115: Print FooBar Alternately
 │       ├── CustomersWhoNeverOrder.java # LeetCode #183: Customers Who Never Order
-│       └── ValidPalindrome.java # LeetCode #125: Valid Palindrome
+│       ├── ValidPalindrome.java # LeetCode #125: Valid Palindrome
+│       └── CountCompleteTreeNodes.java # LeetCode #222: Count Complete Tree Nodes
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -73,7 +74,8 @@ src/
         ├── LinkedListCycleTest.java # LeetCode #141 tests (comprehensive test cases!)
         ├── PrintFooBarAlternatelyTest.java # LeetCode #1115 tests (comprehensive test cases!)
         ├── CustomersWhoNeverOrderTest.java # LeetCode #183 tests (comprehensive test cases!)
-        └── ValidPalindromeTest.java # LeetCode #125 tests (comprehensive test cases!)
+        ├── ValidPalindromeTest.java # LeetCode #125 tests (comprehensive test cases!)
+        └── CountCompleteTreeNodesTest.java # LeetCode #222 tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -124,7 +126,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **30 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **31 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -1041,6 +1043,42 @@ Input: "12321" -> Output: true
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 31. Count Complete Tree Nodes (LeetCode #222)
+- **Location**: `src/main/java/com/example/leetcode/CountCompleteTreeNodes.java`
+- **Description**: Count the number of nodes in a complete binary tree efficiently
+- **Multiple Approaches**: 8 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Recursive Height Comparison**: O(log²n) time, O(logn) space - *Optimal solution (recommended)*
+- ⚡ **Level Order Traversal**: O(n) time, O(n) space - *BFS traversal counting all nodes*
+- 🔧 **Inorder Traversal**: O(n) time, O(logn) space - *DFS traversal counting all nodes*
+- 📚 **Postorder Traversal**: O(n) time, O(logn) space - *DFS traversal counting all nodes*
+- 🎯 **Preorder Traversal**: O(n) time, O(logn) space - *DFS traversal counting all nodes*
+- 🔍 **Binary Search on Leaves**: O(log²n) time, O(logn) space - *Binary search on last level*
+- 🌟 **Iterative Height Comparison**: O(log²n) time, O(1) space - *Iterative optimal approach*
+- 💡 **Simple Recursive**: O(n) time, O(logn) space - *Simple recursive counting*
+
+**Examples**:
+```java
+Input: root = [1,2,3,4,5,6] -> Output: 6
+Input: root = [] -> Output: 0
+Input: root = [1] -> Output: 1
+Input: Perfect binary tree (15 nodes) -> Output: 15
+Input: Complete tree (8 nodes) -> Output: 8
+```
+
+**Special Features**:
+- 🌳 **Complete Binary Tree Properties**: Leverages structural properties for optimal counting
+- ⚡ **Height Comparison**: Uses height comparison to identify perfect subtrees
+- 📊 **Perfect Subtree Detection**: Calculates perfect subtree nodes using 2^height - 1 formula
+- 🧪 **Edge Case Testing**: Empty trees, single nodes, perfect binary trees, complete trees
+- 📈 **Cross-Validation**: All approaches produce identical results
+- 🔧 **Algorithm-Specific Optimizations**: Height comparison for O(log²n), traversal for O(n)
+- 🌟 **Educational Value**: Demonstrates tree traversal, binary tree properties, and optimization techniques
+- 💡 **Key Insight**: If left and right subtrees have same height, left subtree is perfect and can be calculated directly
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
@@ -1105,6 +1143,7 @@ Input: "12321" -> Output: true
 ./gradlew test --tests "*PrintFooBarAlternately*"
 ./gradlew test --tests "*CustomersWhoNeverOrder*"
 ./gradlew test --tests "*ValidPalindrome*"
+./gradlew test --tests "*CountCompleteTreeNodes*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -1161,8 +1200,9 @@ This project serves as:
 | Print FooBar Alternately | Medium | O(n) time, O(1) space | 5 approaches | Comprehensive |
 | Customers Who Never Order | Easy | O(n + m) time, O(m) space | 6 approaches | Comprehensive |
 | Valid Palindrome | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
+| Count Complete Tree Nodes | Medium | O(log²n) time, O(logn) space | 8 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 30 LeetCode problems + Algorithm analysis = **2000+ test cases** and **149 different algorithmic approaches**!
+**Total**: 31 LeetCode problems + Algorithm analysis = **2000+ test cases** and **157 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
