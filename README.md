@@ -41,7 +41,13 @@ src/
 │       ├── PrintFooBarAlternately.java # LeetCode #1115: Print FooBar Alternately
 │       ├── CustomersWhoNeverOrder.java # LeetCode #183: Customers Who Never Order
 │       ├── ValidPalindrome.java # LeetCode #125: Valid Palindrome
-│       └── CountCompleteTreeNodes.java # LeetCode #222: Count Complete Tree Nodes
+│       ├── CountCompleteTreeNodes.java # LeetCode #222: Count Complete Tree Nodes
+│       ├── CountingBits.java # LeetCode #338: Counting Bits
+│       ├── IntersectionOfTwoLinkedLists.java # LeetCode #160: Intersection of Two Linked Lists
+│       ├── ExcelSheetColumnTitle.java # LeetCode #168: Excel Sheet Column Title
+│       └── CountAndSay.java # LeetCode #38: Count and Say
+├── hackerrank/
+│   └── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -75,7 +81,13 @@ src/
         ├── PrintFooBarAlternatelyTest.java # LeetCode #1115 tests (comprehensive test cases!)
         ├── CustomersWhoNeverOrderTest.java # LeetCode #183 tests (comprehensive test cases!)
         ├── ValidPalindromeTest.java # LeetCode #125 tests (comprehensive test cases!)
-        └── CountCompleteTreeNodesTest.java # LeetCode #222 tests (comprehensive test cases!)
+        ├── CountCompleteTreeNodesTest.java # LeetCode #222 tests (comprehensive test cases!)
+        ├── CountingBitsTest.java # LeetCode #338 tests (comprehensive test cases!)
+        ├── IntersectionOfTwoLinkedListsTest.java # LeetCode #160 tests (comprehensive test cases!)
+        ├── ExcelSheetColumnTitleTest.java # LeetCode #168 tests (comprehensive test cases!)
+        └── CountAndSayTest.java # LeetCode #38 tests (comprehensive test cases!)
+    └── hackerrank/
+        └── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -126,7 +138,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **31 complete LeetCode solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **36 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -1079,6 +1091,180 @@ Input: Complete tree (8 nodes) -> Output: 8
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 32. Counting Bits (LeetCode #338)
+- **Location**: `src/main/java/com/example/leetcode/CountingBits.java`
+- **Description**: Count the number of 1's in the binary representation of each number from 0 to n
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Dynamic Programming with Right Shift**: O(n) time, O(n) space - *Optimal solution (recommended)*
+- ⚡ **Dynamic Programming with Power of 2**: O(n) time, O(n) space - *Alternative DP approach*
+- 🔧 **Dynamic Programming with Last Set Bit**: O(n) time, O(n) space - *Bit manipulation approach*
+- 📚 **Naive Approach**: O(n log n) time, O(n) space - *Educational baseline approach*
+- 🎯 **Built-in Method**: O(n log n) time, O(n) space - *Using Integer.bitCount()*
+- 🌟 **Optimized Bit Manipulation**: O(n) time, O(n) space - *Enhanced bit operations*
+
+**Examples**:
+```java
+Input: n = 2 -> Output: [0,1,1]
+Input: n = 5 -> Output: [0,1,1,2,1,2]
+Input: n = 8 -> Output: [0,1,1,2,1,2,2,3,1]
+Input: n = 15 -> Output: [0,1,1,2,1,2,2,3,1,2,2,3,2,3,3,4]
+```
+
+**Special Features**:
+- 🎯 **Dynamic Programming Patterns**: Demonstrates multiple DP approaches for bit counting
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Zero, powers of 2, maximum constraints, consecutive numbers
+- 📈 **Constraint Handling**: Handles LeetCode constraints (0 ≤ n ≤ 10⁵)
+- 🔧 **Algorithm-Specific Optimizations**: Right shift, power of 2 detection, last set bit manipulation
+- 🌟 **Educational Value**: Demonstrates dynamic programming, bit manipulation, and optimization techniques
+- 💡 **Key Insight**: ans[i] = ans[i >> 1] + (i & 1) - count equals count of i/2 plus least significant bit
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 33. Intersection of Two Linked Lists (LeetCode #160)
+- **Location**: `src/main/java/com/example/leetcode/IntersectionOfTwoLinkedLists.java`
+- **Description**: Find the node where two singly linked lists intersect
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Two-Pointer Technique**: O(m + n) time, O(1) space - *Optimal solution (recommended)*
+- ⚡ **Length Difference Method**: O(m + n) time, O(1) space - *Alternative optimal approach*
+- 🔧 **HashSet Method**: O(m + n) time, O(m) space - *Hash-based approach*
+- 📚 **Brute Force Method**: O(m * n) time, O(1) space - *Educational baseline approach*
+- 🎯 **Stack Method**: O(m + n) time, O(m + n) space - *Stack-based approach*
+- 🌟 **Reverse and Compare Method**: O(m + n) time, O(1) space - *Advanced approach*
+
+**Examples**:
+```java
+Input: listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
+Output: Intersected at '8'
+
+Input: listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
+Output: Intersected at '2'
+
+Input: listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
+Output: No intersection
+```
+
+**Special Features**:
+- 🔗 **Linked List Manipulation**: Demonstrates advanced linked list traversal techniques
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Null lists, single nodes, identical lists, maximum constraints
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ m, n ≤ 3×10⁴)
+- 🔧 **Algorithm-Specific Optimizations**: Two-pointer technique, length difference, hash-based lookup
+- 🌟 **Educational Value**: Demonstrates linked list algorithms, pointer manipulation, and optimization techniques
+- 💡 **Key Insight**: Two-pointer technique works because both pointers traverse same total distance (m + n)
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 34. Excel Sheet Column Title (LeetCode #168)
+- **Location**: `src/main/java/com/example/leetcode/ExcelSheetColumnTitle.java`
+- **Description**: Convert a positive integer to its corresponding Excel column title (A, B, ..., Z, AA, AB, ...)
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Iterative Base-26 Conversion**: O(log₂₆(n)) time, O(log₂₆(n)) space - *Optimal solution (recommended)*
+- ⚡ **Recursive Base-26 Conversion**: O(log₂₆(n)) time, O(log₂₆(n)) space - *Recursive approach with same logic*
+- 🔧 **Optimized with Pre-allocation**: O(log₂₆(n)) time, O(log₂₆(n)) space - *Pre-allocates StringBuilder capacity*
+- 📚 **Character Array Approach**: O(log₂₆(n)) time, O(log₂₆(n)) space - *Uses char array instead of StringBuilder*
+- 🎯 **Mathematical Formula**: O(log₂₆(n)) time, O(log₂₆(n)) space - *Direct calculation without reverse*
+
+**Examples**:
+```java
+Input: 1 -> Output: "A"
+Input: 26 -> Output: "Z"
+Input: 27 -> Output: "AA"
+Input: 28 -> Output: "AB"
+Input: 701 -> Output: "ZY"
+Input: 702 -> Output: "ZZ"
+Input: 2147483647 -> Output: "FXSHRXW"
+```
+
+**Special Features**:
+- 🎯 **Base-26 Conversion**: Demonstrates 1-indexed base-26 number system (unlike standard 0-indexed)
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Single characters, boundary transitions, large numbers, maximum constraints
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ columnNumber ≤ 2³¹ - 1)
+- 🔧 **Algorithm-Specific Optimizations**: Pre-allocation, character arrays, mathematical formulas
+- 🌟 **Educational Value**: Demonstrates base conversion, string manipulation, and mathematical properties
+- 💡 **Key Insight**: Excel columns are 1-indexed, so subtract 1 before modulo operation to convert to 0-indexed
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 35. Count and Say (LeetCode #38)
+- **Location**: `src/main/java/com/example/leetcode/CountAndSay.java`
+- **Description**: Generate the nth term of the count-and-say sequence where each term describes the previous term
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Iterative String Building**: O(n * m) time, O(m) space - *Optimal solution (recommended)*
+- ⚡ **Recursive with Memoization**: O(n * m) time, O(n * m) space - *Intuitive recursive approach*
+- 🔧 **Optimized Iterative**: O(n * m) time, O(m) space - *Pre-allocated StringBuilder capacity*
+- 📚 **Character Array Approach**: O(n * m) time, O(m) space - *Uses char arrays for performance*
+- 🎯 **Two-Pointer Technique**: O(n * m) time, O(m) space - *Efficient consecutive digit counting*
+
+**Examples**:
+```java
+Input: n = 1 -> Output: "1"
+Input: n = 2 -> Output: "11" (one 1)
+Input: n = 3 -> Output: "21" (two 1s)
+Input: n = 4 -> Output: "1211" (one 2, then one 1)
+Input: n = 5 -> Output: "111221" (one 1, one 2, then two 1s)
+Input: n = 6 -> Output: "312211" (three 1s, two 2s, then one 1)
+```
+
+**Special Features**:
+- 🎯 **Sequence Generation**: Demonstrates recursive sequence building and pattern recognition
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Base cases, maximum constraints, sequence progression
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ n ≤ 30)
+- 🔧 **Algorithm-Specific Optimizations**: Pre-allocation, character arrays, two-pointer technique
+- 🌟 **Educational Value**: Demonstrates string manipulation, sequence generation, and pattern analysis
+- 💡 **Key Insight**: Each term describes the previous term by counting consecutive digits
+- 🛠️ **Utility Methods**: Sequence generation, term analysis, length calculation
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 36. Merge and Sort Intervals (HackerRank)
+- **Location**: `src/main/java/com/example/hackerrank/MergeAndSortIntervals.java`
+- **Description**: Merge all overlapping intervals and return a list of non-overlapping intervals sorted by start time
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Sort and Merge**: O(n log n) time, O(1) space - *Optimal solution (recommended)*
+- ⚡ **Priority Queue**: O(n log n) time, O(n) space - *Alternative sorting approach*
+- 🔧 **In-Place Merging**: O(n log n) time, O(1) space - *Space-optimized approach*
+- 📚 **Two-Pointer Technique**: O(n log n) time, O(1) space - *Efficient consecutive interval merging*
+- 🎯 **Recursive Merge**: O(n log n) time, O(log n) space - *Divide-and-conquer approach*
+
+**Examples**:
+```java
+Input: [[1,3],[2,6],[8,10],[15,18]] -> Output: [[1,6],[8,10],[15,18]]
+Input: [[1,4],[4,5]] -> Output: [[1,5]]
+Input: [[1,4],[2,3]] -> Output: [[1,4]]
+Input: [[1,2],[3,4],[5,6]] -> Output: [[1,2],[3,4],[5,6]]
+Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
+```
+
+**Special Features**:
+- 🎯 **Interval Merging**: Demonstrates classic interval merging algorithms and sorting techniques
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Empty arrays, single intervals, maximum constraints, negative values
+- 📈 **Constraint Handling**: Handles HackerRank constraints (1 ≤ n ≤ 10⁴, 0 ≤ start ≤ end ≤ 10⁴)
+- 🔧 **Algorithm-Specific Optimizations**: In-place merging, priority queues, two-pointer technique
+- 🌟 **Educational Value**: Demonstrates sorting, merging, and interval manipulation techniques
+- 💡 **Key Insight**: Sort by start time, then merge overlapping intervals by comparing end times
+- 🛠️ **Utility Methods**: Overlap detection, interval validation, total length calculation, max overlap analysis
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
@@ -1144,6 +1330,11 @@ Input: Complete tree (8 nodes) -> Output: 8
 ./gradlew test --tests "*CustomersWhoNeverOrder*"
 ./gradlew test --tests "*ValidPalindrome*"
 ./gradlew test --tests "*CountCompleteTreeNodes*"
+./gradlew test --tests "*CountingBits*"
+./gradlew test --tests "*IntersectionOfTwoLinkedLists*"
+./gradlew test --tests "*ExcelSheetColumnTitle*"
+./gradlew test --tests "*CountAndSay*"
+./gradlew test --tests "*MergeAndSortIntervals*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
 
@@ -1201,8 +1392,13 @@ This project serves as:
 | Customers Who Never Order | Easy | O(n + m) time, O(m) space | 6 approaches | Comprehensive |
 | Valid Palindrome | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Count Complete Tree Nodes | Medium | O(log²n) time, O(logn) space | 8 approaches | Comprehensive |
+| Counting Bits | Easy | O(n) time, O(n) space | 6 approaches | Comprehensive |
+| Intersection of Two Linked Lists | Easy | O(m + n) time, O(1) space | 6 approaches | Comprehensive |
+| Excel Sheet Column Title | Easy | O(log₂₆(n)) time, O(log₂₆(n)) space | 5 approaches | Comprehensive |
+| Count and Say | Medium | O(n * m) time, O(m) space | 5 approaches | Comprehensive |
+| Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 31 LeetCode problems + Algorithm analysis = **2000+ test cases** and **157 different algorithmic approaches**!
+**Total**: 36 algorithm problems + Algorithm analysis = **2000+ test cases** and **184 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
