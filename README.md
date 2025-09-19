@@ -45,7 +45,9 @@ src/
 │       ├── CountingBits.java # LeetCode #338: Counting Bits
 │       ├── IntersectionOfTwoLinkedLists.java # LeetCode #160: Intersection of Two Linked Lists
 │       ├── ExcelSheetColumnTitle.java # LeetCode #168: Excel Sheet Column Title
-│       └── CountAndSay.java # LeetCode #38: Count and Say
+│       ├── CountAndSay.java # LeetCode #38: Count and Say
+│       ├── MajorityElement.java # LeetCode #169: Majority Element
+│       └── ReverseBits.java # LeetCode #190: Reverse Bits
 ├── hackerrank/
 │   └── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
 └── test/java/com/example/
@@ -85,7 +87,9 @@ src/
         ├── CountingBitsTest.java # LeetCode #338 tests (comprehensive test cases!)
         ├── IntersectionOfTwoLinkedListsTest.java # LeetCode #160 tests (comprehensive test cases!)
         ├── ExcelSheetColumnTitleTest.java # LeetCode #168 tests (comprehensive test cases!)
-        └── CountAndSayTest.java # LeetCode #38 tests (comprehensive test cases!)
+        ├── CountAndSayTest.java # LeetCode #38 tests (comprehensive test cases!)
+        ├── MajorityElementTest.java # LeetCode #169 tests (comprehensive test cases!)
+        └── ReverseBitsTest.java # LeetCode #190 tests (comprehensive test cases!)
     └── hackerrank/
         └── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
@@ -1231,7 +1235,80 @@ Input: n = 6 -> Output: "312211" (three 1s, two 2s, then one 1)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 36. Merge and Sort Intervals (HackerRank)
+### 36. Majority Element (LeetCode #169)
+- **Location**: `src/main/java/com/example/leetcode/MajorityElement.java`
+- **Description**: Find the majority element that appears more than ⌊n / 2⌋ times in an array
+- **Multiple Approaches**: 7 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Boyer-Moore Voting Algorithm**: O(n) time, O(1) space - *Optimal solution (recommended)*
+- ⚡ **Boyer-Moore with Verification**: O(n) time, O(1) space - *Robust approach with validation*
+- 🔧 **HashMap Approach**: O(n) time, O(n) space - *Frequency counting approach*
+- 📚 **Sorting Approach**: O(n log n) time, O(1) space - *Sort and return middle element*
+- 🎯 **Randomization Approach**: O(n) expected time, O(1) space - *Probabilistic algorithm*
+- 🔄 **Divide and Conquer**: O(n log n) time, O(log n) space - *Recursive approach*
+- 💡 **Bit Manipulation**: O(32 * n) time, O(1) space - *Bit-level analysis*
+
+**Examples**:
+```java
+Input: nums = [3,2,3] -> Output: 3
+Input: nums = [2,2,1,1,1,2,2] -> Output: 2
+Input: nums = [1] -> Output: 1
+Input: nums = [1,1,2,2,2] -> Output: 2
+```
+
+**Special Features**:
+- 🎯 **Voting Algorithm**: Demonstrates the elegant Boyer-Moore majority vote algorithm
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Single element, all same elements, negative numbers
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ n ≤ 5×10⁴, -10⁹ ≤ nums[i] ≤ 10⁹)
+- 🔧 **Algorithm-Specific Optimizations**: Space optimization, bit manipulation, randomization
+- 🌟 **Educational Value**: Demonstrates voting algorithms, frequency analysis, and divide-and-conquer
+- 💡 **Key Insight**: Majority element will always "survive" the voting process
+- 🛠️ **Utility Methods**: Majority verification, n/3 majority elements extension
+- 🎲 **Advanced Features**: Randomization approach, bit manipulation, divide-and-conquer
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 37. Reverse Bits (LeetCode #190)
+- **Location**: `src/main/java/com/example/leetcode/ReverseBits.java`
+- **Description**: Reverse bits of a given 32-bit unsigned integer
+- **Multiple Approaches**: 7 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Bit-by-bit Reversal**: O(32) time, O(1) space - *Simple and clear approach (recommended)*
+- ⚡ **Bit Manipulation with Masks**: O(1) time, O(1) space - *Optimal solution using bit swapping*
+- 🔧 **Lookup Table Approach**: O(1) time, O(1) space - *Precomputed 8-bit reversals*
+- 📚 **Divide and Conquer**: O(log 32) time, O(1) space - *Recursive bit swapping*
+- 🎯 **String-based Approach**: O(32) time, O(32) space - *Educational string manipulation*
+- 🔄 **Precomputed Masks**: O(1) time, O(1) space - *Efficient mask-based swapping*
+- 💡 **Two-Pointer Bit Swapping**: O(32) time, O(1) space - *Pointer-based bit swapping*
+
+**Examples**:
+```java
+Input: n = 43261596 (00000010100101000001111010011100)
+Output: 964176192 (00111001011110000010100101000000)
+
+Input: n = 4294967293 (11111111111111111111111111111101)
+Output: 3221225471 (10111111111111111111111111111111)
+```
+
+**Special Features**:
+- 🎯 **Bit Manipulation Mastery**: Demonstrates advanced bit manipulation techniques
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Zero, powers of 2, palindromes, negative numbers
+- 📈 **Constraint Handling**: Handles 32-bit unsigned integer constraints
+- 🔧 **Algorithm-Specific Optimizations**: Lookup tables, precomputed masks, divide-and-conquer
+- 🌟 **Educational Value**: Demonstrates bit manipulation, string processing, and optimization techniques
+- 💡 **Key Insight**: Multiple ways to reverse bits with different time/space tradeoffs
+- 🛠️ **Utility Methods**: Binary string conversion, set bit counting, power of 2 detection
+- 🎲 **Advanced Features**: Lookup tables, precomputed masks, two-pointer technique
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 38. Merge and Sort Intervals (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/MergeAndSortIntervals.java`
 - **Description**: Merge all overlapping intervals and return a list of non-overlapping intervals sorted by start time
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -1334,6 +1411,8 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ./gradlew test --tests "*IntersectionOfTwoLinkedLists*"
 ./gradlew test --tests "*ExcelSheetColumnTitle*"
 ./gradlew test --tests "*CountAndSay*"
+./gradlew test --tests "*MajorityElement*"
+./gradlew test --tests "*ReverseBits*"
 ./gradlew test --tests "*MergeAndSortIntervals*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
@@ -1396,9 +1475,11 @@ This project serves as:
 | Intersection of Two Linked Lists | Easy | O(m + n) time, O(1) space | 6 approaches | Comprehensive |
 | Excel Sheet Column Title | Easy | O(log₂₆(n)) time, O(log₂₆(n)) space | 5 approaches | Comprehensive |
 | Count and Say | Medium | O(n * m) time, O(m) space | 5 approaches | Comprehensive |
+| Majority Element | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
+| Reverse Bits | Easy | O(1) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 36 algorithm problems + Algorithm analysis = **2000+ test cases** and **184 different algorithmic approaches**!
+**Total**: 38 algorithm problems + Algorithm analysis = **2000+ test cases** and **198 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
