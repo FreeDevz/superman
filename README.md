@@ -47,9 +47,11 @@ src/
 │       ├── ExcelSheetColumnTitle.java # LeetCode #168: Excel Sheet Column Title
 │       ├── CountAndSay.java # LeetCode #38: Count and Say
 │       ├── MajorityElement.java # LeetCode #169: Majority Element
-│       └── ReverseBits.java # LeetCode #190: Reverse Bits
+│       ├── ReverseBits.java # LeetCode #190: Reverse Bits
+│       └── HappyNumber.java # LeetCode #202: Happy Number
 ├── hackerrank/
-│   └── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
+│   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
+│   └── PlusMinus.java # HackerRank: Plus Minus
 └── test/java/com/example/
     ├── AppTest.java                       # Main application tests
     └── leetcode/
@@ -89,9 +91,11 @@ src/
         ├── ExcelSheetColumnTitleTest.java # LeetCode #168 tests (comprehensive test cases!)
         ├── CountAndSayTest.java # LeetCode #38 tests (comprehensive test cases!)
         ├── MajorityElementTest.java # LeetCode #169 tests (comprehensive test cases!)
-        └── ReverseBitsTest.java # LeetCode #190 tests (comprehensive test cases!)
+        ├── ReverseBitsTest.java # LeetCode #190 tests (comprehensive test cases!)
+        └── HappyNumberTest.java # LeetCode #202 tests (comprehensive test cases!)
     └── hackerrank/
-        └── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
+        ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
+        └── PlusMinusTest.java # HackerRank tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
 settings.gradle.kts                      # Gradle settings
 gradle/wrapper/                          # Gradle wrapper files
@@ -1308,7 +1312,89 @@ Output: 3221225471 (10111111111111111111111111111111)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 38. Merge and Sort Intervals (HackerRank)
+### 38. Happy Number (LeetCode #202)
+- **Location**: `src/main/java/com/example/leetcode/HappyNumber.java`
+- **Description**: Determine if a number is happy by checking if the sum of squares of digits eventually reaches 1
+- **Multiple Approaches**: 7 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **HashSet Approach**: O(log n) time, O(log n) space - *Simple cycle detection (recommended)*
+- ⚡ **Floyd's Cycle Detection**: O(log n) time, O(1) space - *Optimal space-efficient solution*
+- 🔧 **Mathematical Approach**: O(log n) time, O(1) space - *Using mathematical properties*
+- 📚 **Recursive Approach**: O(log n) time, O(log n) space - *Recursive with memoization*
+- 🎯 **Iterative with Early Termination**: O(log n) time, O(log n) space - *Early cycle detection*
+- 🔄 **Bit Manipulation**: O(log n) time, O(1) space - *Optimized digit processing*
+- 💡 **String-based Approach**: O(log n) time, O(log n) space - *Educational string processing*
+
+**Examples**:
+```java
+Input: n = 19
+Output: true
+Explanation: 1² + 9² = 82, 8² + 2² = 68, 6² + 8² = 100, 1² + 0² + 0² = 1
+
+Input: n = 2
+Output: false
+Explanation: 2² = 4, 4² = 16, 1² + 6² = 37, 3² + 7² = 58, 5² + 8² = 89, 8² + 9² = 145, 1² + 4² + 5² = 42, 4² + 2² = 20, 2² + 0² = 4 (cycle)
+```
+
+**Special Features**:
+- 🎯 **Cycle Detection**: Multiple approaches to detect infinite loops
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Single digits, large numbers, boundary conditions
+- 📈 **Constraint Handling**: Handles 1 ≤ n ≤ 2³¹ - 1
+- 🔧 **Algorithm-Specific Optimizations**: Floyd's algorithm, mathematical properties, early termination
+- 🌟 **Educational Value**: Demonstrates cycle detection, mathematical analysis, and optimization
+- 💡 **Key Insight**: Happy numbers either reach 1 or enter a cycle
+- 🛠️ **Utility Methods**: Sequence generation, step counting, range finding
+- 🎲 **Advanced Features**: Floyd's cycle detection, mathematical optimization, bit manipulation
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 39. Plus Minus (HackerRank)
+- **Location**: `src/main/java/com/example/hackerrank/PlusMinus.java`
+- **Description**: Calculate ratios of positive, negative, and zero elements in an array
+- **Multiple Approaches**: 7 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Simple Counting**: O(n) time, O(1) space - *Basic counting approach (recommended)*
+- ⚡ **Stream-based Approach**: O(n) time, O(1) space - *Java streams for functional style*
+- 🔧 **Enhanced Counting**: O(n) time, O(1) space - *With input validation and edge cases*
+- 📚 **Functional Programming**: O(n) time, O(1) space - *IntStream-based approach*
+- 🎯 **Array-based Approach**: O(n) time, O(1) space - *Array storage for counts*
+- 🔄 **Math Operations**: O(n) time, O(1) space - *Using Integer.signum()*
+- 💡 **Bit Manipulation**: O(n) time, O(1) space - *Sign bit checking*
+
+**Examples**:
+```java
+Input: arr = [-4, 3, -9, 0, 4, 1]
+Output: 
+0.500000  // positive ratio (3/6)
+0.333333  // negative ratio (2/6)  
+0.166667  // zero ratio (1/6)
+
+Input: arr = [1, 2, 3, -1, -2, -3, 0, 0]
+Output:
+0.375000  // positive ratio (3/8)
+0.375000  // negative ratio (3/8)
+0.250000  // zero ratio (2/8)
+```
+
+**Special Features**:
+- 🎯 **Ratio Calculation**: Precise decimal formatting with 6 decimal places
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Null arrays, empty arrays, boundary values
+- 📈 **Constraint Handling**: Handles 1 ≤ n ≤ 100, -100 ≤ arr[i] ≤ 100
+- 🔧 **Algorithm-Specific Optimizations**: Streams, functional programming, bit manipulation
+- 🌟 **Educational Value**: Demonstrates counting, streams, and mathematical operations
+- 💡 **Key Insight**: Simple counting with precise decimal formatting
+- 🛠️ **Utility Methods**: Ratio calculation, input validation, element counting
+- 🎲 **Advanced Features**: Stream processing, functional programming, bit manipulation
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 39. Merge and Sort Intervals (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/MergeAndSortIntervals.java`
 - **Description**: Merge all overlapping intervals and return a list of non-overlapping intervals sorted by start time
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -1413,6 +1499,8 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ./gradlew test --tests "*CountAndSay*"
 ./gradlew test --tests "*MajorityElement*"
 ./gradlew test --tests "*ReverseBits*"
+./gradlew test --tests "*HappyNumber*"
+./gradlew test --tests "*PlusMinus*"
 ./gradlew test --tests "*MergeAndSortIntervals*"
 ./gradlew test --tests "*BigOComplexity*"
 ```
@@ -1477,9 +1565,11 @@ This project serves as:
 | Count and Say | Medium | O(n * m) time, O(m) space | 5 approaches | Comprehensive |
 | Majority Element | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Reverse Bits | Easy | O(1) time, O(1) space | 7 approaches | Comprehensive |
+| Happy Number | Easy | O(log n) time, O(1) space | 7 approaches | Comprehensive |
+| Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 38 algorithm problems + Algorithm analysis = **2000+ test cases** and **198 different algorithmic approaches**!
+**Total**: 40 algorithm problems + Algorithm analysis = **2000+ test cases** and **212 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
