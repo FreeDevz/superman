@@ -48,7 +48,9 @@ src/
 │       ├── CountAndSay.java # LeetCode #38: Count and Say
 │       ├── MajorityElement.java # LeetCode #169: Majority Element
 │       ├── ReverseBits.java # LeetCode #190: Reverse Bits
-│       └── HappyNumber.java # LeetCode #202: Happy Number
+│       ├── HappyNumber.java # LeetCode #202: Happy Number
+│       ├── ContainsDuplicate.java # LeetCode #217: Contains Duplicate
+│       └── ContainsDuplicateII.java # LeetCode #219: Contains Duplicate II
 ├── hackerrank/
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
 │   └── PlusMinus.java # HackerRank: Plus Minus
@@ -92,7 +94,9 @@ src/
         ├── CountAndSayTest.java # LeetCode #38 tests (comprehensive test cases!)
         ├── MajorityElementTest.java # LeetCode #169 tests (comprehensive test cases!)
         ├── ReverseBitsTest.java # LeetCode #190 tests (comprehensive test cases!)
-        └── HappyNumberTest.java # LeetCode #202 tests (comprehensive test cases!)
+        ├── HappyNumberTest.java # LeetCode #202 tests (comprehensive test cases!)
+        ├── ContainsDuplicateTest.java # LeetCode #217 tests (comprehensive test cases!)
+        └── ContainsDuplicateIITest.java # LeetCode #219 tests (comprehensive test cases!)
     └── hackerrank/
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
         └── PlusMinusTest.java # HackerRank tests (comprehensive test cases!)
@@ -146,7 +150,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **36 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **38 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -1351,7 +1355,69 @@ Explanation: 2² = 4, 4² = 16, 1² + 6² = 37, 3² + 7² = 58, 5² + 8² = 89, 
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 39. Plus Minus (HackerRank)
+### 39. Contains Duplicate (LeetCode #217)
+- **Location**: `src/main/java/com/example/leetcode/ContainsDuplicate.java`
+- **Description**: Determine if any value appears at least twice in an integer array
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **HashSet Approach**: O(n) time, O(n) space - *Optimal solution (recommended)*
+- ⚡ **Sorting Approach**: O(n log n) time, O(1) space - *Space-efficient alternative*
+- 🔧 **Stream/Distinct Approach**: O(n) time, O(n) space - *Functional programming style*
+- 🎯 **Enhanced HashSet**: O(n) time, O(n) space - *Optimized with early termination*
+- 📚 **Brute Force**: O(n²) time, O(1) space - *Educational baseline approach*
+
+**Examples**:
+```java
+Input: nums = [1,2,3,1] -> Output: true
+Input: nums = [1,2,3,4] -> Output: false
+Input: nums = [1,1,1,3,3,4,3,2,4,2] -> Output: true
+```
+
+**Special Features**:
+- 🎯 **Multiple Algorithmic Approaches**: 5 different solutions for comprehensive learning
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Null arrays, empty arrays, single elements, large arrays
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ n ≤ 10⁵, -10⁹ ≤ nums[i] ≤ 10⁹)
+- 🔧 **Algorithm-Specific Optimizations**: Early termination, space optimization, functional programming
+- 🌟 **Educational Value**: Demonstrates hash tables, sorting, streams, and optimization techniques
+- 💡 **Key Insight**: HashSet provides O(1) lookup time for duplicate detection
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 40. Contains Duplicate II (LeetCode #219)
+- **Location**: `src/main/java/com/example/leetcode/ContainsDuplicateII.java`
+- **Description**: Determine if there are two distinct indices i and j such that nums[i] == nums[j] and abs(i - j) <= k
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Sliding Window with HashSet**: O(n) time, O(min(n,k)) space - *Optimal solution (recommended)*
+- ⚡ **HashMap with Index Tracking**: O(n) time, O(n) space - *Alternative with index tracking*
+- 🔧 **Optimized Sliding Window**: O(n) time, O(min(n,k)) space - *Enhanced with optimizations*
+- 🎯 **Array Window**: O(n*k) time, O(k) space - *Space-optimized for small k*
+- 📚 **Brute Force**: O(n*k) time, O(1) space - *Educational baseline approach*
+
+**Examples**:
+```java
+Input: nums = [1,2,3,1], k = 3 -> Output: true (duplicates at indices 0 and 3, distance = 3)
+Input: nums = [1,0,1,1], k = 1 -> Output: true (duplicates at indices 2 and 3, distance = 1)
+Input: nums = [1,2,3,1,2,3], k = 2 -> Output: false (no duplicates within distance 2)
+```
+
+**Special Features**:
+- 🎯 **Sliding Window Technique**: Demonstrates efficient window-based algorithms
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Null arrays, empty arrays, k=0, k>array.length
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ n ≤ 10⁵, 0 ≤ k ≤ 10⁵)
+- 🔧 **Algorithm-Specific Optimizations**: Window size management, index tracking, early termination
+- 🌟 **Educational Value**: Demonstrates sliding window, hash tables, and space-time tradeoffs
+- 💡 **Key Insight**: Maintain a sliding window of size k+1 to check for nearby duplicates
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 41. Plus Minus (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/PlusMinus.java`
 - **Description**: Calculate ratios of positive, negative, and zero elements in an array
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1432,7 +1498,7 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **2000+ comprehensive test cases** across all solutions
+- ✅ **2200+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -1500,6 +1566,8 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ./gradlew test --tests "*MajorityElement*"
 ./gradlew test --tests "*ReverseBits*"
 ./gradlew test --tests "*HappyNumber*"
+./gradlew test --tests "*ContainsDuplicate*"
+./gradlew test --tests "*ContainsDuplicateII*"
 ./gradlew test --tests "*PlusMinus*"
 ./gradlew test --tests "*MergeAndSortIntervals*"
 ./gradlew test --tests "*BigOComplexity*"
@@ -1509,7 +1577,7 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ```bash
 ./gradlew clean              # Clean build artifacts
 ./gradlew compileJava        # Compile source code
-./gradlew test               # Run all 2000+ tests
+./gradlew test               # Run all 2200+ tests
 ./gradlew build              # Build the entire project
 ./gradlew run                # Run with all algorithm demonstrations
 ```
@@ -1566,10 +1634,12 @@ This project serves as:
 | Majority Element | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Reverse Bits | Easy | O(1) time, O(1) space | 7 approaches | Comprehensive |
 | Happy Number | Easy | O(log n) time, O(1) space | 7 approaches | Comprehensive |
+| Contains Duplicate | Easy | O(n) time, O(n) space | 5 approaches | Comprehensive |
+| Contains Duplicate II | Easy | O(n) time, O(min(n,k)) space | 5 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 40 algorithm problems + Algorithm analysis = **2000+ test cases** and **212 different algorithmic approaches**!
+**Total**: 42 algorithm problems + Algorithm analysis = **2200+ test cases** and **222 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
