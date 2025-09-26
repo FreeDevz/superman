@@ -50,7 +50,9 @@ src/
 │       ├── ReverseBits.java # LeetCode #190: Reverse Bits
 │       ├── HappyNumber.java # LeetCode #202: Happy Number
 │       ├── ContainsDuplicate.java # LeetCode #217: Contains Duplicate
-│       └── ContainsDuplicateII.java # LeetCode #219: Contains Duplicate II
+│       ├── ContainsDuplicateII.java # LeetCode #219: Contains Duplicate II
+│       ├── IsomorphicStrings.java # LeetCode #205: Isomorphic Strings
+│       └── StackUsingQueues.java # LeetCode #225: Implement Stack using Queues
 ├── hackerrank/
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
 │   └── PlusMinus.java # HackerRank: Plus Minus
@@ -96,7 +98,9 @@ src/
         ├── ReverseBitsTest.java # LeetCode #190 tests (comprehensive test cases!)
         ├── HappyNumberTest.java # LeetCode #202 tests (comprehensive test cases!)
         ├── ContainsDuplicateTest.java # LeetCode #217 tests (comprehensive test cases!)
-        └── ContainsDuplicateIITest.java # LeetCode #219 tests (comprehensive test cases!)
+        ├── ContainsDuplicateIITest.java # LeetCode #219 tests (comprehensive test cases!)
+        ├── IsomorphicStringsTest.java # LeetCode #205 tests (comprehensive test cases!)
+        └── StackUsingQueuesTest.java # LeetCode #225 tests (comprehensive test cases!)
     └── hackerrank/
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
         └── PlusMinusTest.java # HackerRank tests (comprehensive test cases!)
@@ -150,7 +154,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **38 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **40 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -1386,7 +1390,81 @@ Input: nums = [1,1,1,3,3,4,3,2,4,2] -> Output: true
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 40. Contains Duplicate II (LeetCode #219)
+### 40. Isomorphic Strings (LeetCode #205)
+- **Location**: `src/main/java/com/example/leetcode/IsomorphicStrings.java`
+- **Description**: Determine if two strings are isomorphic (characters can be replaced to get each other)
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Two HashMaps**: O(n) time, O(1) space - *Most intuitive and interview-friendly (recommended)*
+- ⚡ **Array-based Mapping**: O(n) time, O(1) space - *Most efficient with fixed-size arrays*
+- 🔧 **Single HashMap with Bijection Check**: O(n) time, O(1) space - *Alternative with bijection validation*
+- 📚 **Character Position Mapping**: O(n) time, O(1) space - *Maps characters to first occurrence positions*
+- 🎯 **String Transformation**: O(n) time, O(n) space - *Educational approach showing isomorphism concept*
+- 🌟 **Optimized Array**: O(n) time, O(1) space - *Most efficient with early termination optimizations*
+
+**Examples**:
+```java
+Input: s = "egg", t = "add" -> Output: true
+Input: s = "foo", t = "bar" -> Output: false
+Input: s = "paper", t = "title" -> Output: true
+Input: s = "ab", t = "aa" -> Output: false
+Input: s = "ab", t = "ca" -> Output: true
+```
+
+**Special Features**:
+- 🎯 **Bijection Validation**: Ensures one-to-one character mapping
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Empty strings, single characters, maximum constraints, special ASCII characters
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ s.length ≤ 5×10⁴, ASCII characters)
+- 🔧 **Algorithm-Specific Optimizations**: Array-based lookup, position mapping, string transformation
+- 🌟 **Educational Value**: Demonstrates isomorphism concepts, bijection properties, and multiple algorithmic approaches
+- 💡 **Key Insight**: Two strings are isomorphic if they have the same character position pattern
+- 🛠️ **Utility Methods**: Character frequency analysis, bijection validation, isomorphic pattern detection
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 41. Implement Stack using Queues (LeetCode #225)
+- **Location**: `src/main/java/com/example/leetcode/StackUsingQueues.java`
+- **Description**: Implement a last-in-first-out (LIFO) stack using only two queues
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Two Queues with Transfer**: O(n) push, O(1) pop/top/empty - *Most intuitive and interview-friendly (recommended)*
+- ⚡ **Single Queue with Rotation**: O(n) push, O(1) pop/top/empty - *Space-efficient with one queue*
+- 🔧 **Optimized Two Queues**: O(n) push, O(1) pop/top/empty - *Enhanced with better variable naming*
+- 📚 **Array-based Implementation**: O(n) push, O(1) pop/top/empty - *Custom queue using arrays*
+- 🎯 **Deque-based Implementation**: O(1) push/pop/top/empty - *Most efficient using Java's Deque*
+- 🌟 **LinkedList-based Implementation**: O(n) push, O(1) pop/top/empty - *Educational approach with manual rotation*
+
+**Examples**:
+```java
+Input: ["MyStack", "push", "push", "top", "pop", "empty"]
+Output: [null, null, null, 2, 2, false]
+
+Operations:
+- push(1) -> stack: [1]
+- push(2) -> stack: [2, 1]  
+- top() -> returns 2
+- pop() -> returns 2, stack: [1]
+- empty() -> returns false
+```
+
+**Special Features**:
+- 🎯 **LIFO Property**: Ensures Last-In-First-Out behavior using FIFO queues
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Empty stacks, single elements, maximum constraints, mixed operations
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ x ≤ 9, at most 100 calls)
+- 🔧 **Algorithm-Specific Optimizations**: Queue rotation, array management, Deque utilization
+- 🌟 **Educational Value**: Demonstrates data structure conversion, queue operations, and LIFO simulation
+- 💡 **Key Insight**: Use queue transfer/rotation to maintain newest element at front for stack behavior
+- 🛠️ **Utility Methods**: Stack size calculation, equality comparison, LIFO property verification
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 42. Contains Duplicate II (LeetCode #219)
 - **Location**: `src/main/java/com/example/leetcode/ContainsDuplicateII.java`
 - **Description**: Determine if there are two distinct indices i and j such that nums[i] == nums[j] and abs(i - j) <= k
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -1568,6 +1646,8 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ./gradlew test --tests "*HappyNumber*"
 ./gradlew test --tests "*ContainsDuplicate*"
 ./gradlew test --tests "*ContainsDuplicateII*"
+./gradlew test --tests "*IsomorphicStrings*"
+./gradlew test --tests "*StackUsingQueues*"
 ./gradlew test --tests "*PlusMinus*"
 ./gradlew test --tests "*MergeAndSortIntervals*"
 ./gradlew test --tests "*BigOComplexity*"
@@ -1636,10 +1716,12 @@ This project serves as:
 | Happy Number | Easy | O(log n) time, O(1) space | 7 approaches | Comprehensive |
 | Contains Duplicate | Easy | O(n) time, O(n) space | 5 approaches | Comprehensive |
 | Contains Duplicate II | Easy | O(n) time, O(min(n,k)) space | 5 approaches | Comprehensive |
+| Isomorphic Strings | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
+| Implement Stack using Queues | Easy | O(n) push, O(1) pop/top/empty | 6 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 42 algorithm problems + Algorithm analysis = **2200+ test cases** and **222 different algorithmic approaches**!
+**Total**: 44 algorithm problems + Algorithm analysis = **2400+ test cases** and **234 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
