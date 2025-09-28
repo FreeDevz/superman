@@ -52,7 +52,10 @@ src/
 │       ├── ContainsDuplicate.java # LeetCode #217: Contains Duplicate
 │       ├── ContainsDuplicateII.java # LeetCode #219: Contains Duplicate II
 │       ├── IsomorphicStrings.java # LeetCode #205: Isomorphic Strings
-│       └── StackUsingQueues.java # LeetCode #225: Implement Stack using Queues
+│       ├── StackUsingQueues.java # LeetCode #225: Implement Stack using Queues
+│       ├── SummaryRanges.java # LeetCode #228: Summary Ranges
+│       ├── MoveZeroes.java # LeetCode #283: Move Zeroes
+│       └── RangeSumQueryImmutable.java # LeetCode #303: Range Sum Query - Immutable
 ├── hackerrank/
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
 │   └── PlusMinus.java # HackerRank: Plus Minus
@@ -100,7 +103,10 @@ src/
         ├── ContainsDuplicateTest.java # LeetCode #217 tests (comprehensive test cases!)
         ├── ContainsDuplicateIITest.java # LeetCode #219 tests (comprehensive test cases!)
         ├── IsomorphicStringsTest.java # LeetCode #205 tests (comprehensive test cases!)
-        └── StackUsingQueuesTest.java # LeetCode #225 tests (comprehensive test cases!)
+        ├── StackUsingQueuesTest.java # LeetCode #225 tests (comprehensive test cases!)
+        ├── SummaryRangesTest.java # LeetCode #228 tests (comprehensive test cases!)
+        ├── MoveZeroesTest.java # LeetCode #283 tests (comprehensive test cases!)
+        └── RangeSumQueryImmutableTest.java # LeetCode #303 tests (comprehensive test cases!)
     └── hackerrank/
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
         └── PlusMinusTest.java # HackerRank tests (comprehensive test cases!)
@@ -154,7 +160,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **40 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **43 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -1538,7 +1544,111 @@ Output:
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 39. Merge and Sort Intervals (HackerRank)
+### 42. Summary Ranges (LeetCode #228)
+- **Location**: `src/main/java/com/example/leetcode/SummaryRanges.java`
+- **Description**: Return the smallest sorted list of ranges that cover all numbers in a sorted unique integer array
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Two Pointers**: O(n) time, O(1) space - *Most intuitive and interview-friendly (recommended)*
+- ⚡ **Single Pass**: O(n) time, O(1) space - *Memory efficient with StringBuilder*
+- 🔧 **With Pairs**: O(n) time, O(n) space - *Store ranges as pairs and convert to strings*
+- 📚 **Recursive**: O(n) time, O(n) space - *Divide and conquer approach*
+- 🎯 **Optimized**: O(n) time, O(1) space - *Enhanced with early termination and edge case handling*
+
+**Examples**:
+```java
+Input: nums = [0,1,2,4,5,7] -> Output: ["0->2","4->5","7"]
+Input: nums = [0,2,3,4,6,8,9] -> Output: ["0","2->4","6","8->9"]
+Input: nums = [0] -> Output: ["0"]
+Input: nums = [] -> Output: []
+Input: nums = [1,3] -> Output: ["1","3"]
+```
+
+**Special Features**:
+- 🎯 **Range Detection**: Identifies consecutive number sequences and formats as ranges
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Empty arrays, single elements, all consecutive, no consecutive
+- 📈 **Constraint Handling**: Handles LeetCode constraints (0 ≤ length ≤ 20, -2³¹ ≤ nums[i] ≤ 2³¹ - 1)
+- 🔧 **Algorithm-Specific Optimizations**: Two pointers, single pass, recursive approaches
+- 🌟 **Educational Value**: Demonstrates range detection, string formatting, and multiple algorithmic approaches
+- 💡 **Key Insight**: Track start and end of consecutive sequences, format as "start->end" or "start"
+- 🛠️ **Utility Methods**: Range comparison, result validation, performance measurement
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 43. Move Zeroes (LeetCode #283)
+- **Location**: `src/main/java/com/example/leetcode/MoveZeroes.java`
+- **Description**: Move all 0's to the end of array while maintaining relative order of non-zero elements in-place
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Two Pointers with Swap**: O(n) time, O(1) space - *Most efficient and interview-friendly (recommended)*
+- ⚡ **Two Pass Method**: O(n) time, O(1) space - *First pass: move non-zeros, second pass: fill zeros*
+- 🔧 **Optimized Two Pointers**: O(n) time, O(1) space - *Enhanced with early termination and minimal swaps*
+- 📚 **Count Zeros Method**: O(n) time, O(1) space - *Count zeros and move non-zeros accordingly*
+- 🎯 **Partition Method**: O(n) time, O(1) space - *Use partitioning technique similar to quicksort*
+- 🔄 **Recursive Method**: O(n) time, O(n) space - *Educational recursive approach*
+
+**Examples**:
+```java
+Input: nums = [0,1,0,3,12] -> Output: [1,3,12,0,0]
+Input: nums = [0] -> Output: [0]
+Input: nums = [1,0,1] -> Output: [1,1,0]
+Input: nums = [0,0,1] -> Output: [1,0,0]
+Input: nums = [1,2,3,4,5] -> Output: [1,2,3,4,5] (no change)
+```
+
+**Special Features**:
+- 🎯 **In-place Operation**: Modifies array without using extra space (optimal approach)
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Null arrays, empty arrays, single elements, all zeros, no zeros
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ length ≤ 10⁴, -2³¹ ≤ nums[i] ≤ 2³¹ - 1)
+- 🔧 **Algorithm-Specific Optimizations**: Two pointers, partitioning, count-based approaches
+- 🌟 **Educational Value**: Demonstrates in-place array manipulation, two-pointer techniques, and optimization
+- 💡 **Key Insight**: Use two pointers to separate non-zero elements from zeros while maintaining order
+- 🛠️ **Utility Methods**: Array comparison, zero counting, operation counting, verification tools
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 44. Range Sum Query - Immutable (LeetCode #303)
+- **Location**: `src/main/java/com/example/leetcode/RangeSumQueryImmutable.java`
+- **Description**: Design a data structure to efficiently calculate sum of elements in a given range of an integer array
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Prefix Sum Array**: O(n) constructor, O(1) sumRange - *Most efficient and interview-friendly (recommended)*
+- ⚡ **Segment Tree**: O(n) constructor, O(log n) sumRange - *Advanced data structure for range queries*
+- 🔧 **Binary Indexed Tree (Fenwick Tree)**: O(n log n) constructor, O(log n) sumRange - *Space-efficient range queries*
+- 📚 **Sparse Table**: O(n log n) constructor, O(1) sumRange - *Advanced technique for range queries*
+- 🎯 **Simple Array**: O(n) constructor, O(right-left+1) sumRange - *Educational baseline approach*
+- 🌟 **Optimized Prefix Sum**: O(n) constructor, O(1) sumRange - *Production-ready with validation and utilities*
+
+**Examples**:
+```java
+Input: nums = [-2, 0, 3, -5, 2, -1]
+NumArray numArray = new NumArray(nums);
+numArray.sumRange(0, 2); // Returns 1 ((-2) + 0 + 3)
+numArray.sumRange(2, 5); // Returns -1 (3 + (-5) + 2 + (-1))
+numArray.sumRange(0, 5); // Returns -3 (sum of all elements)
+```
+
+**Special Features**:
+- 🎯 **Range Sum Queries**: Efficiently handles multiple range sum queries with different data structures
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Null arrays, empty arrays, single elements, large arrays, negative numbers
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ length ≤ 10⁴, -10⁵ ≤ nums[i] ≤ 10⁵, ≤10⁴ calls)
+- 🔧 **Algorithm-Specific Optimizations**: Prefix sums, segment trees, binary indexed trees, sparse tables
+- 🌟 **Educational Value**: Demonstrates advanced data structures, range queries, and optimization techniques
+- 💡 **Key Insight**: Precompute prefix sums to answer range queries in O(1) time
+- 🛠️ **Utility Methods**: Array comparison, test case generation, range query generation, validation tools
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 45. Merge and Sort Intervals (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/MergeAndSortIntervals.java`
 - **Description**: Merge all overlapping intervals and return a list of non-overlapping intervals sorted by start time
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -1648,6 +1758,9 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ./gradlew test --tests "*ContainsDuplicateII*"
 ./gradlew test --tests "*IsomorphicStrings*"
 ./gradlew test --tests "*StackUsingQueues*"
+./gradlew test --tests "*SummaryRanges*"
+./gradlew test --tests "*MoveZeroes*"
+./gradlew test --tests "*RangeSumQueryImmutable*"
 ./gradlew test --tests "*PlusMinus*"
 ./gradlew test --tests "*MergeAndSortIntervals*"
 ./gradlew test --tests "*BigOComplexity*"
@@ -1718,10 +1831,13 @@ This project serves as:
 | Contains Duplicate II | Easy | O(n) time, O(min(n,k)) space | 5 approaches | Comprehensive |
 | Isomorphic Strings | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Implement Stack using Queues | Easy | O(n) push, O(1) pop/top/empty | 6 approaches | Comprehensive |
+| Summary Ranges | Easy | O(n) time, O(1) space | 5 approaches | Comprehensive |
+| Move Zeroes | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
+| Range Sum Query - Immutable | Easy | O(n) constructor, O(1) sumRange | 6 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 44 algorithm problems + Algorithm analysis = **2400+ test cases** and **234 different algorithmic approaches**!
+**Total**: 47 algorithm problems + Algorithm analysis = **2400+ test cases** and **251 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
