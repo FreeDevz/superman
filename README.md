@@ -56,6 +56,9 @@ src/
 │       ├── SummaryRanges.java # LeetCode #228: Summary Ranges
 │       ├── MoveZeroes.java # LeetCode #283: Move Zeroes
 │       ├── RangeSumQueryImmutable.java # LeetCode #303: Range Sum Query - Immutable
+│       ├── IntersectionOfTwoArrays.java # LeetCode #349: Intersection of Two Arrays
+│       ├── IntersectionOfTwoArraysII.java # LeetCode #350: Intersection of Two Arrays II
+│       ├── ThirdMaximumNumber.java # LeetCode #414: Third Maximum Number
 │       └── FirstBadVersion.java # LeetCode #278: First Bad Version
 ├── hackerrank/
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
@@ -108,6 +111,9 @@ src/
         ├── SummaryRangesTest.java # LeetCode #228 tests (comprehensive test cases!)
         ├── MoveZeroesTest.java # LeetCode #283 tests (comprehensive test cases!)
         ├── RangeSumQueryImmutableTest.java # LeetCode #303 tests (comprehensive test cases!)
+        ├── IntersectionOfTwoArraysTest.java # LeetCode #349 tests (comprehensive test cases!)
+        ├── IntersectionOfTwoArraysIITest.java # LeetCode #350 tests (comprehensive test cases!)
+        ├── ThirdMaximumNumberTest.java # LeetCode #414 tests (comprehensive test cases!)
         └── FirstBadVersionTest.java # LeetCode #278 tests (comprehensive test cases!)
     └── hackerrank/
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
@@ -162,7 +168,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **44 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **51 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -1626,31 +1632,124 @@ Input: nums = [1,2,3,4,5] -> Output: [1,2,3,4,5] (no change)
 - 🔧 **Binary Indexed Tree (Fenwick Tree)**: O(n log n) constructor, O(log n) sumRange - *Space-efficient range queries*
 - 📚 **Sparse Table**: O(n log n) constructor, O(1) sumRange - *Advanced technique for range queries*
 - 🎯 **Simple Array**: O(n) constructor, O(right-left+1) sumRange - *Educational baseline approach*
-- 🌟 **Optimized Prefix Sum**: O(n) constructor, O(1) sumRange - *Production-ready with validation and utilities*
+
+### 45. Intersection of Two Arrays (LeetCode #349)
+- **Location**: `src/main/java/com/example/leetcode/IntersectionOfTwoArrays.java`
+- **Description**: Find the intersection of two integer arrays, returning unique elements
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **HashSet Approach**: O(n + m) time, O(n + m) space - *Most efficient and interview-friendly (recommended)*
+- ⚡ **Two Pointers**: O(n log n + m log m) time, O(1) space - *Space-optimized after sorting*
+- 🔧 **Binary Search**: O(n log n + m log n) time, O(1) space - *Efficient when one array is much smaller*
+- 📚 **Java 8 Streams**: O(n + m) time, O(n + m) space - *Functional programming approach*
+- 🎯 **Built-in Binary Search**: O(n log n + m log n) time, O(1) space - *Using Arrays.binarySearch*
+- 🚀 **Optimized HashSet**: O(n + m) time, O(min(n, m)) space - *Space-optimized using smaller array*
 
 **Examples**:
 ```java
-Input: nums = [-2, 0, 3, -5, 2, -1]
-NumArray numArray = new NumArray(nums);
-numArray.sumRange(0, 2); // Returns 1 ((-2) + 0 + 3)
-numArray.sumRange(2, 5); // Returns -1 (3 + (-5) + 2 + (-1))
-numArray.sumRange(0, 5); // Returns -3 (sum of all elements)
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2]
+
+Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]  
+Output: [9,4] or [4,9]
 ```
 
 **Special Features**:
-- 🎯 **Range Sum Queries**: Efficiently handles multiple range sum queries with different data structures
+- 🎯 **Multiple Approaches**: 6 different algorithms for finding array intersections
 - 📊 **Cross-Validation**: All approaches produce identical results
 - ⚡ **Performance Analysis**: Live timing comparison between approaches
-- 🧪 **Edge Case Testing**: Null arrays, empty arrays, single elements, large arrays, negative numbers
-- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ length ≤ 10⁴, -10⁵ ≤ nums[i] ≤ 10⁵, ≤10⁴ calls)
-- 🔧 **Algorithm-Specific Optimizations**: Prefix sums, segment trees, binary indexed trees, sparse tables
-- 🌟 **Educational Value**: Demonstrates advanced data structures, range queries, and optimization techniques
-- 💡 **Key Insight**: Precompute prefix sums to answer range queries in O(1) time
-- 🛠️ **Utility Methods**: Array comparison, test case generation, range query generation, validation tools
+- 🛠️ **Utility Methods**: Array comparison, printing, and validation tools
+- 🧪 **Edge Case Testing**: Empty arrays, single elements, no intersection, identical arrays, large arrays
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ length ≤ 1000, 0 ≤ nums[i] ≤ 1000)
+- 🔧 **Algorithm-Specific Optimizations**: HashSet lookups, binary search, two pointers, streams
+- 🌟 **Educational Value**: Demonstrates set operations, sorting algorithms, and space-time tradeoffs
+- 💡 **Key Insight**: Use HashSet for O(1) lookups to find intersection efficiently
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 45. First Bad Version (LeetCode #278)
+### 46. Intersection of Two Arrays II (LeetCode #350)
+- **Location**: `src/main/java/com/example/leetcode/IntersectionOfTwoArraysII.java`
+- **Description**: Find the intersection of two integer arrays, returning elements with frequency preserved
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **HashMap Frequency Counting**: O(n + m) time, O(min(n, m)) space - *Most efficient and interview-friendly (recommended)*
+- ⚡ **Sorting + Two Pointers**: O(n log n + m log m) time, O(1) space - *Space-optimized after sorting*
+- 🔧 **Binary Search**: O(n log n + m log n) time, O(1) space - *Efficient when one array is much smaller*
+- 📚 **Java 8 Streams**: O(n + m) time, O(n + m) space - *Functional programming approach*
+- 🎯 **Optimized HashMap**: O(n + m) time, O(min(n, m)) space - *Space-optimized using smaller array*
+- 🚀 **Sorted Arrays**: O(n + m) time, O(1) space - *Most efficient when arrays are already sorted*
+
+**Examples**:
+```java
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2,2]
+
+Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]  
+Output: [4,9] or [9,4]
+```
+
+**Key Difference from LeetCode #349**: 
+- LeetCode #349: Returns unique elements only (no duplicates in result)
+- LeetCode #350: Returns elements with frequency preserved (duplicates allowed in result)
+
+**Special Features**:
+- 🎯 **Multiple Approaches**: 6 different algorithms for finding array intersections with frequency preservation
+- 📊 **Cross-Validation**: All approaches produce identical results with same frequency distribution
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🛠️ **Utility Methods**: Array comparison with frequency checking, printing, and validation tools
+- 🧪 **Edge Case Testing**: Empty arrays, single elements, no intersection, identical arrays, large arrays
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ length ≤ 1000, 0 ≤ nums[i] ≤ 1000)
+- 🔧 **Algorithm-Specific Optimizations**: HashMap frequency counting, binary search, two pointers, streams
+- 🌟 **Educational Value**: Demonstrates frequency counting, sorting algorithms, and space-time tradeoffs
+- 💡 **Key Insight**: Use HashMap for O(1) frequency tracking to find intersection with preserved counts
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 47. Third Maximum Number (LeetCode #414)
+- **Location**: `src/main/java/com/example/leetcode/ThirdMaximumNumber.java`
+- **Description**: Find the third distinct maximum number in an array. If the third maximum does not exist, return the maximum number.
+- **Multiple Approaches**: 7 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Three-Variable Tracking**: O(n) time, O(1) space - *Most efficient and interview-friendly (recommended)*
+- ⚡ **TreeSet with Size Limit**: O(n log 3) time, O(3) space - *Automatic sorting and size management*
+- 🔧 **HashSet + Sorting**: O(n log n) time, O(n) space - *Handles duplicates explicitly*
+- 📚 **Array Tracking**: O(n) time, O(1) space - *Similar to three-variable but uses array*
+- 🎯 **PriorityQueue (Min Heap)**: O(n log 3) time, O(3) space - *Uses min heap to maintain 3 largest elements*
+- 🚀 **Streams with Distinct**: O(n log n) time, O(n) space - *Functional programming approach*
+- 💡 **Optimized Three-Variable**: O(n) time, O(1) space - *Handles edge cases with null values*
+
+**Examples**:
+```java
+Input: nums = [3,2,1]
+Output: 1
+Explanation: The first distinct maximum is 3, the second is 2, and the third is 1.
+
+Input: nums = [1,2]
+Output: 2
+Explanation: The third maximum does not exist, so the maximum (2) is returned.
+
+Input: nums = [2,2,3,1]
+Output: 1
+Explanation: The first distinct maximum is 3, the second is 2, and the third is 1.
+```
+
+**Special Features**:
+- 🎯 **Multiple Approaches**: 7 different algorithms for finding the third maximum number
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🛠️ **Utility Methods**: Array analysis, distinct elements extraction, and validation tools
+- 🧪 **Edge Case Testing**: Single elements, all duplicates, Integer.MIN_VALUE/MAX_VALUE, negative numbers
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ length ≤ 10^4, -2^31 ≤ nums[i] ≤ 2^31-1)
+- 🔧 **Algorithm-Specific Optimizations**: Three-variable tracking, TreeSet management, heap operations
+- 🌟 **Educational Value**: Demonstrates distinct element handling, sorting algorithms, and space-time tradeoffs
+- 💡 **Key Insight**: Use three variables to track first, second, and third maximum in a single pass
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 48. First Bad Version (LeetCode #278)
 - **Location**: `src/main/java/com/example/leetcode/FirstBadVersion.java`
 - **Description**: Find the first bad version using binary search to minimize API calls
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1873,11 +1972,14 @@ This project serves as:
 | Summary Ranges | Easy | O(n) time, O(1) space | 5 approaches | Comprehensive |
 | Move Zeroes | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Range Sum Query - Immutable | Easy | O(n) constructor, O(1) sumRange | 6 approaches | Comprehensive |
+| Intersection of Two Arrays | Easy | O(n + m) time, O(n + m) space | 6 approaches | Comprehensive |
+| Intersection of Two Arrays II | Easy | O(n + m) time, O(min(n, m)) space | 6 approaches | Comprehensive |
+| Third Maximum Number | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | First Bad Version | Easy | O(log n) time, O(1) space | 7 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 48 algorithm problems + Algorithm analysis = **2400+ test cases** and **258 different algorithmic approaches**!
+**Total**: 51 algorithm problems + Algorithm analysis = **2600+ test cases** and **277 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
