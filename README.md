@@ -59,6 +59,7 @@ src/
 │       ├── IntersectionOfTwoArrays.java # LeetCode #349: Intersection of Two Arrays
 │       ├── IntersectionOfTwoArraysII.java # LeetCode #350: Intersection of Two Arrays II
 │       ├── ThirdMaximumNumber.java # LeetCode #414: Third Maximum Number
+│       ├── ValidAnagram.java # LeetCode #242: Valid Anagram
 │       └── FirstBadVersion.java # LeetCode #278: First Bad Version
 ├── hackerrank/
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
@@ -114,6 +115,7 @@ src/
         ├── IntersectionOfTwoArraysTest.java # LeetCode #349 tests (comprehensive test cases!)
         ├── IntersectionOfTwoArraysIITest.java # LeetCode #350 tests (comprehensive test cases!)
         ├── ThirdMaximumNumberTest.java # LeetCode #414 tests (comprehensive test cases!)
+        ├── ValidAnagramTest.java # LeetCode #242 tests (comprehensive test cases!)
         └── FirstBadVersionTest.java # LeetCode #278 tests (comprehensive test cases!)
     └── hackerrank/
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
@@ -168,7 +170,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **51 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **52 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -1749,7 +1751,50 @@ Explanation: The first distinct maximum is 3, the second is 2, and the third is 
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 48. First Bad Version (LeetCode #278)
+### 48. Valid Anagram (LeetCode #242)
+- **Location**: `src/main/java/com/example/leetcode/ValidAnagram.java`
+- **Description**: Determine if two strings are anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of another, using all the original letters exactly once.
+- **Multiple Approaches**: 7 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Array Counter**: O(n) time, O(1) space - *Most efficient for lowercase English letters (recommended)*
+- ⚡ **HashMap (Frequency Counter)**: O(n) time, O(k) space - *Flexible frequency counting approach*
+- 🔧 **Sorting**: O(n log n) time, O(n) space - *Straightforward sort and compare*
+- 📚 **Two Array Counters**: O(n) time, O(1) space - *Separate counting for each string*
+- 🎯 **Unicode-Friendly HashMap**: O(n) time, O(k) space - *Works with any character set*
+- 🚀 **Single Pass HashMap**: O(n) time, O(k) space - *Optimized single iteration approach*
+- 💡 **Optimized Array Counter with Early Exit**: O(n) time, O(1) space - *Early termination on mismatch*
+
+**Examples**:
+```java
+Input: s = "anagram", t = "nagaram"
+Output: true
+Explanation: Both strings contain the same characters with the same frequencies.
+
+Input: s = "rat", t = "car"
+Output: false
+Explanation: Different characters, so not anagrams.
+
+Input: s = "listen", t = "silent"
+Output: true
+Explanation: Classic anagram example.
+```
+
+**Special Features**:
+- 🎯 **Multiple Approaches**: 7 different algorithms for anagram detection
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🛠️ **Utility Methods**: Lowercase English validation, smart algorithm selection
+- 🧪 **Edge Case Testing**: Empty strings, single characters, Unicode characters, emojis
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ length ≤ 5×10^4, lowercase letters)
+- 🔧 **Algorithm-Specific Optimizations**: Early exit detection, single-pass processing
+- 🌟 **Educational Value**: Demonstrates frequency counting, sorting algorithms, and hash table usage
+- 💡 **Key Insight**: Use fixed-size array (26 elements) for O(1) space complexity with lowercase English letters
+- 🌍 **Unicode Support**: Special approach for Unicode characters including emojis and accented letters
+
+**Testing**: Comprehensive test cases with cross-approach validation and Unicode support testing!
+
+### 49. First Bad Version (LeetCode #278)
 - **Location**: `src/main/java/com/example/leetcode/FirstBadVersion.java`
 - **Description**: Find the first bad version using binary search to minimize API calls
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1898,6 +1943,9 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ./gradlew test --tests "*SummaryRanges*"
 ./gradlew test --tests "*MoveZeroes*"
 ./gradlew test --tests "*RangeSumQueryImmutable*"
+./gradlew test --tests "*IntersectionOfTwoArrays*"
+./gradlew test --tests "*ThirdMaximumNumber*"
+./gradlew test --tests "*ValidAnagram*"
 ./gradlew test --tests "*FirstBadVersion*"
 ./gradlew test --tests "*PlusMinus*"
 ./gradlew test --tests "*MergeAndSortIntervals*"
@@ -1975,11 +2023,12 @@ This project serves as:
 | Intersection of Two Arrays | Easy | O(n + m) time, O(n + m) space | 6 approaches | Comprehensive |
 | Intersection of Two Arrays II | Easy | O(n + m) time, O(min(n, m)) space | 6 approaches | Comprehensive |
 | Third Maximum Number | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
+| Valid Anagram | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | First Bad Version | Easy | O(log n) time, O(1) space | 7 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 51 algorithm problems + Algorithm analysis = **2600+ test cases** and **277 different algorithmic approaches**!
+**Total**: 52 algorithm problems + Algorithm analysis = **2662+ test cases** and **284 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
