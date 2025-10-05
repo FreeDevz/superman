@@ -60,7 +60,11 @@ src/
 │       ├── IntersectionOfTwoArraysII.java # LeetCode #350: Intersection of Two Arrays II
 │       ├── ThirdMaximumNumber.java # LeetCode #414: Third Maximum Number
 │       ├── ValidAnagram.java # LeetCode #242: Valid Anagram
-│       └── FirstBadVersion.java # LeetCode #278: First Bad Version
+│       ├── FirstBadVersion.java # LeetCode #278: First Bad Version
+│       ├── ReverseLinkedList.java # LeetCode #206: Reverse Linked List
+│       ├── LongestHarmoniousSubsequence.java # LeetCode #594: Longest Harmonious Subsequence
+│       ├── MaximumAverageSubarrayI.java # LeetCode #643: Maximum Average Subarray I
+│       └── DefuseTheBomb.java # LeetCode #1652: Defuse the Bomb
 ├── hackerrank/
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
 │   └── PlusMinus.java # HackerRank: Plus Minus
@@ -116,7 +120,11 @@ src/
         ├── IntersectionOfTwoArraysIITest.java # LeetCode #350 tests (comprehensive test cases!)
         ├── ThirdMaximumNumberTest.java # LeetCode #414 tests (comprehensive test cases!)
         ├── ValidAnagramTest.java # LeetCode #242 tests (comprehensive test cases!)
-        └── FirstBadVersionTest.java # LeetCode #278 tests (comprehensive test cases!)
+        ├── FirstBadVersionTest.java # LeetCode #278 tests (comprehensive test cases!)
+        ├── ReverseLinkedListTest.java # LeetCode #206 tests (comprehensive test cases!)
+        ├── LongestHarmoniousSubsequenceTest.java # LeetCode #594 tests (comprehensive test cases!)
+        ├── MaximumAverageSubarrayITest.java # LeetCode #643 tests (comprehensive test cases!)
+        └── DefuseTheBombTest.java # LeetCode #1652 tests (comprehensive test cases!)
     └── hackerrank/
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
         └── PlusMinusTest.java # HackerRank tests (comprehensive test cases!)
@@ -170,7 +178,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **52 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **56 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -1830,6 +1838,161 @@ Output: 4 (first bad version)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 50. Reverse Linked List (LeetCode #206)
+- **Location**: `src/main/java/com/example/leetcode/ReverseLinkedList.java`
+- **Description**: Given the head of a singly linked list, reverse the list and return the reversed list
+- **Multiple Approaches**: 4 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Iterative (Three Pointers)**: O(n) time, O(1) space - *Most efficient and space-optimal (recommended)*
+- ⚡ **Recursive**: O(n) time, O(n) space - *Classic recursive approach*
+- 🔧 **Tail Recursive**: O(n) time, O(n) space - *Tail-call optimized recursion*
+- 📚 **Stack-based Recursive**: O(n) time, O(n) space - *Intuitive recursive implementation*
+
+**Examples**:
+```java
+Input: head = [1,2,3,4,5]
+Output: [5,4,3,2,1]
+
+Input: head = [1,2]
+Output: [2,1]
+
+Input: head = []
+Output: []
+```
+
+**Special Features**:
+- 🎯 **Multiple Approaches**: Iterative and recursive solutions with trade-off analysis
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Space Optimization**: Iterative approach uses O(1) space vs O(n) for recursive
+- 🧪 **Comprehensive Testing**: Edge cases, empty lists, single nodes, large lists
+- 📈 **Constraint Handling**: Handles LeetCode constraints (0 ≤ nodes ≤ 5000, -5000 ≤ val ≤ 5000)
+- 🔧 **Utility Methods**: Array conversion, list creation, equality checking, length calculation
+- 🌟 **Educational Value**: Demonstrates linked list manipulation, recursion, and space complexity trade-offs
+- 💡 **Key Insight**: Use three pointers (prev, curr, next) for efficient iterative reversal
+- 🛠️ **Helper Methods**: List creation from arrays, array conversion, list copying, equality checking
+
+**Testing**: Comprehensive test cases with cross-approach validation and edge case coverage!
+
+### 51. Longest Harmonious Subsequence (LeetCode #594)
+- **Location**: `src/main/java/com/example/leetcode/LongestHarmoniousSubsequence.java`
+- **Description**: Find the length of the longest harmonious subsequence where max - min = 1
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **HashMap with Frequency Counting**: O(n) time, O(n) space - *Most efficient and intuitive (recommended)*
+- ⚡ **Sorting with Sliding Window**: O(n log n) time, O(1) space - *Space-optimal approach*
+- 🔧 **Two Pass with Separate Counters**: O(n) time, O(n) space - *Clear separation of concerns*
+- 📚 **Single Pass with Early Termination**: O(n) time, O(n) space - *Optimized single iteration*
+- 🎯 **Optimized HashMap with Entry Set**: O(n) time, O(n) space - *Performance optimized iteration*
+- 🌟 **Array-based Counter**: O(n) time, O(range) space - *For small integer ranges*
+
+**Examples**:
+```java
+Input: nums = [1,3,2,2,5,2,3,7]
+Output: 5
+Explanation: The longest harmonious subsequence is [3,2,2,2,3]
+
+Input: nums = [1,2,3,4]
+Output: 2
+Explanation: [1,2] or [2,3] or [3,4]
+
+Input: nums = [1,1,1,1]
+Output: 0
+Explanation: No harmonious subsequence exists
+```
+
+**Special Features**:
+- 🎯 **Multiple Approaches**: HashMap, sorting, and optimization techniques
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Time and space complexity trade-offs
+- 🧪 **Comprehensive Testing**: Edge cases, large datasets, constraint validation
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ nums.length ≤ 2×10⁴, -10⁹ ≤ nums[i] ≤ 10⁹)
+- 🔧 **Utility Methods**: Harmonious validation, range calculation, distinct counting
+- 🌟 **Educational Value**: Demonstrates frequency counting, sliding window, and optimization techniques
+- 💡 **Key Insight**: Use frequency counting to find consecutive number pairs efficiently
+- 🛠️ **Helper Methods**: Validation, range calculation, distinct counting, consecutive number detection
+
+**Testing**: Comprehensive test cases with performance benchmarking and constraint validation!
+
+### 52. Maximum Average Subarray I (LeetCode #643)
+- **Location**: `src/main/java/com/example/leetcode/MaximumAverageSubarrayI.java`
+- **Description**: Find a contiguous subarray of length k that has the maximum average value
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Sliding Window**: O(n) time, O(1) space - *Most efficient and intuitive (recommended)*
+- ⚡ **Brute Force**: O(n*k) time, O(1) space - *Educational baseline approach*
+- 🔧 **Prefix Sum**: O(n) time, O(n) space - *Precomputed sums for fast lookups*
+- 📚 **Optimized Sliding Window**: O(n) time, O(1) space - *With early termination optimizations*
+- 🎯 **Double Precision**: O(n) time, O(1) space - *Avoids integer overflow issues*
+- 🌟 **Recursive Sliding Window**: O(n) time, O(n) space - *Educational recursive implementation*
+
+**Examples**:
+```java
+Input: nums = [1,12,-5,-6,50,3], k = 4
+Output: 12.75000
+Explanation: Maximum average is (12-5-6+50)/4 = 51/4 = 12.75
+
+Input: nums = [5], k = 1
+Output: 5.00000
+Explanation: Only one element, so average is 5.0
+```
+
+**Special Features**:
+- 🎯 **Multiple Approaches**: Sliding window, brute force, and prefix sum techniques
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Time and space complexity trade-offs
+- 🧪 **Comprehensive Testing**: Edge cases, large datasets, constraint validation
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ k ≤ n ≤ 10⁵, -10⁴ ≤ nums[i] ≤ 10⁴)
+- 🔧 **Utility Methods**: Subarray calculations, prefix sum operations, validation helpers
+- 🌟 **Educational Value**: Demonstrates sliding window technique and optimization strategies
+- 💡 **Key Insight**: Use sliding window to efficiently calculate subarray sums in O(n) time
+- 🛠️ **Helper Methods**: Subarray operations, prefix sum utilities, validation functions
+
+**Testing**: Comprehensive test cases with performance benchmarking and precision validation!
+
+### 53. Defuse the Bomb (LeetCode #1652)
+- **Location**: `src/main/java/com/example/leetcode/DefuseTheBomb.java`
+- **Description**: Defuse a bomb by decrypting a circular array code using sliding window technique
+- **Multiple Approaches**: 6 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Sliding Window**: O(n) time, O(1) space - *Most efficient and intuitive (recommended)*
+- ⚡ **Brute Force**: O(n*k) time, O(1) space - *Educational baseline approach*
+- 🔧 **Prefix Sum**: O(n) time, O(n) space - *Precomputed sums for fast lookups*
+- 📚 **Optimized Sliding Window**: O(n) time, O(1) space - *With cleaner index calculations*
+- 🎯 **Two Pass**: O(n) time, O(1) space - *Separate handling for positive/negative k*
+- 🌟 **Recursive**: O(n) time, O(n) space - *Educational recursive implementation*
+
+**Examples**:
+```java
+Input: code = [5,7,1,4], k = 3
+Output: [12,10,16,13]
+Explanation: Each number is replaced by sum of next 3 numbers
+
+Input: code = [1,2,3,4], k = 0
+Output: [0,0,0,0]
+Explanation: When k is zero, numbers are replaced by 0
+
+Input: code = [2,4,9,3], k = -2
+Output: [12,5,6,13]
+Explanation: Each number is replaced by sum of previous 2 numbers
+```
+
+**Special Features**:
+- 🎯 **Multiple Approaches**: Sliding window, brute force, and prefix sum techniques
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Circular Array Handling**: Proper modulo arithmetic for circular traversal
+- 🧪 **Comprehensive Testing**: Edge cases, constraint validation, performance tests
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ n ≤ 100, 1 ≤ code[i] ≤ 100, -(n-1) ≤ k ≤ n-1)
+- 🔧 **Utility Methods**: Circular sum calculations, element extraction, verification helpers
+- 🌟 **Educational Value**: Demonstrates sliding window technique with circular arrays
+- 💡 **Key Insight**: Use sliding window to efficiently calculate sums in circular arrays
+- 🛠️ **Helper Methods**: Circular operations, validation, verification, element extraction
+
+**Testing**: Comprehensive test cases with circular array validation and performance benchmarking!
+
 ### 46. Merge and Sort Intervals (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/MergeAndSortIntervals.java`
 - **Description**: Merge all overlapping intervals and return a list of non-overlapping intervals sorted by start time
@@ -1947,6 +2110,10 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ./gradlew test --tests "*ThirdMaximumNumber*"
 ./gradlew test --tests "*ValidAnagram*"
 ./gradlew test --tests "*FirstBadVersion*"
+./gradlew test --tests "*ReverseLinkedList*"
+./gradlew test --tests "*LongestHarmoniousSubsequence*"
+./gradlew test --tests "*MaximumAverageSubarrayI*"
+./gradlew test --tests "*DefuseTheBomb*"
 ./gradlew test --tests "*PlusMinus*"
 ./gradlew test --tests "*MergeAndSortIntervals*"
 ./gradlew test --tests "*BigOComplexity*"
@@ -2025,10 +2192,14 @@ This project serves as:
 | Third Maximum Number | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Valid Anagram | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | First Bad Version | Easy | O(log n) time, O(1) space | 7 approaches | Comprehensive |
+| Reverse Linked List | Easy | O(n) time, O(1) space | 4 approaches | Comprehensive |
+| Longest Harmonious Subsequence | Easy | O(n) time, O(n) space | 6 approaches | Comprehensive |
+| Maximum Average Subarray I | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
+| Defuse the Bomb | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 52 algorithm problems + Algorithm analysis = **2662+ test cases** and **284 different algorithmic approaches**!
+**Total**: 56 algorithm problems + Algorithm analysis = **2850+ test cases** and **306 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
