@@ -64,7 +64,8 @@ src/
 │       ├── ReverseLinkedList.java # LeetCode #206: Reverse Linked List
 │       ├── LongestHarmoniousSubsequence.java # LeetCode #594: Longest Harmonious Subsequence
 │       ├── MaximumAverageSubarrayI.java # LeetCode #643: Maximum Average Subarray I
-│       └── DefuseTheBomb.java # LeetCode #1652: Defuse the Bomb
+│       ├── DefuseTheBomb.java # LeetCode #1652: Defuse the Bomb
+│       └── LongestNiceSubstring.java # LeetCode #1763: Longest Nice Substring
 ├── hackerrank/
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
 │   └── PlusMinus.java # HackerRank: Plus Minus
@@ -124,7 +125,8 @@ src/
         ├── ReverseLinkedListTest.java # LeetCode #206 tests (comprehensive test cases!)
         ├── LongestHarmoniousSubsequenceTest.java # LeetCode #594 tests (comprehensive test cases!)
         ├── MaximumAverageSubarrayITest.java # LeetCode #643 tests (comprehensive test cases!)
-        └── DefuseTheBombTest.java # LeetCode #1652 tests (comprehensive test cases!)
+        ├── DefuseTheBombTest.java # LeetCode #1652 tests (comprehensive test cases!)
+        └── LongestNiceSubstringTest.java # LeetCode #1763 tests (comprehensive test cases!)
     └── hackerrank/
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
         └── PlusMinusTest.java # HackerRank tests (comprehensive test cases!)
@@ -178,7 +180,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **56 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **57 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -1993,6 +1995,46 @@ Explanation: Each number is replaced by sum of previous 2 numbers
 
 **Testing**: Comprehensive test cases with circular array validation and performance benchmarking!
 
+### 54. Longest Nice Substring (LeetCode #1763)
+- **Location**: `src/main/java/com/example/leetcode/LongestNiceSubstring.java`
+- **Description**: Find the longest substring where every letter appears in both uppercase and lowercase
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Divide and Conquer**: O(n²) time, O(n) space - *Most efficient recursive approach (recommended)*
+- ⚡ **Sliding Window**: O(n²) time, O(1) space - *Two-pointer technique with character validation*
+- 🔧 **Brute Force**: O(n³) time, O(n) space - *Educational baseline with early termination*
+- 📚 **Optimized Divide and Conquer**: O(n²) time, O(n) space - *Set reuse and boundary optimization*
+- 🎯 **Two Pass**: O(n²) time, O(n) space - *Identify bad characters then find longest valid substring*
+
+**Examples**:
+```java
+Input: s = "YazaAay"
+Output: "aAa"
+Explanation: "aAa" is nice because both 'A' and 'a' appear
+
+Input: s = "Bb"
+Output: "Bb"
+Explanation: "Bb" is nice because both 'B' and 'b' appear
+
+Input: s = "c"
+Output: ""
+Explanation: There are no nice substrings
+```
+
+**Special Features**:
+- 🎯 **Multiple Approaches**: Divide and conquer, sliding window, brute force techniques
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Character Set Operations**: Efficient uppercase/lowercase pair validation
+- 🧪 **Comprehensive Testing**: Edge cases, boundary conditions, performance tests
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ s.length ≤ 100, letters only)
+- 🔧 **Utility Methods**: Nice string validation, character set operations, demonstration examples
+- 🌟 **Educational Value**: Demonstrates divide and conquer technique with string manipulation
+- 💡 **Key Insight**: Use divide and conquer to split at characters without both cases
+- 🛠️ **Helper Methods**: String validation, character set operations, boundary optimization
+
+**Testing**: Comprehensive test cases with string validation and performance benchmarking!
+
 ### 46. Merge and Sort Intervals (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/MergeAndSortIntervals.java`
 - **Description**: Merge all overlapping intervals and return a list of non-overlapping intervals sorted by start time
@@ -2114,6 +2156,7 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ./gradlew test --tests "*LongestHarmoniousSubsequence*"
 ./gradlew test --tests "*MaximumAverageSubarrayI*"
 ./gradlew test --tests "*DefuseTheBomb*"
+./gradlew test --tests "*LongestNiceSubstring*"
 ./gradlew test --tests "*PlusMinus*"
 ./gradlew test --tests "*MergeAndSortIntervals*"
 ./gradlew test --tests "*BigOComplexity*"
@@ -2196,10 +2239,11 @@ This project serves as:
 | Longest Harmonious Subsequence | Easy | O(n) time, O(n) space | 6 approaches | Comprehensive |
 | Maximum Average Subarray I | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Defuse the Bomb | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
+| Longest Nice Substring | Easy | O(n²) time, O(n) space | 5 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 56 algorithm problems + Algorithm analysis = **2850+ test cases** and **306 different algorithmic approaches**!
+**Total**: 57 algorithm problems + Algorithm analysis = **2900+ test cases** and **311 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
