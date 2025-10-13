@@ -65,7 +65,10 @@ src/
 │       ├── LongestHarmoniousSubsequence.java # LeetCode #594: Longest Harmonious Subsequence
 │       ├── MaximumAverageSubarrayI.java # LeetCode #643: Maximum Average Subarray I
 │       ├── DefuseTheBomb.java # LeetCode #1652: Defuse the Bomb
-│       └── LongestNiceSubstring.java # LeetCode #1763: Longest Nice Substring
+│       ├── LongestNiceSubstring.java # LeetCode #1763: Longest Nice Substring
+│       ├── PowerOfTwo.java # LeetCode #231: Power of Two
+│       ├── FindDisappearedNumbers.java # LeetCode #448: Find All Numbers Disappeared in an Array
+│       └── AssignCookies.java # LeetCode #455: Assign Cookies
 ├── hackerrank/
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
 │   └── PlusMinus.java # HackerRank: Plus Minus
@@ -126,7 +129,10 @@ src/
         ├── LongestHarmoniousSubsequenceTest.java # LeetCode #594 tests (comprehensive test cases!)
         ├── MaximumAverageSubarrayITest.java # LeetCode #643 tests (comprehensive test cases!)
         ├── DefuseTheBombTest.java # LeetCode #1652 tests (comprehensive test cases!)
-        └── LongestNiceSubstringTest.java # LeetCode #1763 tests (comprehensive test cases!)
+        ├── LongestNiceSubstringTest.java # LeetCode #1763 tests (comprehensive test cases!)
+        ├── PowerOfTwoTest.java # LeetCode #231 tests (comprehensive test cases!)
+        ├── FindDisappearedNumbersTest.java # LeetCode #448 tests (comprehensive test cases!)
+        └── AssignCookiesTest.java # LeetCode #455 tests (comprehensive test cases!)
     └── hackerrank/
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
         └── PlusMinusTest.java # HackerRank tests (comprehensive test cases!)
@@ -151,7 +157,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ### Run Tests
 ```bash
-./gradlew test                          # Run all tests (200+ test cases!)
+./gradlew test                          # Run all tests (2500+ test cases!)
 ./gradlew test --tests "*LeetCode*"     # Run only LeetCode tests
 ./gradlew test --tests "*BigO*"         # Run Big O complexity tests
 ```
@@ -180,7 +186,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **57 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **60 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -2035,6 +2041,126 @@ Explanation: There are no nice substrings
 
 **Testing**: Comprehensive test cases with string validation and performance benchmarking!
 
+### 55. Power of Two (LeetCode #231)
+- **Location**: `src/main/java/com/example/leetcode/PowerOfTwo.java`
+- **Description**: Determine if a given integer n is a power of two (i.e., exists an integer x such that n == 2^x)
+- **Multiple Approaches**: 8 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Bit Manipulation**: O(1) time, O(1) space - *Optimal solution using n & (n-1) == 0 (recommended)*
+- ⚡ **Iterative Division**: O(log n) time, O(1) space - *Divide by 2 until reaching 1*
+- 🔧 **Recursive Division**: O(log n) time, O(log n) space - *Recursive approach with base cases*
+- 📚 **Logarithm Method**: O(1) time, O(1) space - *Mathematical approach with log₂(n)*
+- 🎯 **Count Set Bits**: O(1) time, O(1) space - *Check if exactly one bit is set*
+- 💡 **Iterative Multiplication**: O(log n) time, O(1) space - *Multiply by 2 until finding or exceeding n*
+- 🔥 **Remove Rightmost Bit**: O(1) time, O(1) space - *Use n & (-n) == n to check*
+- 🎨 **Check Against Largest**: O(1) time, O(1) space - *Clever trick using largest power of 2*
+
+**Examples**:
+```java
+Input: n = 1
+Output: true
+Explanation: 2^0 = 1
+
+Input: n = 16
+Output: true
+Explanation: 2^4 = 16
+
+Input: n = 3
+Output: false
+Explanation: 3 is not a power of two
+```
+
+**Special Features**:
+- 🎯 **Multiple Approaches**: Bit manipulation, division, mathematical, multiplication techniques
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Binary Pattern Recognition**: Powers of 2 have exactly one bit set
+- 🧪 **Comprehensive Testing**: Edge cases, boundary conditions, performance tests
+- 📈 **Constraint Handling**: Handles full 32-bit signed integer range
+- 🔧 **Utility Methods**: Get power, next power of two, previous power of two, binary representation
+- 🌟 **Educational Value**: Demonstrates bit manipulation techniques and mathematical properties
+- 💡 **Key Insight**: Powers of 2 have exactly one bit set; n & (n-1) removes rightmost set bit
+- 🛠️ **Helper Methods**: Power calculation, next/previous power utilities, binary visualization
+
+**Testing**: Comprehensive test cases with binary pattern validation and performance benchmarking!
+
+### 56. Find All Numbers Disappeared in an Array (LeetCode #448)
+- **Location**: `src/main/java/com/example/leetcode/FindDisappearedNumbers.java`
+- **Description**: Given an array nums of n integers where nums[i] is in range [1, n], return an array of all integers in [1, n] that do not appear in nums
+- **Multiple Approaches**: 8 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **In-Place Marking with Negation**: O(n) time, O(1) space - *Use array indices to mark presence by negating values (recommended)*
+- ⚡ **Hash Set**: O(n) time, O(n) space - *Store all numbers in set and find missing*
+- 🔧 **Boolean Array**: O(n) time, O(n) space - *Mark presence with boolean flags*
+- 📚 **Cyclic Sort**: O(n) time, O(1) space - *Place each number at correct position*
+- 🎯 **Count Array**: O(n) time, O(n) space - *Count occurrences and find zeros*
+- 💡 **Sorting Approach**: O(n log n) time, O(1) space - *Sort and scan for gaps*
+- 🔥 **In-Place Marking with Addition**: O(n) time, O(1) space - *Mark by adding n to values*
+- 🎨 **Set Difference**: O(n) time, O(n) space - *Create complete set and remove present numbers*
+
+**Examples**:
+```java
+Input: nums = [4,3,2,7,8,2,3,1]
+Output: [5,6]
+Explanation: Numbers 5 and 6 are in range [1,8] but not in array
+
+Input: nums = [1,1]
+Output: [2]
+Explanation: Number 2 is in range [1,2] but not in array
+```
+
+**Special Features**:
+- 🎯 **Multiple Approaches**: In-place marking, hash set, cyclic sort, array-based techniques
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Space Optimization**: Multiple O(1) space solutions using clever index mapping
+- 🧪 **Comprehensive Testing**: Edge cases, boundary conditions, performance tests
+- 📈 **Constraint Handling**: Handles arrays up to 10^5 elements efficiently
+- 🔧 **Utility Methods**: Result verification, missing count, range queries
+- 🌟 **Educational Value**: Demonstrates in-place marking and array manipulation techniques
+- 💡 **Key Insight**: Use indices as markers - negation preserves original values via Math.abs()
+- 🛠️ **Helper Methods**: Verification, counting, range-based queries
+
+**Testing**: Comprehensive test cases with pattern validation and performance benchmarking!
+
+### 57. Assign Cookies (LeetCode #455)
+- **Location**: `src/main/java/com/example/leetcode/AssignCookies.java`
+- **Description**: Maximize the number of content children by assigning cookies. Each child has a greed factor (minimum cookie size), and each cookie has a size. A child is content if cookie size >= greed factor.
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Greedy Two Pointer (Forward)**: O(n log n + m log m) time, O(log n + log m) space - *Optimal greedy solution (recommended)*
+- ⚡ **Greedy Two Pointer (Reverse)**: O(n log n + m log m) time, O(log n + log m) space - *Alternative greedy approach from largest*
+- 🔧 **Binary Search**: O(n log n + m log m + n*m) time, O(m) space - *Binary search for suitable cookies*
+- 📚 **Brute Force Backtracking**: O(2^m * n) time, O(m) space - *Educational exhaustive search (small inputs only)*
+- 🎯 **Counting Sort**: O(n + m + k) time, O(k) space - *Optimized for limited value range*
+
+**Examples**:
+```java
+Input: g = [1,2,3], s = [1,1]
+Output: 1
+Explanation: 3 children with greed [1,2,3], 2 cookies size [1,1]
+Only child with greed=1 can be satisfied
+
+Input: g = [1,2], s = [1,2,3]
+Output: 2
+Explanation: 2 children with greed [1,2], 3 cookies size [1,2,3]
+Both children can be satisfied
+```
+
+**Special Features**:
+- 🎯 **Greedy Algorithm**: Classic greedy problem - assign smallest suitable cookie to each child
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Multiple Strategies**: Forward/reverse two-pointer, binary search, backtracking
+- 🧪 **Comprehensive Testing**: Edge cases, boundary conditions, performance tests
+- 📈 **Constraint Handling**: Handles arrays up to 3×10^4 elements efficiently
+- 🔧 **Utility Methods**: Assignment verification, problem statistics
+- 🌟 **Educational Value**: Demonstrates greedy algorithms and optimization strategies
+- 💡 **Key Insight**: Sort both arrays - assign smallest cookie that satisfies each child
+- 🛠️ **Helper Methods**: Verification, statistics, counting sort optimization
+
+**Testing**: Comprehensive test cases with cross-approach validation and performance benchmarking!
+
 ### 46. Merge and Sort Intervals (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/MergeAndSortIntervals.java`
 - **Description**: Merge all overlapping intervals and return a list of non-overlapping intervals sorted by start time
@@ -2073,7 +2199,7 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **2200+ comprehensive test cases** across all solutions
+- ✅ **2500+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -2157,6 +2283,9 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ./gradlew test --tests "*MaximumAverageSubarrayI*"
 ./gradlew test --tests "*DefuseTheBomb*"
 ./gradlew test --tests "*LongestNiceSubstring*"
+./gradlew test --tests "*PowerOfTwo*"
+./gradlew test --tests "*FindDisappearedNumbers*"
+./gradlew test --tests "*AssignCookies*"
 ./gradlew test --tests "*PlusMinus*"
 ./gradlew test --tests "*MergeAndSortIntervals*"
 ./gradlew test --tests "*BigOComplexity*"
@@ -2166,7 +2295,7 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ```bash
 ./gradlew clean              # Clean build artifacts
 ./gradlew compileJava        # Compile source code
-./gradlew test               # Run all 2200+ tests
+./gradlew test               # Run all 2500+ tests
 ./gradlew build              # Build the entire project
 ./gradlew run                # Run with all algorithm demonstrations
 ```
@@ -2240,10 +2369,13 @@ This project serves as:
 | Maximum Average Subarray I | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Defuse the Bomb | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Longest Nice Substring | Easy | O(n²) time, O(n) space | 5 approaches | Comprehensive |
+| Power of Two | Easy | O(1) time, O(1) space | 8 approaches | Comprehensive |
+| Find Disappeared Numbers | Easy | O(n) time, O(1) space | 8 approaches | Comprehensive |
+| Assign Cookies | Easy | O(n log n + m log m) time, O(log n + log m) space | 5 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 57 algorithm problems + Algorithm analysis = **2900+ test cases** and **311 different algorithmic approaches**!
+**Total**: 60 algorithm problems + Algorithm analysis = **3200+ test cases** and **332 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
