@@ -68,7 +68,8 @@ src/
 │       ├── LongestNiceSubstring.java # LeetCode #1763: Longest Nice Substring
 │       ├── PowerOfTwo.java # LeetCode #231: Power of Two
 │       ├── FindDisappearedNumbers.java # LeetCode #448: Find All Numbers Disappeared in an Array
-│       └── AssignCookies.java # LeetCode #455: Assign Cookies
+│       ├── AssignCookies.java # LeetCode #455: Assign Cookies
+│       └── AlertUsingKeyCard.java # LeetCode #1604: Alert Using Same Key-Card Three or More Times
 ├── hackerrank/
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
 │   └── PlusMinus.java # HackerRank: Plus Minus
@@ -132,7 +133,8 @@ src/
         ├── LongestNiceSubstringTest.java # LeetCode #1763 tests (comprehensive test cases!)
         ├── PowerOfTwoTest.java # LeetCode #231 tests (comprehensive test cases!)
         ├── FindDisappearedNumbersTest.java # LeetCode #448 tests (comprehensive test cases!)
-        └── AssignCookiesTest.java # LeetCode #455 tests (comprehensive test cases!)
+        ├── AssignCookiesTest.java # LeetCode #455 tests (comprehensive test cases!)
+        └── AlertUsingKeyCardTest.java # LeetCode #1604 tests (comprehensive test cases!)
     └── hackerrank/
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
         └── PlusMinusTest.java # HackerRank tests (comprehensive test cases!)
@@ -186,7 +188,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **60 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **61 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -2161,6 +2163,55 @@ Both children can be satisfied
 
 **Testing**: Comprehensive test cases with cross-approach validation and performance benchmarking!
 
+### 58. Alert Using Same Key-Card Three or More Times in a One Hour Period (LeetCode #1604)
+- **Location**: `src/main/java/com/example/leetcode/AlertUsingKeyCard.java`
+- **Description**: Find workers who used their key-card three or more times within a one-hour period (60 minutes or less). Given arrays of worker names and access times in "HH:MM" format, return names of workers who triggered alerts, sorted alphabetically.
+- **Multiple Approaches**: 4 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **HashMap + Sorting with Sliding Window**: O(N log N) time, O(N) space - *Optimal solution (recommended)*
+- ⚡ **TreeMap for Auto-Sorting**: O(N log M) time, O(N) space - *Automatic sorting approach*
+- 🔧 **Optimized with Early Termination**: O(N log N) time, O(N) space - *Space-optimized with early exit*
+- 📚 **Stream API (Modern Java)**: O(N log N) time, O(N) space - *Functional programming approach*
+
+**Examples**:
+```java
+Input: keyName = ["daniel","daniel","daniel","luis","luis","luis","luis"], 
+       keyTime = ["10:00","10:40","11:00","09:00","11:00","13:00","15:00"]
+Output: ["daniel"]
+Explanation: "daniel" used the keycard 3 times in a one-hour period
+
+Input: keyName = ["alice","alice","alice","bob","bob","bob","bob"], 
+       keyTime = ["12:01","12:00","18:00","21:00","21:20","21:30","23:00"]
+Output: ["bob"]
+Explanation: "bob" used the keycard 3 times in a one-hour period
+
+Input: keyName = ["john","john","john"], keyTime = ["23:58","23:59","00:01"]
+Output: []
+Explanation: Times cross midnight boundary - no alert triggered
+```
+
+**Special Features**:
+- 🎯 **Time Conversion**: Convert "HH:MM" format to minutes for efficient comparison
+- 📊 **Sliding Window**: Check consecutive triplets of access times for 60-minute windows
+- ⚡ **Multiple Strategies**: HashMap grouping, TreeMap auto-sorting, Stream API, early termination
+- 🧪 **Comprehensive Testing**: Edge cases, boundary conditions (exactly 60 min), midnight boundaries
+- 📈 **Constraint Handling**: Handles up to 10^5 accesses efficiently
+- 🔧 **Utility Methods**: Access pattern visualization, alert detail extraction, time conversion
+- 🌟 **Educational Value**: Demonstrates HashMap grouping, sorting strategies, and sliding window technique
+- 💡 **Key Insight**: Group by worker name, sort times, check if any 3 consecutive times are within 60 minutes
+- 🛠️ **Helper Methods**: Time conversion, alert detection, pattern printing, detail extraction
+
+**Testing**: Comprehensive test cases with cross-approach validation including 40+ test cases covering:
+- LeetCode example test cases
+- Edge cases (empty arrays, 1-3 accesses)
+- Boundary tests (exactly 60 min, 59 min, 61 min)
+- Multiple workers scenarios
+- Special cases (multiple alert windows, overlapping windows)
+- Pattern tests (evenly spaced, clustered accesses)
+- Performance tests (1000+ accesses)
+- Cross-approach comparison and validation
+
 ### 46. Merge and Sort Intervals (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/MergeAndSortIntervals.java`
 - **Description**: Merge all overlapping intervals and return a list of non-overlapping intervals sorted by start time
@@ -2199,7 +2250,7 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **2500+ comprehensive test cases** across all solutions
+- ✅ **3240+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -2286,6 +2337,7 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ./gradlew test --tests "*PowerOfTwo*"
 ./gradlew test --tests "*FindDisappearedNumbers*"
 ./gradlew test --tests "*AssignCookies*"
+./gradlew test --tests "*AlertUsingKeyCard*"
 ./gradlew test --tests "*PlusMinus*"
 ./gradlew test --tests "*MergeAndSortIntervals*"
 ./gradlew test --tests "*BigOComplexity*"
@@ -2372,10 +2424,11 @@ This project serves as:
 | Power of Two | Easy | O(1) time, O(1) space | 8 approaches | Comprehensive |
 | Find Disappeared Numbers | Easy | O(n) time, O(1) space | 8 approaches | Comprehensive |
 | Assign Cookies | Easy | O(n log n + m log m) time, O(log n + log m) space | 5 approaches | Comprehensive |
+| Alert Using Key-Card | Medium | O(N log N) time, O(N) space | 4 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 60 algorithm problems + Algorithm analysis = **3200+ test cases** and **332 different algorithmic approaches**!
+**Total**: 61 algorithm problems + Algorithm analysis = **3240+ test cases** and **336 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
