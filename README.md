@@ -69,7 +69,8 @@ src/
 │       ├── PowerOfTwo.java # LeetCode #231: Power of Two
 │       ├── FindDisappearedNumbers.java # LeetCode #448: Find All Numbers Disappeared in an Array
 │       ├── AssignCookies.java # LeetCode #455: Assign Cookies
-│       └── AlertUsingKeyCard.java # LeetCode #1604: Alert Using Same Key-Card Three or More Times
+│       ├── AlertUsingKeyCard.java # LeetCode #1604: Alert Using Same Key-Card Three or More Times
+│       └── RansomNote.java # LeetCode #383: Ransom Note
 ├── hackerrank/
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
 │   └── PlusMinus.java # HackerRank: Plus Minus
@@ -134,7 +135,8 @@ src/
         ├── PowerOfTwoTest.java # LeetCode #231 tests (comprehensive test cases!)
         ├── FindDisappearedNumbersTest.java # LeetCode #448 tests (comprehensive test cases!)
         ├── AssignCookiesTest.java # LeetCode #455 tests (comprehensive test cases!)
-        └── AlertUsingKeyCardTest.java # LeetCode #1604 tests (comprehensive test cases!)
+        ├── AlertUsingKeyCardTest.java # LeetCode #1604 tests (comprehensive test cases!)
+        └── RansomNoteTest.java # LeetCode #383 tests (comprehensive test cases!)
     └── hackerrank/
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
         └── PlusMinusTest.java # HackerRank tests (comprehensive test cases!)
@@ -188,7 +190,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **61 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **62 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
@@ -1727,7 +1729,46 @@ Output: [4,9] or [9,4]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 47. Third Maximum Number (LeetCode #414)
+### 47. Ransom Note (LeetCode #383)
+- **Location**: `src/main/java/com/example/leetcode/RansomNote.java`
+- **Description**: Determine if a ransom note can be constructed using letters from a magazine, where each letter can only be used once
+- **Multiple Approaches**: 4 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Array (Character Frequency Count)**: O(m + n) time, O(1) space - *Most efficient and interview-friendly (recommended)*
+- ⚡ **HashMap (Frequency Count)**: O(m + n) time, O(k) space - *Flexible for any character set*
+- 🔧 **Two Arrays (Separate Frequency Counts)**: O(m + n) time, O(1) space - *Clear separation of concerns*
+- 💡 **Optimized Single Pass**: O(max(m, n)) time, O(1) space - *Optimized processing*
+
+**Examples**:
+```java
+Input: ransomNote = "a", magazine = "b"
+Output: false
+Explanation: Cannot construct "a" from "b"
+
+Input: ransomNote = "aa", magazine = "ab"
+Output: false
+Explanation: Need 2 'a's but magazine only has 1
+
+Input: ransomNote = "aa", magazine = "aab"
+Output: true
+Explanation: Can construct "aa" using 2 'a's from magazine
+```
+
+**Special Features**:
+- 🎯 **Multiple Approaches**: 4 different algorithms for checking character availability
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🛠️ **Utility Methods**: Character frequency analysis, missing character detection
+- 🧪 **Edge Case Testing**: Empty strings, null inputs, single characters, repeated characters
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ length ≤ 10^5, lowercase English letters)
+- 🔧 **Algorithm-Specific Optimizations**: Array indexing, HashMap operations, frequency tracking
+- 🌟 **Educational Value**: Demonstrates character counting, hash tables, and string manipulation
+- 💡 **Key Insight**: Use array indexing for O(1) space with lowercase English letters constraint
+
+**Testing**: 52 comprehensive test cases covering all edge cases and approach comparisons!
+
+### 48. Third Maximum Number (LeetCode #414)
 - **Location**: `src/main/java/com/example/leetcode/ThirdMaximumNumber.java`
 - **Description**: Find the third distinct maximum number in an array. If the third maximum does not exist, return the maximum number.
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1769,7 +1810,7 @@ Explanation: The first distinct maximum is 3, the second is 2, and the third is 
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 48. Valid Anagram (LeetCode #242)
+### 49. Valid Anagram (LeetCode #242)
 - **Location**: `src/main/java/com/example/leetcode/ValidAnagram.java`
 - **Description**: Determine if two strings are anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of another, using all the original letters exactly once.
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1812,7 +1853,7 @@ Explanation: Classic anagram example.
 
 **Testing**: Comprehensive test cases with cross-approach validation and Unicode support testing!
 
-### 49. First Bad Version (LeetCode #278)
+### 50. First Bad Version (LeetCode #278)
 - **Location**: `src/main/java/com/example/leetcode/FirstBadVersion.java`
 - **Description**: Find the first bad version using binary search to minimize API calls
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1848,7 +1889,7 @@ Output: 4 (first bad version)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 50. Reverse Linked List (LeetCode #206)
+### 51. Reverse Linked List (LeetCode #206)
 - **Location**: `src/main/java/com/example/leetcode/ReverseLinkedList.java`
 - **Description**: Given the head of a singly linked list, reverse the list and return the reversed list
 - **Multiple Approaches**: 4 different algorithms with comprehensive analysis
@@ -1884,7 +1925,7 @@ Output: []
 
 **Testing**: Comprehensive test cases with cross-approach validation and edge case coverage!
 
-### 51. Longest Harmonious Subsequence (LeetCode #594)
+### 52. Longest Harmonious Subsequence (LeetCode #594)
 - **Location**: `src/main/java/com/example/leetcode/LongestHarmoniousSubsequence.java`
 - **Description**: Find the length of the longest harmonious subsequence where max - min = 1
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -1925,7 +1966,7 @@ Explanation: No harmonious subsequence exists
 
 **Testing**: Comprehensive test cases with performance benchmarking and constraint validation!
 
-### 52. Maximum Average Subarray I (LeetCode #643)
+### 53. Maximum Average Subarray I (LeetCode #643)
 - **Location**: `src/main/java/com/example/leetcode/MaximumAverageSubarrayI.java`
 - **Description**: Find a contiguous subarray of length k that has the maximum average value
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -1962,7 +2003,7 @@ Explanation: Only one element, so average is 5.0
 
 **Testing**: Comprehensive test cases with performance benchmarking and precision validation!
 
-### 53. Defuse the Bomb (LeetCode #1652)
+### 54. Defuse the Bomb (LeetCode #1652)
 - **Location**: `src/main/java/com/example/leetcode/DefuseTheBomb.java`
 - **Description**: Defuse a bomb by decrypting a circular array code using sliding window technique
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -2003,7 +2044,7 @@ Explanation: Each number is replaced by sum of previous 2 numbers
 
 **Testing**: Comprehensive test cases with circular array validation and performance benchmarking!
 
-### 54. Longest Nice Substring (LeetCode #1763)
+### 55. Longest Nice Substring (LeetCode #1763)
 - **Location**: `src/main/java/com/example/leetcode/LongestNiceSubstring.java`
 - **Description**: Find the longest substring where every letter appears in both uppercase and lowercase
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -2043,7 +2084,7 @@ Explanation: There are no nice substrings
 
 **Testing**: Comprehensive test cases with string validation and performance benchmarking!
 
-### 55. Power of Two (LeetCode #231)
+### 56. Power of Two (LeetCode #231)
 - **Location**: `src/main/java/com/example/leetcode/PowerOfTwo.java`
 - **Description**: Determine if a given integer n is a power of two (i.e., exists an integer x such that n == 2^x)
 - **Multiple Approaches**: 8 different algorithms with comprehensive analysis
@@ -2086,7 +2127,7 @@ Explanation: 3 is not a power of two
 
 **Testing**: Comprehensive test cases with binary pattern validation and performance benchmarking!
 
-### 56. Find All Numbers Disappeared in an Array (LeetCode #448)
+### 57. Find All Numbers Disappeared in an Array (LeetCode #448)
 - **Location**: `src/main/java/com/example/leetcode/FindDisappearedNumbers.java`
 - **Description**: Given an array nums of n integers where nums[i] is in range [1, n], return an array of all integers in [1, n] that do not appear in nums
 - **Multiple Approaches**: 8 different algorithms with comprehensive analysis
@@ -2125,7 +2166,7 @@ Explanation: Number 2 is in range [1,2] but not in array
 
 **Testing**: Comprehensive test cases with pattern validation and performance benchmarking!
 
-### 57. Assign Cookies (LeetCode #455)
+### 58. Assign Cookies (LeetCode #455)
 - **Location**: `src/main/java/com/example/leetcode/AssignCookies.java`
 - **Description**: Maximize the number of content children by assigning cookies. Each child has a greed factor (minimum cookie size), and each cookie has a size. A child is content if cookie size >= greed factor.
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -2163,7 +2204,7 @@ Both children can be satisfied
 
 **Testing**: Comprehensive test cases with cross-approach validation and performance benchmarking!
 
-### 58. Alert Using Same Key-Card Three or More Times in a One Hour Period (LeetCode #1604)
+### 59. Alert Using Same Key-Card Three or More Times in a One Hour Period (LeetCode #1604)
 - **Location**: `src/main/java/com/example/leetcode/AlertUsingKeyCard.java`
 - **Description**: Find workers who used their key-card three or more times within a one-hour period (60 minutes or less). Given arrays of worker names and access times in "HH:MM" format, return names of workers who triggered alerts, sorted alphabetically.
 - **Multiple Approaches**: 4 different algorithms with comprehensive analysis
@@ -2337,6 +2378,7 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ./gradlew test --tests "*PowerOfTwo*"
 ./gradlew test --tests "*FindDisappearedNumbers*"
 ./gradlew test --tests "*AssignCookies*"
+./gradlew test --tests "*RansomNote*"
 ./gradlew test --tests "*AlertUsingKeyCard*"
 ./gradlew test --tests "*PlusMinus*"
 ./gradlew test --tests "*MergeAndSortIntervals*"
@@ -2424,11 +2466,12 @@ This project serves as:
 | Power of Two | Easy | O(1) time, O(1) space | 8 approaches | Comprehensive |
 | Find Disappeared Numbers | Easy | O(n) time, O(1) space | 8 approaches | Comprehensive |
 | Assign Cookies | Easy | O(n log n + m log m) time, O(log n + log m) space | 5 approaches | Comprehensive |
+| Ransom Note | Easy | O(m + n) time, O(1) space | 4 approaches | Comprehensive |
 | Alert Using Key-Card | Medium | O(N log N) time, O(N) space | 4 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 61 algorithm problems + Algorithm analysis = **3240+ test cases** and **336 different algorithmic approaches**!
+**Total**: 62 algorithm problems + Algorithm analysis = **3292+ test cases** and **340 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
