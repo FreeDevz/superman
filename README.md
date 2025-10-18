@@ -9,7 +9,8 @@ src/
 ├── main/java/com/example/
 │   ├── App.java                           # Main application with all demonstrations
 │   ├── algorithms/
-│   │   └── BigOComplexityExamples.java    # Comprehensive Big O complexity examples
+│   │   ├── BigOComplexityExamples.java    # Comprehensive Big O complexity examples
+│   │   └── DepthFirstSearchExamples.java  # Comprehensive Depth-First Search examples
 │   └── leetcode/
 │       ├── TwoSum.java                     # LeetCode #1: Two Sum
 │       ├── AddTwoNumbers.java             # LeetCode #2: Add Two Numbers
@@ -194,6 +195,39 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 - 🔺 **O(n³)**: Three Sum, Floyd-Warshall algorithm
 - 💥 **O(2ⁿ)**: Fibonacci (naive), Power sets, Tower of Hanoi
 - 🌟 **O(n!)**: Permutations, Traveling Salesman Problem
+
+### 🔍 Depth-First Search (DFS) Examples
+- **Location**: `src/main/java/com/example/algorithms/DepthFirstSearchExamples.java`
+- **Description**: Comprehensive examples of Depth-First Search algorithm with various implementations and applications
+- **Time Complexity**: O(V + E) where V is vertices and E is edges
+- **Space Complexity**: O(V) for the recursion stack/explicit stack
+
+**Includes 10 complete DFS implementations**:
+- 🌳 **Recursive Tree DFS**: Preorder, Inorder, and Postorder traversals
+- 📊 **Recursive Graph DFS**: Graph traversal using adjacency list
+- 🔄 **Iterative Tree DFS**: Stack-based implementation for all traversal types
+- 📈 **Iterative Graph DFS**: Non-recursive graph traversal
+- 🎯 **Path Finding**: Find single path and all paths between nodes
+- 🔍 **Cycle Detection**: Detect cycles in directed graphs
+- 🔗 **Connected Components**: Count connected components in undirected graphs
+- 📑 **Topological Sort**: Order nodes in DAG (Directed Acyclic Graph)
+- 🏝️ **Island Counter**: Count islands in 2D grid (DFS on matrix)
+- 📏 **Tree Depth**: Calculate maximum and minimum depth of binary tree
+
+**Key Features**:
+- Both **recursive** and **iterative** implementations
+- Comprehensive **TreeNode** and **GraphNode** helper classes
+- Practical applications: path finding, cycle detection, topological sorting
+- Multiple graph representations supported
+- Complete working examples with sample data
+- Well-documented with complexity analysis
+
+**Run the examples**:
+```bash
+# Compile and run DFS examples
+./gradlew build -x test
+java -cp build/libs/superman-1.0.0.jar com.example.algorithms.DepthFirstSearchExamples
+```
 
 ## LeetCode Solutions
 
@@ -2637,7 +2671,8 @@ This project serves as:
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
+| Depth-First Search (DFS) | Educational | O(V + E) time, O(V) space | 10 implementations | Working examples |
 
-**Total**: 65 algorithm problems + Algorithm analysis = **3616+ test cases** and **351 different algorithmic approaches**!
+**Total**: 65 algorithm problems + 2 Algorithm tutorials = **3616+ test cases** and **361 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
