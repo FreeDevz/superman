@@ -11,6 +11,7 @@ src/
 │   ├── algorithms/
 │   │   └── BigOComplexityExamples.java    # Comprehensive Big O complexity examples
 │   └── leetcode/
+│       ├── TwoSum.java                     # LeetCode #1: Two Sum
 │       ├── AddTwoNumbers.java             # LeetCode #2: Add Two Numbers
 │       ├── LongestSubstringWithoutRepeating.java  # LeetCode #3: Longest Substring
 │       ├── LongestCommonPrefix.java       # LeetCode #14: Longest Common Prefix
@@ -27,6 +28,7 @@ src/
 │       ├── PlusOne.java # LeetCode #66: Plus One
 │       ├── SqrtX.java # LeetCode #69: Sqrt(x)
 │       ├── ClimbingStairs.java # LeetCode #70: Climbing Stairs
+│       ├── WordSearch.java # LeetCode #79: Word Search
 │       ├── MergeSortedArray.java # LeetCode #88: Merge Sorted Array
 │       ├── ConvertSortedArrayToBST.java # LeetCode #108: Convert Sorted Array to Binary Search Tree
 │       ├── MaximumDepthOfBinaryTree.java # LeetCode #104: Maximum Depth of Binary Tree
@@ -43,6 +45,7 @@ src/
 │       ├── ValidPalindrome.java # LeetCode #125: Valid Palindrome
 │       ├── CountCompleteTreeNodes.java # LeetCode #222: Count Complete Tree Nodes
 │       ├── CountingBits.java # LeetCode #338: Counting Bits
+│       ├── ReconstructItinerary.java # LeetCode #332: Reconstruct Itinerary
 │       ├── IntersectionOfTwoLinkedLists.java # LeetCode #160: Intersection of Two Linked Lists
 │       ├── ExcelSheetColumnTitle.java # LeetCode #168: Excel Sheet Column Title
 │       ├── CountAndSay.java # LeetCode #38: Count and Say
@@ -72,6 +75,7 @@ src/
 │       ├── AlertUsingKeyCard.java # LeetCode #1604: Alert Using Same Key-Card Three or More Times
 │       └── RansomNote.java # LeetCode #383: Ransom Note
 ├── hackerrank/
+│   ├── IceCreamParlor.java # HackerRank: Ice Cream Parlor
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
 │   └── PlusMinus.java # HackerRank: Plus Minus
 └── test/java/com/example/
@@ -93,6 +97,7 @@ src/
         ├── PlusOneTest.java # LeetCode #66 tests (comprehensive test cases!)
         ├── SqrtXTest.java # LeetCode #69 tests (comprehensive test cases!)
         ├── ClimbingStairsTest.java # LeetCode #70 tests (comprehensive test cases!)
+        ├── WordSearchTest.java # LeetCode #79 tests (comprehensive test cases!)
         ├── MergeSortedArrayTest.java # LeetCode #88 tests (comprehensive test cases!)
         ├── ConvertSortedArrayToBSTTest.java # LeetCode #108 tests (comprehensive test cases!)
         ├── MaximumDepthOfBinaryTreeTest.java # LeetCode #104 tests (comprehensive test cases!)
@@ -109,6 +114,7 @@ src/
         ├── ValidPalindromeTest.java # LeetCode #125 tests (comprehensive test cases!)
         ├── CountCompleteTreeNodesTest.java # LeetCode #222 tests (comprehensive test cases!)
         ├── CountingBitsTest.java # LeetCode #338 tests (comprehensive test cases!)
+        ├── ReconstructItineraryTest.java # LeetCode #332 tests (comprehensive test cases!)
         ├── IntersectionOfTwoLinkedListsTest.java # LeetCode #160 tests (comprehensive test cases!)
         ├── ExcelSheetColumnTitleTest.java # LeetCode #168 tests (comprehensive test cases!)
         ├── CountAndSayTest.java # LeetCode #38 tests (comprehensive test cases!)
@@ -138,6 +144,7 @@ src/
         ├── AlertUsingKeyCardTest.java # LeetCode #1604 tests (comprehensive test cases!)
         └── RansomNoteTest.java # LeetCode #383 tests (comprehensive test cases!)
     └── hackerrank/
+        ├── IceCreamParlorTest.java # HackerRank tests (27 comprehensive test cases!)
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
         └── PlusMinusTest.java # HackerRank tests (comprehensive test cases!)
 build.gradle.kts                         # Gradle build configuration
@@ -161,7 +168,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ### Run Tests
 ```bash
-./gradlew test                          # Run all tests (2500+ test cases!)
+./gradlew test                          # Run all tests (3267+ test cases!)
 ./gradlew test --tests "*LeetCode*"     # Run only LeetCode tests
 ./gradlew test --tests "*BigO*"         # Run Big O complexity tests
 ```
@@ -190,9 +197,39 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ## LeetCode Solutions
 
-This project features **62 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **65 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
-### 1. Add Two Numbers (LeetCode #2)
+### 1. Two Sum (LeetCode #1)
+- **Location**: `src/main/java/com/example/leetcode/TwoSum.java`
+- **Description**: Find two numbers in an array that add up to a target value and return their indices
+- **Time Complexity**: O(n) (hash map approach)
+- **Space Complexity**: O(n)
+
+**Example**:
+```java
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+```
+
+**Multiple implementations**:
+1. **Hash Map - One Pass** (O(n) time, O(n) space) - Optimal solution using single pass
+2. **Hash Map - Two Pass** (O(n) time, O(n) space) - Build map first, then search
+3. **Brute Force** (O(n²) time, O(1) space) - Check all pairs
+4. **Sorting + Two Pointers** (O(n log n) time, O(n) space) - Sort then use two pointers
+
+**Test Coverage**:
+- ✅ LeetCode official examples
+- ✅ Basic functionality tests
+- ✅ Edge cases (minimum size, large arrays)
+- ✅ Special values (zeros, negatives, duplicates)
+- ✅ Parameterized tests
+- ✅ Cross-approach comparison
+- ✅ Performance benchmarks (up to 10,000 elements)
+- ✅ Utility method validation
+- ✅ Stress tests with random data
+
+### 2. Add Two Numbers (LeetCode #2)
 - **Location**: `src/main/java/com/example/leetcode/AddTwoNumbers.java`
 - **Description**: Add two numbers represented as linked lists in reverse order
 - **Time Complexity**: O(max(m, n))
@@ -640,7 +677,53 @@ Input: n = 5 -> Output: 8 (follows Fibonacci sequence)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 17. Merge Sorted Array (LeetCode #88)
+### 17. Word Search (LeetCode #79)
+- **Location**: `src/main/java/com/example/leetcode/WordSearch.java`
+- **Description**: Given an m x n grid of characters and a string word, return true if word exists in the grid. The word can be constructed from letters of sequentially adjacent cells (horizontally or vertically), where the same cell cannot be used more than once
+- **Multiple Approaches**: 4 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Backtracking with In-Place Marking**: O(M * N * 4^L) time, O(L) space - *Most space-efficient approach (recommended)*
+- 📚 **Backtracking with Visited Array**: O(M * N * 4^L) time, O(M * N + L) space - *Cleaner approach without modifying input*
+- ⚡ **Optimized with Early Pruning**: O(M * N * 4^L) time, O(L) space - *Enhanced with character frequency optimization*
+- 🔧 **Iterative with Explicit Stack**: O(M * N * 4^L) time, O(M * N * L) space - *Avoids recursion stack overflow*
+
+**Examples**:
+```java
+Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
+Output: true
+Explanation: Word exists following path A->B->C->C->E->D
+
+Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
+Output: true
+Explanation: Word exists following path S->E->E
+
+Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
+Output: false
+Explanation: Cannot reuse cells - 'B' cannot be used twice
+```
+
+**Special Features**:
+- 🎯 **Backtracking Visualization**: Track and display the complete search path
+- 📊 **Path Analysis**: Count all possible paths that match the word
+- ⚡ **Search Statistics**: Measure cells explored, max depth, and execution time
+- 🧪 **Edge Case Testing**: Single cell, word longer than board, all same characters, complex patterns
+- 📈 **Performance Optimization**: Early termination, character frequency checks, optimal direction search
+- 🔧 **Algorithm-Specific Features**: In-place marking vs visited array, iterative vs recursive approaches
+- 🌟 **Dictionary Search**: Find all words from a dictionary that exist in the board
+- 💡 **Key Insight**: Use DFS with backtracking to explore all possible paths while preventing cell reuse
+
+**Testing**: Comprehensive test suite with 200+ test cases covering:
+- LeetCode examples and edge cases
+- Directional searches (horizontal, vertical, diagonal-like patterns)
+- Complex backtracking scenarios with dead ends
+- Performance tests with maximum board size (6x6) and word length (15)
+- Cross-approach validation ensuring all algorithms produce identical results
+- Pattern tests (L-shaped, U-shaped, spiral, snake, border traversal)
+- Character type tests (uppercase, lowercase, mixed case)
+- Stress tests with dense boards and extensive searches
+
+### 18. Merge Sorted Array (LeetCode #88)
 - **Location**: `src/main/java/com/example/leetcode/MergeSortedArray.java`
 - **Description**: Merge two sorted arrays in-place into nums1 without using extra space
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -714,7 +797,7 @@ Output: [1]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 19. Maximum Depth of Binary Tree (LeetCode #104)
+### 20. Maximum Depth of Binary Tree (LeetCode #104)
 - **Location**: `src/main/java/com/example/leetcode/MaximumDepthOfBinaryTree.java`
 - **Description**: Find the maximum depth of a binary tree (number of nodes along longest path from root to leaf)
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -747,7 +830,7 @@ Input: []                      -> Output: 0
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 20. Balanced Binary Tree (LeetCode #110)
+### 21. Balanced Binary Tree (LeetCode #110)
 - **Location**: `src/main/java/com/example/leetcode/BalancedBinaryTree.java`
 - **Description**: Determine if a binary tree is height-balanced (depth of two subtrees never differs by more than 1)
 - **Multiple Approaches**: 4 different algorithms with comprehensive analysis
@@ -778,7 +861,7 @@ Input: [1] -> Output: true (single node is balanced)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 21. Single Number (LeetCode #136)
+### 22. Single Number (LeetCode #136)
 - **Location**: `src/main/java/com/example/leetcode/SingleNumber.java`
 - **Description**: Find the unique element in an array where every other element appears exactly twice
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -810,7 +893,7 @@ Input: [-1,-1,-2] -> Output: -2
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 22. Minimum Depth of Binary Tree (LeetCode #111)
+### 23. Minimum Depth of Binary Tree (LeetCode #111)
 - **Location**: `src/main/java/com/example/leetcode/MinimumDepthOfBinaryTree.java`
 - **Description**: Find the minimum depth of a binary tree (shortest path from root to nearest leaf node)
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -844,7 +927,7 @@ Input: [] -> Output: 0
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 23. Pascal's Triangle II (LeetCode #119)
+### 24. Pascal's Triangle II (LeetCode #119)
 - **Location**: `src/main/java/com/example/leetcode/PascalsTriangleII.java`
 - **Description**: Return the kth (0-indexed) row of Pascal's triangle using efficient algorithms
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -878,7 +961,7 @@ Input: rowIndex = 5 -> Output: [1,5,10,10,5,1]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 24. Best Time to Buy and Sell Stock (LeetCode #121)
+### 25. Best Time to Buy and Sell Stock (LeetCode #121)
 - **Location**: `src/main/java/com/example/leetcode/BestTimeToBuyAndSellStock.java`
 - **Description**: Find maximum profit from buying and selling stock once using efficient algorithms
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -911,7 +994,7 @@ Input: prices = [2,4,1] -> Output: 2 (Buy at 2, sell at 4)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 25. Print in Order (LeetCode #1114)
+### 26. Print in Order (LeetCode #1114)
 - **Location**: `src/main/java/com/example/leetcode/PrintInOrder.java`
 - **Description**: Ensure thread-safe execution order using multiple synchronization approaches
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -944,7 +1027,7 @@ Input: [3,2,1] -> Output: "firstsecondthird"
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 26. Find Most Frequent Vowel and Consonant (LeetCode #3541)
+### 27. Find Most Frequent Vowel and Consonant (LeetCode #3541)
 - **Location**: `src/main/java/com/example/leetcode/FindMostFrequentVowelAndConsonant.java`
 - **Description**: Find the sum of the maximum frequency of any vowel and the maximum frequency of any consonant in a string
 - **Multiple Approaches**: 4 different algorithms with comprehensive analysis
@@ -975,7 +1058,7 @@ Input: "programming" -> Output: 3 (o,a,i each appear 1 time max vowel = 1, r,g,m
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 27. Linked List Cycle (LeetCode #141)
+### 28. Linked List Cycle (LeetCode #141)
 - **Location**: `src/main/java/com/example/leetcode/LinkedListCycle.java`
 - **Description**: Determine if a linked list has a cycle using multiple detection algorithms
 - **Multiple Approaches**: 4 different algorithms with comprehensive analysis
@@ -1006,7 +1089,7 @@ Input: head = [], pos = -1 -> Output: false (empty list)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 28. Print FooBar Alternately (LeetCode #1115)
+### 29. Print FooBar Alternately (LeetCode #1115)
 - **Location**: `src/main/java/com/example/leetcode/PrintFooBarAlternately.java`
 - **Description**: Coordinate two threads to print "foo" and "bar" alternately n times using multiple synchronization approaches
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -1038,7 +1121,7 @@ Input: n = 5 -> Output: "foobarfoobarfoobarfoobarfoobar"
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 29. Customers Who Never Order (LeetCode #183)
+### 30. Customers Who Never Order (LeetCode #183)
 - **Location**: `src/main/java/com/example/leetcode/CustomersWhoNeverOrder.java`
 - **Description**: Find all customers who never order anything using multiple SQL and Java approaches
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -1072,7 +1155,7 @@ Output: ["Henry", "Max"]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 30. Valid Palindrome (LeetCode #125)
+### 31. Valid Palindrome (LeetCode #125)
 - **Location**: `src/main/java/com/example/leetcode/ValidPalindrome.java`
 - **Description**: Determine if a string is a palindrome after removing non-alphanumeric characters and ignoring case
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1107,7 +1190,7 @@ Input: "12321" -> Output: true
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 31. Count Complete Tree Nodes (LeetCode #222)
+### 32. Count Complete Tree Nodes (LeetCode #222)
 - **Location**: `src/main/java/com/example/leetcode/CountCompleteTreeNodes.java`
 - **Description**: Count the number of nodes in a complete binary tree efficiently
 - **Multiple Approaches**: 8 different algorithms with comprehensive analysis
@@ -1143,7 +1226,7 @@ Input: Complete tree (8 nodes) -> Output: 8
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 32. Counting Bits (LeetCode #338)
+### 33. Counting Bits (LeetCode #338)
 - **Location**: `src/main/java/com/example/leetcode/CountingBits.java`
 - **Description**: Count the number of 1's in the binary representation of each number from 0 to n
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -1176,7 +1259,54 @@ Input: n = 15 -> Output: [0,1,1,2,1,2,2,3,1,2,2,3,2,3,3,4]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 33. Intersection of Two Linked Lists (LeetCode #160)
+### 34. Reconstruct Itinerary (LeetCode #332)
+- **Location**: `src/main/java/com/example/leetcode/ReconstructItinerary.java`
+- **Description**: Given a list of airline tickets representing departure and arrival airports, reconstruct the itinerary in order starting from "JFK". If multiple valid itineraries exist, return the one with the smallest lexical order
+- **Multiple Approaches**: 3 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Hierholzer's Algorithm - DFS with Postorder**: O(E log E) time, O(E + V) space - *Optimal solution using Eulerian path algorithm (recommended)*
+- ⚡ **Iterative with Stack**: O(E log E) time, O(E + V) space - *Alternative optimal approach avoiding recursion*
+- 🔧 **DFS with Backtracking**: O(E^E) time, O(E) space - *Traditional backtracking approach (educational)*
+
+**Examples**:
+```java
+Input: tickets = [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]
+Output: ["JFK","MUC","LHR","SFO","SJC"]
+
+Input: tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
+Output: ["JFK","ATL","JFK","SFO","ATL","SFO"]
+Explanation: ["JFK","SFO","ATL","JFK","ATL","SFO"] is also valid but lexically larger
+
+Input: tickets = [["JFK","KUL"],["JFK","NRT"],["NRT","JFK"]]
+Output: ["JFK","NRT","JFK","KUL"]
+Explanation: Must use Hierholzer's to avoid dead-end at KUL
+```
+
+**Special Features**:
+- 🎯 **Eulerian Path**: Classic application of Hierholzer's algorithm for finding Eulerian path in directed graph
+- 📊 **Graph Theory**: Demonstrates advanced graph traversal with edge removal
+- ⚡ **Lexical Ordering**: Priority queue ensures smallest lexical order automatically
+- 🧪 **Comprehensive Testing**: Edge cases including circular routes, multiple paths, dead ends, self-loops
+- 📈 **Backtracking Comparison**: Shows why Hierholzer's algorithm is superior to naive backtracking
+- 🔧 **Postorder Traversal**: Key insight - add airports after visiting all destinations (postorder)
+- 🌟 **Educational Value**: Demonstrates graph algorithms, DFS, stack-based iteration, and optimization
+- 💡 **Key Insight**: Hierholzer's algorithm naturally handles dead-ends by building path in reverse (postorder)
+
+**Algorithm Comparison**:
+1. **Hierholzer's DFS**: Best for interviews - elegant, optimal, uses recursion
+2. **Iterative Stack**: Best for production - avoids recursion overhead, handles deep paths
+3. **DFS Backtracking**: Educational - shows naive approach and why Hierholzer's is better
+
+**Testing**: Comprehensive test suite with 80+ test cases covering:
+- LeetCode official examples
+- Circular routes and Eulerian circuits
+- Multiple valid paths with lexical ordering
+- Dead ends requiring careful traversal
+- Performance tests up to 300 tickets
+- Cross-validation between all approaches
+
+### 35. Intersection of Two Linked Lists (LeetCode #160)
 - **Location**: `src/main/java/com/example/leetcode/IntersectionOfTwoLinkedLists.java`
 - **Description**: Find the node where two singly linked lists intersect
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -1213,7 +1343,7 @@ Output: No intersection
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 34. Excel Sheet Column Title (LeetCode #168)
+### 35. Excel Sheet Column Title (LeetCode #168)
 - **Location**: `src/main/java/com/example/leetcode/ExcelSheetColumnTitle.java`
 - **Description**: Convert a positive integer to its corresponding Excel column title (A, B, ..., Z, AA, AB, ...)
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -1248,7 +1378,7 @@ Input: 2147483647 -> Output: "FXSHRXW"
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 35. Count and Say (LeetCode #38)
+### 36. Count and Say (LeetCode #38)
 - **Location**: `src/main/java/com/example/leetcode/CountAndSay.java`
 - **Description**: Generate the nth term of the count-and-say sequence where each term describes the previous term
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -1283,7 +1413,7 @@ Input: n = 6 -> Output: "312211" (three 1s, two 2s, then one 1)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 36. Majority Element (LeetCode #169)
+### 37. Majority Element (LeetCode #169)
 - **Location**: `src/main/java/com/example/leetcode/MajorityElement.java`
 - **Description**: Find the majority element that appears more than ⌊n / 2⌋ times in an array
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1319,7 +1449,7 @@ Input: nums = [1,1,2,2,2] -> Output: 2
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 37. Reverse Bits (LeetCode #190)
+### 38. Reverse Bits (LeetCode #190)
 - **Location**: `src/main/java/com/example/leetcode/ReverseBits.java`
 - **Description**: Reverse bits of a given 32-bit unsigned integer
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1356,7 +1486,7 @@ Output: 3221225471 (10111111111111111111111111111111)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 38. Happy Number (LeetCode #202)
+### 39. Happy Number (LeetCode #202)
 - **Location**: `src/main/java/com/example/leetcode/HappyNumber.java`
 - **Description**: Determine if a number is happy by checking if the sum of squares of digits eventually reaches 1
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1395,7 +1525,7 @@ Explanation: 2² = 4, 4² = 16, 1² + 6² = 37, 3² + 7² = 58, 5² + 8² = 89, 
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 39. Contains Duplicate (LeetCode #217)
+### 40. Contains Duplicate (LeetCode #217)
 - **Location**: `src/main/java/com/example/leetcode/ContainsDuplicate.java`
 - **Description**: Determine if any value appears at least twice in an integer array
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -1426,7 +1556,7 @@ Input: nums = [1,1,1,3,3,4,3,2,4,2] -> Output: true
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 40. Isomorphic Strings (LeetCode #205)
+### 41. Isomorphic Strings (LeetCode #205)
 - **Location**: `src/main/java/com/example/leetcode/IsomorphicStrings.java`
 - **Description**: Determine if two strings are isomorphic (characters can be replaced to get each other)
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -1461,7 +1591,7 @@ Input: s = "ab", t = "ca" -> Output: true
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 41. Implement Stack using Queues (LeetCode #225)
+### 42. Implement Stack using Queues (LeetCode #225)
 - **Location**: `src/main/java/com/example/leetcode/StackUsingQueues.java`
 - **Description**: Implement a last-in-first-out (LIFO) stack using only two queues
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -1500,7 +1630,7 @@ Operations:
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 42. Contains Duplicate II (LeetCode #219)
+### 43. Contains Duplicate II (LeetCode #219)
 - **Location**: `src/main/java/com/example/leetcode/ContainsDuplicateII.java`
 - **Description**: Determine if there are two distinct indices i and j such that nums[i] == nums[j] and abs(i - j) <= k
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -1531,7 +1661,7 @@ Input: nums = [1,2,3,1,2,3], k = 2 -> Output: false (no duplicates within distan
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 41. Plus Minus (HackerRank)
+### 44. Plus Minus (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/PlusMinus.java`
 - **Description**: Calculate ratios of positive, negative, and zero elements in an array
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1574,7 +1704,7 @@ Output:
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 42. Summary Ranges (LeetCode #228)
+### 45. Summary Ranges (LeetCode #228)
 - **Location**: `src/main/java/com/example/leetcode/SummaryRanges.java`
 - **Description**: Return the smallest sorted list of ranges that cover all numbers in a sorted unique integer array
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -1608,7 +1738,7 @@ Input: nums = [1,3] -> Output: ["1","3"]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 43. Move Zeroes (LeetCode #283)
+### 46. Move Zeroes (LeetCode #283)
 - **Location**: `src/main/java/com/example/leetcode/MoveZeroes.java`
 - **Description**: Move all 0's to the end of array while maintaining relative order of non-zero elements in-place
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -1643,7 +1773,7 @@ Input: nums = [1,2,3,4,5] -> Output: [1,2,3,4,5] (no change)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 44. Range Sum Query - Immutable (LeetCode #303)
+### 47. Range Sum Query - Immutable (LeetCode #303)
 - **Location**: `src/main/java/com/example/leetcode/RangeSumQueryImmutable.java`
 - **Description**: Design a data structure to efficiently calculate sum of elements in a given range of an integer array
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -1655,7 +1785,7 @@ Input: nums = [1,2,3,4,5] -> Output: [1,2,3,4,5] (no change)
 - 📚 **Sparse Table**: O(n log n) constructor, O(1) sumRange - *Advanced technique for range queries*
 - 🎯 **Simple Array**: O(n) constructor, O(right-left+1) sumRange - *Educational baseline approach*
 
-### 45. Intersection of Two Arrays (LeetCode #349)
+### 48. Intersection of Two Arrays (LeetCode #349)
 - **Location**: `src/main/java/com/example/leetcode/IntersectionOfTwoArrays.java`
 - **Description**: Find the intersection of two integer arrays, returning unique elements
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -1690,7 +1820,7 @@ Output: [9,4] or [4,9]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 46. Intersection of Two Arrays II (LeetCode #350)
+### 49. Intersection of Two Arrays II (LeetCode #350)
 - **Location**: `src/main/java/com/example/leetcode/IntersectionOfTwoArraysII.java`
 - **Description**: Find the intersection of two integer arrays, returning elements with frequency preserved
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -1729,7 +1859,7 @@ Output: [4,9] or [9,4]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 47. Ransom Note (LeetCode #383)
+### 50. Ransom Note (LeetCode #383)
 - **Location**: `src/main/java/com/example/leetcode/RansomNote.java`
 - **Description**: Determine if a ransom note can be constructed using letters from a magazine, where each letter can only be used once
 - **Multiple Approaches**: 4 different algorithms with comprehensive analysis
@@ -1768,7 +1898,7 @@ Explanation: Can construct "aa" using 2 'a's from magazine
 
 **Testing**: 52 comprehensive test cases covering all edge cases and approach comparisons!
 
-### 48. Third Maximum Number (LeetCode #414)
+### 51. Third Maximum Number (LeetCode #414)
 - **Location**: `src/main/java/com/example/leetcode/ThirdMaximumNumber.java`
 - **Description**: Find the third distinct maximum number in an array. If the third maximum does not exist, return the maximum number.
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1810,7 +1940,7 @@ Explanation: The first distinct maximum is 3, the second is 2, and the third is 
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 49. Valid Anagram (LeetCode #242)
+### 52. Valid Anagram (LeetCode #242)
 - **Location**: `src/main/java/com/example/leetcode/ValidAnagram.java`
 - **Description**: Determine if two strings are anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of another, using all the original letters exactly once.
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1853,7 +1983,7 @@ Explanation: Classic anagram example.
 
 **Testing**: Comprehensive test cases with cross-approach validation and Unicode support testing!
 
-### 50. First Bad Version (LeetCode #278)
+### 53. First Bad Version (LeetCode #278)
 - **Location**: `src/main/java/com/example/leetcode/FirstBadVersion.java`
 - **Description**: Find the first bad version using binary search to minimize API calls
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -1889,7 +2019,7 @@ Output: 4 (first bad version)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 51. Reverse Linked List (LeetCode #206)
+### 54. Reverse Linked List (LeetCode #206)
 - **Location**: `src/main/java/com/example/leetcode/ReverseLinkedList.java`
 - **Description**: Given the head of a singly linked list, reverse the list and return the reversed list
 - **Multiple Approaches**: 4 different algorithms with comprehensive analysis
@@ -1925,7 +2055,7 @@ Output: []
 
 **Testing**: Comprehensive test cases with cross-approach validation and edge case coverage!
 
-### 52. Longest Harmonious Subsequence (LeetCode #594)
+### 55. Longest Harmonious Subsequence (LeetCode #594)
 - **Location**: `src/main/java/com/example/leetcode/LongestHarmoniousSubsequence.java`
 - **Description**: Find the length of the longest harmonious subsequence where max - min = 1
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -1966,7 +2096,7 @@ Explanation: No harmonious subsequence exists
 
 **Testing**: Comprehensive test cases with performance benchmarking and constraint validation!
 
-### 53. Maximum Average Subarray I (LeetCode #643)
+### 56. Maximum Average Subarray I (LeetCode #643)
 - **Location**: `src/main/java/com/example/leetcode/MaximumAverageSubarrayI.java`
 - **Description**: Find a contiguous subarray of length k that has the maximum average value
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -2003,7 +2133,7 @@ Explanation: Only one element, so average is 5.0
 
 **Testing**: Comprehensive test cases with performance benchmarking and precision validation!
 
-### 54. Defuse the Bomb (LeetCode #1652)
+### 57. Defuse the Bomb (LeetCode #1652)
 - **Location**: `src/main/java/com/example/leetcode/DefuseTheBomb.java`
 - **Description**: Defuse a bomb by decrypting a circular array code using sliding window technique
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -2044,7 +2174,7 @@ Explanation: Each number is replaced by sum of previous 2 numbers
 
 **Testing**: Comprehensive test cases with circular array validation and performance benchmarking!
 
-### 55. Longest Nice Substring (LeetCode #1763)
+### 58. Longest Nice Substring (LeetCode #1763)
 - **Location**: `src/main/java/com/example/leetcode/LongestNiceSubstring.java`
 - **Description**: Find the longest substring where every letter appears in both uppercase and lowercase
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -2084,7 +2214,7 @@ Explanation: There are no nice substrings
 
 **Testing**: Comprehensive test cases with string validation and performance benchmarking!
 
-### 56. Power of Two (LeetCode #231)
+### 59. Power of Two (LeetCode #231)
 - **Location**: `src/main/java/com/example/leetcode/PowerOfTwo.java`
 - **Description**: Determine if a given integer n is a power of two (i.e., exists an integer x such that n == 2^x)
 - **Multiple Approaches**: 8 different algorithms with comprehensive analysis
@@ -2127,7 +2257,7 @@ Explanation: 3 is not a power of two
 
 **Testing**: Comprehensive test cases with binary pattern validation and performance benchmarking!
 
-### 57. Find All Numbers Disappeared in an Array (LeetCode #448)
+### 60. Find All Numbers Disappeared in an Array (LeetCode #448)
 - **Location**: `src/main/java/com/example/leetcode/FindDisappearedNumbers.java`
 - **Description**: Given an array nums of n integers where nums[i] is in range [1, n], return an array of all integers in [1, n] that do not appear in nums
 - **Multiple Approaches**: 8 different algorithms with comprehensive analysis
@@ -2166,7 +2296,7 @@ Explanation: Number 2 is in range [1,2] but not in array
 
 **Testing**: Comprehensive test cases with pattern validation and performance benchmarking!
 
-### 58. Assign Cookies (LeetCode #455)
+### 61. Assign Cookies (LeetCode #455)
 - **Location**: `src/main/java/com/example/leetcode/AssignCookies.java`
 - **Description**: Maximize the number of content children by assigning cookies. Each child has a greed factor (minimum cookie size), and each cookie has a size. A child is content if cookie size >= greed factor.
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -2204,7 +2334,7 @@ Both children can be satisfied
 
 **Testing**: Comprehensive test cases with cross-approach validation and performance benchmarking!
 
-### 59. Alert Using Same Key-Card Three or More Times in a One Hour Period (LeetCode #1604)
+### 62. Alert Using Same Key-Card Three or More Times in a One Hour Period (LeetCode #1604)
 - **Location**: `src/main/java/com/example/leetcode/AlertUsingKeyCard.java`
 - **Description**: Find workers who used their key-card three or more times within a one-hour period (60 minutes or less). Given arrays of worker names and access times in "HH:MM" format, return names of workers who triggered alerts, sorted alphabetically.
 - **Multiple Approaches**: 4 different algorithms with comprehensive analysis
@@ -2253,7 +2383,7 @@ Explanation: Times cross midnight boundary - no alert triggered
 - Performance tests (1000+ accesses)
 - Cross-approach comparison and validation
 
-### 46. Merge and Sort Intervals (HackerRank)
+### 63. Merge and Sort Intervals (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/MergeAndSortIntervals.java`
 - **Description**: Merge all overlapping intervals and return a list of non-overlapping intervals sorted by start time
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -2287,11 +2417,42 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
+### 64. Ice Cream Parlor (HackerRank)
+- **Location**: `src/main/java/com/example/hackerrank/IceCreamParlor.java`
+- **Description**: Given a list of ice cream prices and a budget, find the indices (1-based) of two distinct flavors that sum to exactly the budget
+- **Multiple Approaches**: 2 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Hash Map - One Pass**: O(n) time, O(n) space - *Optimal solution (recommended)*
+- 🔧 **Brute Force**: O(n²) time, O(1) space - *Simple nested loop approach*
+
+**Examples**:
+```java
+Input: m = 4, cost = [1, 4, 5, 3, 2] -> Output: [1, 4]
+Input: m = 4, cost = [2, 2, 4, 3] -> Output: [1, 2]
+Input: m = 100, cost = [5, 75, 25, 100] -> Output: [2, 3]
+Input: m = 10, cost = [3, 7] -> Output: [1, 2]
+Input: m = 20, cost = [1, 2, 3, 4, 5, 15] -> Output: [5, 6]
+```
+
+**Special Features**:
+- 🎯 **Two Sum Variant**: Classic two-sum problem with 1-based indexing
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Null arrays, single element, two elements, duplicate prices, equal prices
+- 📈 **Constraint Handling**: Handles HackerRank constraints (1 ≤ n ≤ 10⁴, 1 ≤ m ≤ 10⁴, 1 ≤ cost[i] ≤ 10⁴)
+- 🔧 **Algorithm-Specific Optimizations**: Hash map lookups, complement checking, index ordering
+- 🌟 **Educational Value**: Demonstrates hash maps, two-pointer concepts, and space-time tradeoffs
+- 💡 **Key Insight**: Use hash map to store prices and check for complement (m - current price) in O(1) time
+- 🛠️ **Utility Methods**: Solution validation, result formatting, comprehensive testing
+
+**Testing**: 27 comprehensive test cases with performance benchmarking and cross-validation!
+
 ## Key Features
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **3240+ comprehensive test cases** across all solutions
+- ✅ **3267+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -2321,6 +2482,7 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ./gradlew run
 
 # Run specific tests
+./gradlew test --tests "*TwoSum*"
 ./gradlew test --tests "*AddTwoNumbers*"
 ./gradlew test --tests "*LongestSubstring*"
 ./gradlew test --tests "*LongestPalindromic*"
@@ -2380,6 +2542,7 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ./gradlew test --tests "*AssignCookies*"
 ./gradlew test --tests "*RansomNote*"
 ./gradlew test --tests "*AlertUsingKeyCard*"
+./gradlew test --tests "*IceCreamParlor*"
 ./gradlew test --tests "*PlusMinus*"
 ./gradlew test --tests "*MergeAndSortIntervals*"
 ./gradlew test --tests "*BigOComplexity*"
@@ -2389,7 +2552,7 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 ```bash
 ./gradlew clean              # Clean build artifacts
 ./gradlew compileJava        # Compile source code
-./gradlew test               # Run all 2500+ tests
+./gradlew test               # Run all 3267+ tests
 ./gradlew build              # Build the entire project
 ./gradlew run                # Run with all algorithm demonstrations
 ```
@@ -2408,6 +2571,7 @@ This project serves as:
 
 | Problem | Difficulty | Optimal Complexity | Approaches | Test Cases |
 |---------|------------|-------------------|------------|------------|
+| Two Sum | Easy | O(n) time, O(n) space | 4 approaches | Comprehensive |
 | Add Two Numbers | Medium | O(n) time, O(n) space | 1 approach | Standard |
 | Longest Substring | Medium | O(n) time, O(k) space | 3 approaches | Comprehensive |
 | Longest Common Prefix | Easy | O(S) time, O(1) space | 5 approaches | Comprehensive |
@@ -2424,6 +2588,7 @@ This project serves as:
 | Plus One | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Sqrt(x) | Easy | O(log x) time, O(1) space | 6 approaches | Comprehensive |
 | Climbing Stairs | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
+| Word Search | Medium | O(M * N * 4^L) time, O(L) space | 4 approaches | Comprehensive |
 | Merge Sorted Array | Easy | O(m + n) time, O(1) space | 6 approaches | Comprehensive |
 | Convert Sorted Array to BST | Easy | O(n) time, O(log n) space | 6 approaches | Comprehensive |
 | Maximum Depth of Binary Tree | Easy | O(n) time, O(h) space | 6 approaches | Comprehensive |
@@ -2440,6 +2605,7 @@ This project serves as:
 | Valid Palindrome | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Count Complete Tree Nodes | Medium | O(log²n) time, O(logn) space | 8 approaches | Comprehensive |
 | Counting Bits | Easy | O(n) time, O(n) space | 6 approaches | Comprehensive |
+| Reconstruct Itinerary | Medium | O(E log E) time, O(E + V) space | 3 approaches | 80+ tests |
 | Intersection of Two Linked Lists | Easy | O(m + n) time, O(1) space | 6 approaches | Comprehensive |
 | Excel Sheet Column Title | Easy | O(log₂₆(n)) time, O(log₂₆(n)) space | 5 approaches | Comprehensive |
 | Count and Say | Medium | O(n * m) time, O(m) space | 5 approaches | Comprehensive |
@@ -2472,6 +2638,6 @@ This project serves as:
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 
-**Total**: 62 algorithm problems + Algorithm analysis = **3292+ test cases** and **340 different algorithmic approaches**!
+**Total**: 65 algorithm problems + Algorithm analysis = **3616+ test cases** and **351 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
