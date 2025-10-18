@@ -1,8 +1,8 @@
 package com.example.hackerrank;
 
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test class for IceCreamParlor
@@ -21,10 +21,10 @@ public class IceCreamParlorTest {
         int m = 4;
         int[] cost = {1, 4, 5, 3, 2};
         int[] result = IceCreamParlor.icecreamParlor(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertArrayEquals(new int[]{1, 4}, result);
+        assertArrayEquals(new int[] {1, 4}, result);
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -34,10 +34,10 @@ public class IceCreamParlorTest {
         int m = 4;
         int[] cost = {2, 2, 4, 3};
         int[] result = IceCreamParlor.icecreamParlor(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertArrayEquals(new int[]{1, 2}, result);
+        assertArrayEquals(new int[] {1, 2}, result);
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -47,10 +47,10 @@ public class IceCreamParlorTest {
         int m = 100;
         int[] cost = {5, 75, 25, 100};
         int[] result = IceCreamParlor.icecreamParlor(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertArrayEquals(new int[]{2, 3}, result);
+        assertArrayEquals(new int[] {2, 3}, result);
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -60,10 +60,10 @@ public class IceCreamParlorTest {
         int m = 10;
         int[] cost = {3, 7};
         int[] result = IceCreamParlor.icecreamParlor(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertArrayEquals(new int[]{1, 2}, result);
+        assertArrayEquals(new int[] {1, 2}, result);
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -73,10 +73,10 @@ public class IceCreamParlorTest {
         int m = 20;
         int[] cost = {1, 2, 3, 4, 5, 15};
         int[] result = IceCreamParlor.icecreamParlor(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertArrayEquals(new int[]{5, 6}, result);
+        assertArrayEquals(new int[] {5, 6}, result);
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -86,10 +86,10 @@ public class IceCreamParlorTest {
         int m = 10;
         int[] cost = {1, 8, 6, 9};
         int[] result = IceCreamParlor.icecreamParlor(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertArrayEquals(new int[]{1, 4}, result);
+        assertArrayEquals(new int[] {1, 4}, result);
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -99,10 +99,10 @@ public class IceCreamParlorTest {
         int m = 8;
         int[] cost = {5, 3, 7, 2};
         int[] result = IceCreamParlor.icecreamParlor(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertArrayEquals(new int[]{1, 2}, result);
+        assertArrayEquals(new int[] {1, 2}, result);
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -112,7 +112,7 @@ public class IceCreamParlorTest {
         int m = 15;
         int[] cost = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int[] result = IceCreamParlor.icecreamParlor(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
         assertTrue(result[0] < result[1], "Indices should be in ascending order");
@@ -125,10 +125,10 @@ public class IceCreamParlorTest {
         int m = 6;
         int[] cost = {3, 5, 3, 7};
         int[] result = IceCreamParlor.icecreamParlor(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertArrayEquals(new int[]{1, 3}, result);
+        assertArrayEquals(new int[] {1, 3}, result);
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -138,10 +138,10 @@ public class IceCreamParlorTest {
         int m = 10;
         int[] cost = {5, 5};
         int[] result = IceCreamParlor.icecreamParlor(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertArrayEquals(new int[]{1, 2}, result);
+        assertArrayEquals(new int[] {1, 2}, result);
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -155,10 +155,10 @@ public class IceCreamParlorTest {
         int m = 4;
         int[] cost = {1, 4, 5, 3, 2};
         int[] result = IceCreamParlor.icecreamParlorBruteForce(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertArrayEquals(new int[]{1, 4}, result);
+        assertArrayEquals(new int[] {1, 4}, result);
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -168,10 +168,10 @@ public class IceCreamParlorTest {
         int m = 4;
         int[] cost = {2, 2, 4, 3};
         int[] result = IceCreamParlor.icecreamParlorBruteForce(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertArrayEquals(new int[]{1, 2}, result);
+        assertArrayEquals(new int[] {1, 2}, result);
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -181,10 +181,10 @@ public class IceCreamParlorTest {
         int m = 100;
         int[] cost = {5, 75, 25, 100};
         int[] result = IceCreamParlor.icecreamParlorBruteForce(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertArrayEquals(new int[]{2, 3}, result);
+        assertArrayEquals(new int[] {2, 3}, result);
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -194,10 +194,10 @@ public class IceCreamParlorTest {
         int m = 10;
         int[] cost = {3, 7};
         int[] result = IceCreamParlor.icecreamParlorBruteForce(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertArrayEquals(new int[]{1, 2}, result);
+        assertArrayEquals(new int[] {1, 2}, result);
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -211,7 +211,7 @@ public class IceCreamParlorTest {
         int m = 10;
         int[] cost = null;
         int[] result = IceCreamParlor.icecreamParlor(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(0, result.length);
     }
@@ -222,7 +222,7 @@ public class IceCreamParlorTest {
         int m = 5;
         int[] cost = {5};
         int[] result = IceCreamParlor.icecreamParlor(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(0, result.length);
     }
@@ -233,7 +233,7 @@ public class IceCreamParlorTest {
         int m = 10;
         int[] cost = {};
         int[] result = IceCreamParlor.icecreamParlor(m, cost);
-        
+
         assertNotNull(result);
         assertEquals(0, result.length);
     }
@@ -247,10 +247,10 @@ public class IceCreamParlorTest {
     public void testComparisonExample1() {
         int m = 4;
         int[] cost = {1, 4, 5, 3, 2};
-        
+
         int[] hashMapResult = IceCreamParlor.icecreamParlor(m, cost);
         int[] bruteForceResult = IceCreamParlor.icecreamParlorBruteForce(m, cost);
-        
+
         assertArrayEquals(hashMapResult, bruteForceResult);
     }
 
@@ -259,10 +259,10 @@ public class IceCreamParlorTest {
     public void testComparisonExample2() {
         int m = 4;
         int[] cost = {2, 2, 4, 3};
-        
+
         int[] hashMapResult = IceCreamParlor.icecreamParlor(m, cost);
         int[] bruteForceResult = IceCreamParlor.icecreamParlorBruteForce(m, cost);
-        
+
         assertArrayEquals(hashMapResult, bruteForceResult);
     }
 
@@ -271,10 +271,10 @@ public class IceCreamParlorTest {
     public void testComparisonLargeArray() {
         int m = 15;
         int[] cost = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        
+
         int[] hashMapResult = IceCreamParlor.icecreamParlor(m, cost);
         int[] bruteForceResult = IceCreamParlor.icecreamParlorBruteForce(m, cost);
-        
+
         // Both should be valid solutions (may be different since multiple solutions exist)
         assertTrue(IceCreamParlor.isValidSolution(m, cost, hashMapResult));
         assertTrue(IceCreamParlor.isValidSolution(m, cost, bruteForceResult));
@@ -290,7 +290,7 @@ public class IceCreamParlorTest {
         int m = 4;
         int[] cost = {1, 4, 5, 3, 2};
         int[] result = {1, 4};
-        
+
         assertTrue(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -300,7 +300,7 @@ public class IceCreamParlorTest {
         int m = 4;
         int[] cost = {1, 4, 5, 3, 2};
         int[] result = {1, 2}; // Wrong indices
-        
+
         assertFalse(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -310,7 +310,7 @@ public class IceCreamParlorTest {
         int m = 4;
         int[] cost = {1, 4, 5, 3, 2};
         int[] result = null;
-        
+
         assertFalse(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -320,7 +320,7 @@ public class IceCreamParlorTest {
         int m = 4;
         int[] cost = {2, 4, 5, 3, 2};
         int[] result = {1, 1}; // Same index
-        
+
         assertFalse(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -330,7 +330,7 @@ public class IceCreamParlorTest {
         int m = 4;
         int[] cost = {1, 4, 5, 3, 2};
         int[] result = {1, 10}; // Index 10 is out of bounds
-        
+
         assertFalse(IceCreamParlor.isValidSolution(m, cost, result));
     }
 
@@ -344,9 +344,9 @@ public class IceCreamParlorTest {
         int m = 4;
         int[] cost = {1, 4, 5, 3, 2};
         int[] result = {1, 4};
-        
+
         String formatted = IceCreamParlor.formatResult(m, cost, result);
-        
+
         assertNotNull(formatted);
         assertTrue(formatted.contains("Money: 4"));
         assertTrue(formatted.contains("Indices: [1, 4]"));
@@ -360,9 +360,9 @@ public class IceCreamParlorTest {
         int m = 4;
         int[] cost = {1, 4, 5, 3, 2};
         int[] result = {};
-        
+
         String formatted = IceCreamParlor.formatResult(m, cost, result);
-        
+
         assertEquals("No solution found", formatted);
     }
 }

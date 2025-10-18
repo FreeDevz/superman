@@ -4,39 +4,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * HackerRank: Ice Cream Parlor
- * Difficulty: Easy
+ * HackerRank: Ice Cream Parlor Difficulty: Easy
  * 
- * Problem:
- * Two friends like to pool their money and go to the ice cream parlor. They always choose two
- * distinct flavors and they spend all of their money.
+ * Problem: Two friends like to pool their money and go to the ice cream parlor. They always choose
+ * two distinct flavors and they spend all of their money.
  * 
  * Given a list of prices for the flavors of ice cream, select the two that will cost all of the
  * money they have.
  * 
- * Function Description:
- * Complete the icecreamParlor function. It should return an array containing the indices of the
- * prices of the two flavors they buy, sorted ascending.
+ * Function Description: Complete the icecreamParlor function. It should return an array containing
+ * the indices of the prices of the two flavors they buy, sorted ascending.
  * 
- * Parameters:
- * - int m: the amount of money they have to spend
- * - int[] cost: the cost of each flavor of ice cream
+ * Parameters: - int m: the amount of money they have to spend - int[] cost: the cost of each flavor
+ * of ice cream
  * 
- * Returns:
- * - int[2]: the indices of the prices of the two flavors they buy, sorted ascending (1-based indexing)
+ * Returns: - int[2]: the indices of the prices of the two flavors they buy, sorted ascending
+ * (1-based indexing)
  * 
- * Example:
- * m = 4
- * cost = [1, 4, 5, 3, 2]
- * Output: [1, 4]
- * Explanation: cost[0] + cost[3] = 1 + 3 = 4, so return 1-based indices [1, 4]
+ * Example: m = 4 cost = [1, 4, 5, 3, 2] Output: [1, 4] Explanation: cost[0] + cost[3] = 1 + 3 = 4,
+ * so return 1-based indices [1, 4]
  * 
- * Constraints:
- * - 1 <= t <= 50
- * - 2 <= m <= 10^4
- * - 2 <= n <= 10^4
- * - 1 <= cost[i] <= 10^4
- * - There will always be a unique solution
+ * Constraints: - 1 <= t <= 50 - 2 <= m <= 10^4 - 2 <= n <= 10^4 - 1 <= cost[i] <= 10^4 - There will
+ * always be a unique solution
  */
 public class IceCreamParlor {
 
@@ -50,21 +39,17 @@ public class IceCreamParlor {
      * 
      * This is the optimal solution for the Ice Cream Parlor problem.
      * 
-     * Algorithm:
-     * 1. Create a hash map to store each price and its index (1-based)
-     * 2. For each price, calculate its complement (m - current price)
-     * 3. Check if the complement exists in the hash map
-     * 4. If found, return the indices in ascending order (1-based)
-     * 5. Otherwise, add current price to map
+     * Algorithm: 1. Create a hash map to store each price and its index (1-based) 2. For each
+     * price, calculate its complement (m - current price) 3. Check if the complement exists in the
+     * hash map 4. If found, return the indices in ascending order (1-based) 5. Otherwise, add
+     * current price to map
      * 
-     * Key insights:
-     * - We only need to traverse the array once
-     * - Hash map provides O(1) lookup time
-     * - We check for complement before adding current element to avoid using same element twice
-     * - Return indices in ascending order and with 1-based indexing
+     * Key insights: - We only need to traverse the array once - Hash map provides O(1) lookup time
+     * - We check for complement before adding current element to avoid using same element twice -
+     * Return indices in ascending order and with 1-based indexing
      * 
-     * Time Complexity: O(n) where n is the length of the cost array
-     * Space Complexity: O(n) for the hash map
+     * Time Complexity: O(n) where n is the length of the cost array Space Complexity: O(n) for the
+     * hash map
      */
     public static int[] icecreamParlor(int m, int[] cost) {
         if (cost == null || cost.length < 2) {
@@ -84,8 +69,8 @@ public class IceCreamParlor {
                 int secondIndex = i + 1; // Convert to 1-based index
 
                 // Return in ascending order
-                return new int[] {Math.min(firstIndex, secondIndex), 
-                                 Math.max(firstIndex, secondIndex)};
+                return new int[] {Math.min(firstIndex, secondIndex),
+                        Math.max(firstIndex, secondIndex)};
             }
 
             // Add current price and its 1-based index to the map
@@ -106,13 +91,11 @@ public class IceCreamParlor {
      * 
      * This is the simplest but least efficient approach.
      * 
-     * Algorithm:
-     * 1. Use two nested loops to check all possible pairs
-     * 2. For each pair (i, j) where i < j, check if cost[i] + cost[j] == m
-     * 3. Return 1-based indices when a valid pair is found
+     * Algorithm: 1. Use two nested loops to check all possible pairs 2. For each pair (i, j) where
+     * i < j, check if cost[i] + cost[j] == m 3. Return 1-based indices when a valid pair is found
      * 
-     * Time Complexity: O(n²) where n is the length of the cost array
-     * Space Complexity: O(1) - only uses constant extra space
+     * Time Complexity: O(n²) where n is the length of the cost array Space Complexity: O(1) - only
+     * uses constant extra space
      */
     public static int[] icecreamParlorBruteForce(int m, int[] cost) {
         if (cost == null || cost.length < 2) {
@@ -164,10 +147,8 @@ public class IceCreamParlor {
         int idx1 = result[0] - 1; // Convert to 0-based for array access
         int idx2 = result[1] - 1;
 
-        return String.format(
-            "Money: %d, Indices: [%d, %d] (1-based), Prices: [%d, %d], Sum: %d",
-            m, result[0], result[1], cost[idx1], cost[idx2], cost[idx1] + cost[idx2]
-        );
+        return String.format("Money: %d, Indices: [%d, %d] (1-based), Prices: [%d, %d], Sum: %d", m,
+                result[0], result[1], cost[idx1], cost[idx2], cost[idx1] + cost[idx2]);
     }
 
     // ========================================
@@ -218,19 +199,21 @@ public class IceCreamParlor {
         System.out.println("Valid: " + isValidSolution(m5, cost5, result5) + "\n");
 
         System.out.println("=== Approach Comparison ===");
-        
+
         // Compare both approaches
         int testM = 4;
         int[] testCost = {1, 4, 5, 3, 2};
-        
+
         System.out.println("Money: " + testM);
         System.out.println("Costs: [1, 4, 5, 3, 2]");
-        
+
         int[] hashMapResult = icecreamParlor(testM, testCost);
-        System.out.println("Hash Map (One Pass): [" + hashMapResult[0] + ", " + hashMapResult[1] + "]");
-        
+        System.out.println(
+                "Hash Map (One Pass): [" + hashMapResult[0] + ", " + hashMapResult[1] + "]");
+
         int[] bruteForceResult = icecreamParlorBruteForce(testM, testCost);
-        System.out.println("Brute Force: [" + bruteForceResult[0] + ", " + bruteForceResult[1] + "]");
+        System.out
+                .println("Brute Force: [" + bruteForceResult[0] + ", " + bruteForceResult[1] + "]");
     }
 }
 
