@@ -10,7 +10,8 @@ src/
 │   ├── App.java                           # Main application with all demonstrations
 │   ├── algorithms/
 │   │   ├── BigOComplexityExamples.java    # Comprehensive Big O complexity examples
-│   │   └── DepthFirstSearchExamples.java  # Comprehensive Depth-First Search examples
+│   │   ├── DepthFirstSearchExamples.java  # Comprehensive Depth-First Search examples
+│   │   └── BreadthFirstSearchExamples.java # Comprehensive Breadth-First Search examples
 │   └── leetcode/
 │       ├── TwoSum.java                     # LeetCode #1: Two Sum
 │       ├── AddTwoNumbers.java             # LeetCode #2: Add Two Numbers
@@ -30,7 +31,9 @@ src/
 │       ├── SqrtX.java # LeetCode #69: Sqrt(x)
 │       ├── ClimbingStairs.java # LeetCode #70: Climbing Stairs
 │       ├── WordSearch.java # LeetCode #79: Word Search
+│       ├── LetterCombinationsOfPhoneNumber.java # LeetCode #17: Letter Combinations of a Phone Number
 │       ├── MergeSortedArray.java # LeetCode #88: Merge Sorted Array
+│       ├── MergeIntervals.java # LeetCode #56: Merge Intervals
 │       ├── ConvertSortedArrayToBST.java # LeetCode #108: Convert Sorted Array to Binary Search Tree
 │       ├── MaximumDepthOfBinaryTree.java # LeetCode #104: Maximum Depth of Binary Tree
 │       ├── BalancedBinaryTree.java # LeetCode #110: Balanced Binary Tree
@@ -99,7 +102,9 @@ src/
         ├── SqrtXTest.java # LeetCode #69 tests (comprehensive test cases!)
         ├── ClimbingStairsTest.java # LeetCode #70 tests (comprehensive test cases!)
         ├── WordSearchTest.java # LeetCode #79 tests (comprehensive test cases!)
+        ├── LetterCombinationsOfPhoneNumberTest.java # LeetCode #17 tests (comprehensive test cases!)
         ├── MergeSortedArrayTest.java # LeetCode #88 tests (comprehensive test cases!)
+        ├── MergeIntervalsTest.java # LeetCode #56 tests (comprehensive test cases!)
         ├── ConvertSortedArrayToBSTTest.java # LeetCode #108 tests (comprehensive test cases!)
         ├── MaximumDepthOfBinaryTreeTest.java # LeetCode #104 tests (comprehensive test cases!)
         ├── BalancedBinaryTreeTest.java # LeetCode #110 tests (comprehensive test cases!)
@@ -229,9 +234,46 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 java -cp build/libs/superman-1.0.0.jar com.example.algorithms.DepthFirstSearchExamples
 ```
 
+### 🌊 Breadth-First Search (BFS) Examples
+- **Location**: `src/main/java/com/example/algorithms/BreadthFirstSearchExamples.java`
+- **Description**: Comprehensive examples of Breadth-First Search algorithm with various implementations and applications
+- **Time Complexity**: O(V + E) where V is vertices and E is edges
+- **Space Complexity**: O(V) for the queue
+
+**Includes 11 complete BFS implementations**:
+- 🌳 **Tree BFS**: Level order traversal with level separation
+- 👁️ **Right Side View**: Get rightmost node at each level
+- 📊 **Graph BFS**: Graph traversal using adjacency list
+- 📈 **BFS with Levels**: Track distance/level from start node
+- 🎯 **Shortest Path**: Find shortest path in unweighted graphs
+- 📏 **Minimum Depth**: Find shortest path to any leaf in tree
+- 🔗 **Connected Components**: Count connected components in graphs
+- 🎨 **Bipartite Graph**: Detect if graph can be 2-colored
+- 📖 **Word Ladder**: Transform words with minimum steps
+- 🏝️ **Island Counter**: Count islands in 2D grid (BFS on matrix)
+- 🍊 **Rotting Oranges**: Calculate minimum time for propagation
+- 🔀 **Zigzag Traversal**: Alternate left-right tree traversal
+- 🐍 **Snake and Ladder**: Find minimum moves to reach goal
+
+**Key Features**:
+- Queue-based iterative implementations
+- Level-by-level processing techniques
+- Comprehensive **TreeNode** and **GraphNode** helper classes
+- Practical applications: shortest path, level order, bipartite detection
+- Multiple graph representations supported
+- Complete working examples with sample data
+- Well-documented with complexity analysis
+
+**Run the examples**:
+```bash
+# Compile and run BFS examples
+./gradlew build -x test
+java -cp build/libs/superman-1.0.0.jar com.example.algorithms.BreadthFirstSearchExamples
+```
+
 ## LeetCode Solutions
 
-This project features **65 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **67 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Two Sum (LeetCode #1)
 - **Location**: `src/main/java/com/example/leetcode/TwoSum.java`
@@ -757,7 +799,84 @@ Explanation: Cannot reuse cells - 'B' cannot be used twice
 - Character type tests (uppercase, lowercase, mixed case)
 - Stress tests with dense boards and extensive searches
 
-### 18. Merge Sorted Array (LeetCode #88)
+### 18. Letter Combinations of a Phone Number (LeetCode #17)
+- **Location**: `src/main/java/com/example/leetcode/LetterCombinationsOfPhoneNumber.java`
+- **Description**: Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
+- **Multiple Approaches**: 3 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Recursive Backtracking**: O(3^N * 4^M) time, O(3^N * 4^M) space - *Most intuitive approach using recursion*
+- ⚡ **Iterative BFS**: O(3^N * 4^M) time, O(3^N * 4^M) space - *Breadth-first search using queue*
+- 🔧 **Iterative with List**: O(3^N * 4^M) time, O(3^N * 4^M) space - *Memory efficient alternative to BFS*
+
+**Examples**:
+```java
+Input: digits = "23"
+Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+Explanation: 2 maps to "abc", 3 maps to "def", so all combinations are generated
+
+Input: digits = ""
+Output: []
+Explanation: Empty input returns empty list
+
+Input: digits = "2"
+Output: ["a","b","c"]
+Explanation: Single digit maps to its corresponding letters
+```
+
+**Key Features**:
+- **Digit Mapping**: Traditional phone keypad mapping (2→abc, 3→def, 4→ghi, 5→jkl, 6→mno, 7→pqrs, 8→tuv, 9→wxyz)
+- **Backtracking**: Classic recursive approach with choose-explore-unchoose pattern
+- **BFS Approach**: Level-by-level combination building using queue
+- **Memory Optimization**: Alternative iterative approach using lists instead of queue
+- **Comprehensive Testing**: All methods produce identical results with extensive test coverage
+
+**Time & Space Complexity**:
+- **Time**: O(3^N * 4^M) where N = digits mapping to 3 letters, M = digits mapping to 4 letters
+- **Space**: O(3^N * 4^M) for storing results + O(N+M) for recursion/iteration stack
+
+**Testing**: Comprehensive test cases including edge cases, null inputs, single digits, maximum length, and cross-method validation!
+
+### 19. Merge Intervals (LeetCode #56)
+- **Location**: `src/main/java/com/example/leetcode/MergeIntervals.java`
+- **Description**: Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
+- **Multiple Approaches**: 4 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Sort and Merge**: O(n log n) time, O(1) space - *Optimal solution (recommended)*
+- ⚡ **Priority Queue**: O(n log n) time, O(n) space - *Alternative sorting approach*
+- 🔧 **In-Place Merging**: O(n log n) time, O(1) space - *Space-optimized approach*
+- 📚 **Two-Pointer Technique**: O(n log n) time, O(1) space - *Efficient consecutive interval merging*
+
+**Examples**:
+```java
+Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
+Output: [[1,6],[8,10],[15,18]]
+Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
+
+Input: intervals = [[1,4],[4,5]]
+Output: [[1,5]]
+Explanation: Intervals [1,4] and [4,5] are considered overlapping.
+
+Input: intervals = [[1,4],[2,3]]
+Output: [[1,4]]
+Explanation: Since intervals [1,4] and [2,3] overlap, merge them into [1,4].
+```
+
+**Special Features**:
+- 🎯 **Interval Merging**: Demonstrates classic interval merging algorithms and sorting techniques
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🧪 **Edge Case Testing**: Empty arrays, single intervals, maximum constraints, touching intervals
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ n ≤ 10⁴, 0 ≤ start ≤ end ≤ 10⁴)
+- 🔧 **Algorithm-Specific Optimizations**: In-place merging, priority queues, two-pointer technique
+- 🌟 **Educational Value**: Demonstrates sorting, merging, and interval manipulation techniques
+- 💡 **Key Insight**: Sort by start time, then merge overlapping intervals by comparing end times
+- 🛠️ **Utility Methods**: Overlap detection, interval merging, comprehensive testing
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 20. Merge Sorted Array (LeetCode #88)
 - **Location**: `src/main/java/com/example/leetcode/MergeSortedArray.java`
 - **Description**: Merge two sorted arrays in-place into nums1 without using extra space
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -794,7 +913,7 @@ Output: [1]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 18. Convert Sorted Array to Binary Search Tree (LeetCode #108)
+### 21. Convert Sorted Array to Binary Search Tree (LeetCode #108)
 - **Location**: `src/main/java/com/example/leetcode/ConvertSortedArrayToBST.java`
 - **Description**: Convert a sorted array into a height-balanced binary search tree
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -2486,7 +2605,7 @@ Input: m = 20, cost = [1, 2, 3, 4, 5, 15] -> Output: [5, 6]
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **3267+ comprehensive test cases** across all solutions
+- ✅ **3288+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -2533,6 +2652,9 @@ Input: m = 20, cost = [1, 2, 3, 4, 5, 15] -> Output: [5, 6]
 ./gradlew test --tests "*PlusOne*"
 ./gradlew test --tests "*SqrtX*"
 ./gradlew test --tests "*ClimbingStairs*"
+./gradlew test --tests "*WordSearch*"
+./gradlew test --tests "*LetterCombinationsOfPhoneNumber*"
+./gradlew test --tests "*MergeIntervals*"
 ./gradlew test --tests "*MergeSortedArray*"
 ./gradlew test --tests "*ConvertSortedArrayToBST*"
 ./gradlew test --tests "*MaximumDepthOfBinaryTree*"
@@ -2623,6 +2745,8 @@ This project serves as:
 | Sqrt(x) | Easy | O(log x) time, O(1) space | 6 approaches | Comprehensive |
 | Climbing Stairs | Easy | O(n) time, O(1) space | 6 approaches | Comprehensive |
 | Word Search | Medium | O(M * N * 4^L) time, O(L) space | 4 approaches | Comprehensive |
+| Letter Combinations of Phone Number | Medium | O(3^N * 4^M) time, O(3^N * 4^M) space | 3 approaches | Comprehensive |
+| Merge Intervals | Medium | O(n log n) time, O(1) space | 4 approaches | Comprehensive |
 | Merge Sorted Array | Easy | O(m + n) time, O(1) space | 6 approaches | Comprehensive |
 | Convert Sorted Array to BST | Easy | O(n) time, O(log n) space | 6 approaches | Comprehensive |
 | Maximum Depth of Binary Tree | Easy | O(n) time, O(h) space | 6 approaches | Comprehensive |
@@ -2673,6 +2797,6 @@ This project serves as:
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 | Depth-First Search (DFS) | Educational | O(V + E) time, O(V) space | 10 implementations | Working examples |
 
-**Total**: 65 algorithm problems + 2 Algorithm tutorials = **3616+ test cases** and **361 different algorithmic approaches**!
+**Total**: 66 algorithm problems + 2 Algorithm tutorials = **3637+ test cases** and **365 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪

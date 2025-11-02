@@ -347,11 +347,14 @@ class AddBinaryTest {
     @DisplayName("Stress test: Maximum constraint sizes")
     void testStressTestMaximumConstraints() {
         // Test with maximum constraint sizes (10^4 characters)
+        // Adding two numbers of all 1s: (2^10001 - 1) + (2^10001 - 1) = 2^10002 - 2
+        // Pattern: n ones + n ones = (n-1) ones + "10"
         String a = "1".repeat(10000);
         String b = "1".repeat(10000);
 
         String result = solution.addBinaryManual(a, b);
-        assertEquals("1" + "0".repeat(10000), result);
+        String expected = "1".repeat(9999) + "10";
+        assertEquals(expected, result);
     }
 
     @Test

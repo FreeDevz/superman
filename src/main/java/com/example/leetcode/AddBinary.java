@@ -134,8 +134,13 @@ public class AddBinary {
 
         // Convert array to string, skipping leading zeros
         int start = 0;
-        while (start < result.length - 1 && result[start] == '0') {
+        while (start < result.length && result[start] == 0) {
             start++;
+        }
+
+        // Handle case where result is all zeros
+        if (start >= result.length) {
+            return "0";
         }
 
         return new String(result, start, result.length - start);
