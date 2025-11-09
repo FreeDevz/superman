@@ -77,7 +77,11 @@ src/
 │       ├── FindDisappearedNumbers.java # LeetCode #448: Find All Numbers Disappeared in an Array
 │       ├── AssignCookies.java # LeetCode #455: Assign Cookies
 │       ├── AlertUsingKeyCard.java # LeetCode #1604: Alert Using Same Key-Card Three or More Times
-│       └── RansomNote.java # LeetCode #383: Ransom Note
+│       ├── TopKFrequentElements.java # LeetCode #347: Top K Frequent Elements
+│       ├── RansomNote.java # LeetCode #383: Ransom Note
+│       ├── NetworkDelayTime.java # LeetCode #743: Network Delay Time
+│       ├── MyCalendarI.java # LeetCode #729: My Calendar I
+│       └── DesignBrowserHistory.java # LeetCode #1472: Design Browser History
 ├── hackerrank/
 │   ├── IceCreamParlor.java # HackerRank: Ice Cream Parlor
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
@@ -148,7 +152,11 @@ src/
         ├── FindDisappearedNumbersTest.java # LeetCode #448 tests (comprehensive test cases!)
         ├── AssignCookiesTest.java # LeetCode #455 tests (comprehensive test cases!)
         ├── AlertUsingKeyCardTest.java # LeetCode #1604 tests (comprehensive test cases!)
-        └── RansomNoteTest.java # LeetCode #383 tests (comprehensive test cases!)
+        ├── TopKFrequentElementsTest.java # LeetCode #347 tests (comprehensive test cases!)
+        ├── RansomNoteTest.java # LeetCode #383 tests (comprehensive test cases!)
+        ├── NetworkDelayTimeTest.java # LeetCode #743 tests (comprehensive test cases!)
+        ├── MyCalendarITest.java # LeetCode #729 tests (comprehensive test cases!)
+        └── DesignBrowserHistoryTest.java # LeetCode #1472 tests (comprehensive test cases!)
     └── hackerrank/
         ├── IceCreamParlorTest.java # HackerRank tests (27 comprehensive test cases!)
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
@@ -174,7 +182,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ### Run Tests
 ```bash
-./gradlew test                          # Run all tests (3267+ test cases!)
+./gradlew test                          # Run all tests (3310+ test cases!)
 ./gradlew test --tests "*LeetCode*"     # Run only LeetCode tests
 ./gradlew test --tests "*BigO*"         # Run Big O complexity tests
 ```
@@ -273,7 +281,7 @@ java -cp build/libs/superman-1.0.0.jar com.example.algorithms.BreadthFirstSearch
 
 ## LeetCode Solutions
 
-This project features **67 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **70 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Two Sum (LeetCode #1)
 - **Location**: `src/main/java/com/example/leetcode/TwoSum.java`
@@ -2012,7 +2020,41 @@ Output: [4,9] or [9,4]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 50. Ransom Note (LeetCode #383)
+### 50. Top K Frequent Elements (LeetCode #347)
+- **Location**: `src/main/java/com/example/leetcode/TopKFrequentElements.java`
+- **Description**: Return the `k` most frequent elements from an integer array. The answer can be in any order.
+- **Multiple Approaches**: 4 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Bucket Sort**: O(n) time, O(n) space - *Leverages frequency buckets for linear-time selection (recommended)*
+- ⚡ **Min Heap (Priority Queue)**: O(n log k) time, O(n) space - *Maintains a size-k heap of the most frequent elements*
+- 🔧 **Sorting by Frequency**: O(n log n) time, O(n) space - *Straightforward approach using frequency sorting*
+- 🎯 **Quickselect (Hoare Selection)**: Average O(n) time, O(n) space - *Partitions entries around the kth largest frequency*
+
+**Examples**:
+```java
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+
+Input: nums = [1], k = 1
+Output: [1]
+
+Input: nums = [4,4,4,6,6,7,7,7,7], k = 2
+Output: [7,4]
+```
+
+**Special Features**:
+- 🎯 **Order-Agnostic Validation**: Helper method compares results regardless of element ordering
+- 📊 **Cross-Validation**: All four approaches are cross-checked to ensure identical results
+- ⚡ **Performance Insights**: Highlights trade-offs between linear-time bucket sort and heap-based solutions
+- 🧪 **Edge Case Handling**: Supports negative numbers, ties in frequency, and scenarios where `k` equals the number of unique elements
+- 📈 **Constraint Awareness**: Efficiently handles up to 10⁵ elements within LeetCode constraints
+- 🛠️ **Helper Utilities**: Frequency map builder and multiset comparison helpers for reusable testing
+- 🌟 **Educational Value**: Demonstrates counting techniques, heap operations, selection algorithms, and bucket sort
+
+**Testing**: Comprehensive JUnit tests validating each approach and helper utilities!
+
+### 51. Ransom Note (LeetCode #383)
 - **Location**: `src/main/java/com/example/leetcode/RansomNote.java`
 - **Description**: Determine if a ransom note can be constructed using letters from a magazine, where each letter can only be used once
 - **Multiple Approaches**: 4 different algorithms with comprehensive analysis
@@ -2051,7 +2093,46 @@ Explanation: Can construct "aa" using 2 'a's from magazine
 
 **Testing**: 52 comprehensive test cases covering all edge cases and approach comparisons!
 
-### 51. Third Maximum Number (LeetCode #414)
+### 52. Network Delay Time (LeetCode #743)
+- **Location**: `src/main/java/com/example/leetcode/NetworkDelayTime.java`
+- **Description**: Find the minimum time it takes for a signal to reach all nodes in a network from a given starting node. If it's impossible for all nodes to receive the signal, return -1.
+- **Multiple Approaches**: 4 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Dijkstra's Algorithm**: O(E log V) time, O(V + E) space - *Optimal solution for single-source shortest paths in weighted graphs (recommended)*
+- ⚡ **Bellman-Ford Algorithm**: O(V * E) time, O(V) space - *Works with negative weights but slower for non-negative weights*
+- 🔄 **BFS with Distance Tracking**: O(V + E) time, O(V + E) space - *Works well for unweighted graphs or as alternative approach*
+- 💡 **Optimized Dijkstra's**: O(E log V) time, O(V + E) space - *Enhanced with early termination optimization*
+
+**Examples**:
+```java
+Input: times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2
+Output: 2
+Explanation: Signal path: 2 -> 3 -> 4, takes 2 time units
+
+Input: times = [[1,2,1]], n = 2, k = 1
+Output: 1
+Explanation: Signal reaches node 2 in 1 time unit
+
+Input: times = [[1,2,1]], n = 2, k = 2
+Output: -1
+Explanation: Node 2 cannot reach node 1, so not all nodes are reachable
+```
+
+**Special Features**:
+- 🎯 **Multiple Approaches**: 4 different graph algorithms for shortest path problems
+- 📊 **Cross-Validation**: All approaches produce identical results
+- ⚡ **Performance Analysis**: Live timing comparison between approaches
+- 🛠️ **Utility Methods**: Graph building, reachability checking, distance analysis
+- 🧪 **Edge Case Testing**: Single node, unreachable nodes, disconnected graphs, circular paths, large weights
+- 📈 **Constraint Handling**: Handles LeetCode constraints (1 ≤ n ≤ 100, 1 ≤ k ≤ n, 1 ≤ times.length ≤ 6000)
+- 🔧 **Algorithm-Specific Optimizations**: Priority queue for Dijkstra's, edge relaxation for Bellman-Ford
+- 🌟 **Educational Value**: Demonstrates Dijkstra's algorithm, Bellman-Ford algorithm, BFS, and graph traversal
+- 💡 **Key Insight**: Use Dijkstra's algorithm with priority queue to efficiently find shortest paths to all nodes from source
+
+**Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
+
+### 53. Third Maximum Number (LeetCode #414)
 - **Location**: `src/main/java/com/example/leetcode/ThirdMaximumNumber.java`
 - **Description**: Find the third distinct maximum number in an array. If the third maximum does not exist, return the maximum number.
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -2093,7 +2174,7 @@ Explanation: The first distinct maximum is 3, the second is 2, and the third is 
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 52. Valid Anagram (LeetCode #242)
+### 54. Valid Anagram (LeetCode #242)
 - **Location**: `src/main/java/com/example/leetcode/ValidAnagram.java`
 - **Description**: Determine if two strings are anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of another, using all the original letters exactly once.
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -2136,7 +2217,7 @@ Explanation: Classic anagram example.
 
 **Testing**: Comprehensive test cases with cross-approach validation and Unicode support testing!
 
-### 53. First Bad Version (LeetCode #278)
+### 55. First Bad Version (LeetCode #278)
 - **Location**: `src/main/java/com/example/leetcode/FirstBadVersion.java`
 - **Description**: Find the first bad version using binary search to minimize API calls
 - **Multiple Approaches**: 7 different algorithms with comprehensive analysis
@@ -2172,7 +2253,7 @@ Output: 4 (first bad version)
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 54. Reverse Linked List (LeetCode #206)
+### 56. Reverse Linked List (LeetCode #206)
 - **Location**: `src/main/java/com/example/leetcode/ReverseLinkedList.java`
 - **Description**: Given the head of a singly linked list, reverse the list and return the reversed list
 - **Multiple Approaches**: 4 different algorithms with comprehensive analysis
@@ -2208,7 +2289,7 @@ Output: []
 
 **Testing**: Comprehensive test cases with cross-approach validation and edge case coverage!
 
-### 55. Longest Harmonious Subsequence (LeetCode #594)
+### 57. Longest Harmonious Subsequence (LeetCode #594)
 - **Location**: `src/main/java/com/example/leetcode/LongestHarmoniousSubsequence.java`
 - **Description**: Find the length of the longest harmonious subsequence where max - min = 1
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -2249,7 +2330,7 @@ Explanation: No harmonious subsequence exists
 
 **Testing**: Comprehensive test cases with performance benchmarking and constraint validation!
 
-### 56. Maximum Average Subarray I (LeetCode #643)
+### 58. Maximum Average Subarray I (LeetCode #643)
 - **Location**: `src/main/java/com/example/leetcode/MaximumAverageSubarrayI.java`
 - **Description**: Find a contiguous subarray of length k that has the maximum average value
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -2286,7 +2367,7 @@ Explanation: Only one element, so average is 5.0
 
 **Testing**: Comprehensive test cases with performance benchmarking and precision validation!
 
-### 57. Defuse the Bomb (LeetCode #1652)
+### 59. Defuse the Bomb (LeetCode #1652)
 - **Location**: `src/main/java/com/example/leetcode/DefuseTheBomb.java`
 - **Description**: Defuse a bomb by decrypting a circular array code using sliding window technique
 - **Multiple Approaches**: 6 different algorithms with comprehensive analysis
@@ -2327,7 +2408,7 @@ Explanation: Each number is replaced by sum of previous 2 numbers
 
 **Testing**: Comprehensive test cases with circular array validation and performance benchmarking!
 
-### 58. Longest Nice Substring (LeetCode #1763)
+### 60. Longest Nice Substring (LeetCode #1763)
 - **Location**: `src/main/java/com/example/leetcode/LongestNiceSubstring.java`
 - **Description**: Find the longest substring where every letter appears in both uppercase and lowercase
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -2367,7 +2448,7 @@ Explanation: There are no nice substrings
 
 **Testing**: Comprehensive test cases with string validation and performance benchmarking!
 
-### 59. Power of Two (LeetCode #231)
+### 61. Power of Two (LeetCode #231)
 - **Location**: `src/main/java/com/example/leetcode/PowerOfTwo.java`
 - **Description**: Determine if a given integer n is a power of two (i.e., exists an integer x such that n == 2^x)
 - **Multiple Approaches**: 8 different algorithms with comprehensive analysis
@@ -2410,7 +2491,7 @@ Explanation: 3 is not a power of two
 
 **Testing**: Comprehensive test cases with binary pattern validation and performance benchmarking!
 
-### 60. Find All Numbers Disappeared in an Array (LeetCode #448)
+### 62. Find All Numbers Disappeared in an Array (LeetCode #448)
 - **Location**: `src/main/java/com/example/leetcode/FindDisappearedNumbers.java`
 - **Description**: Given an array nums of n integers where nums[i] is in range [1, n], return an array of all integers in [1, n] that do not appear in nums
 - **Multiple Approaches**: 8 different algorithms with comprehensive analysis
@@ -2449,7 +2530,7 @@ Explanation: Number 2 is in range [1,2] but not in array
 
 **Testing**: Comprehensive test cases with pattern validation and performance benchmarking!
 
-### 61. Assign Cookies (LeetCode #455)
+### 63. Assign Cookies (LeetCode #455)
 - **Location**: `src/main/java/com/example/leetcode/AssignCookies.java`
 - **Description**: Maximize the number of content children by assigning cookies. Each child has a greed factor (minimum cookie size), and each cookie has a size. A child is content if cookie size >= greed factor.
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -2487,7 +2568,7 @@ Both children can be satisfied
 
 **Testing**: Comprehensive test cases with cross-approach validation and performance benchmarking!
 
-### 62. Alert Using Same Key-Card Three or More Times in a One Hour Period (LeetCode #1604)
+### 64. Alert Using Same Key-Card Three or More Times in a One Hour Period (LeetCode #1604)
 - **Location**: `src/main/java/com/example/leetcode/AlertUsingKeyCard.java`
 - **Description**: Find workers who used their key-card three or more times within a one-hour period (60 minutes or less). Given arrays of worker names and access times in "HH:MM" format, return names of workers who triggered alerts, sorted alphabetically.
 - **Multiple Approaches**: 4 different algorithms with comprehensive analysis
@@ -2536,7 +2617,64 @@ Explanation: Times cross midnight boundary - no alert triggered
 - Performance tests (1000+ accesses)
 - Cross-approach comparison and validation
 
-### 63. Merge and Sort Intervals (HackerRank)
+### 65. My Calendar I (LeetCode #729)
+- **Location**: `src/main/java/com/example/leetcode/MyCalendarI.java`
+- **Description**: Implement a calendar that supports booking half-open intervals without overlaps. Each booking call either succeeds and stores the interval or fails if the new event conflicts with existing events.
+- **Multiple Approaches**: 3 different data-structure-driven algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **TreeMap Sweep Line**: O(log n) time, O(n) space - *Optimal interview-ready solution leveraging floor/ceiling lookups (recommended)*
+- ⚡ **Sorted List + Binary Search**: O(n) time, O(n) space - *Keeps intervals ordered while minimizing comparisons*
+- 🔧 **Linear Scan with Defensive Copy**: O(n) time, O(n) space - *Straightforward approach for educational clarity*
+
+**Examples**:
+```java
+MyCalendarTreeMap calendar = new MyCalendarTreeMap();
+calendar.book(10, 20); // returns true
+calendar.book(15, 25); // returns false (overlap)
+calendar.book(20, 30); // returns true (adjacent interval)
+```
+
+**Special Features**:
+- 🎯 **Shared Validation Utilities**: Centralized helper for input validation and overlap detection
+- 📊 **Cross-Approach Snapshotting**: Snapshot methods expose immutable interval lists for debugging
+- ⚡ **Adjacent Interval Support**: Half-open interval handling allows back-to-back meetings
+- 🧪 **Robust Error Handling**: Detailed exceptions for invalid intervals and malformed inputs
+- 📈 **Constraint Awareness**: Designed for up to 10⁴ bookings with values up to 10⁹
+- 🔧 **Utility Methods**: Interval validation, overlap checks, and safe interval comparisons
+
+**Testing**: Comprehensive JUnit tests covering official examples, edge cases, overlap detection, immutability, and utility helpers!
+
+### 66. Design Browser History (LeetCode #1472)
+- **Location**: `src/main/java/com/example/leetcode/DesignBrowserHistory.java`
+- **Description**: Design a simplified browser history that supports visiting URLs, moving backward and forward through previously visited pages, and exposing safe snapshots for verification.
+- **Multiple Approaches**: 2 data-structure implementations highlighting trade-offs between contiguous storage and node-based navigation.
+
+**Algorithms implemented**:
+- 🏆 **Dynamic Array + Pointer**: O(n) visit (due to forward-history truncation), O(1) navigation - *Mirrors the canonical LeetCode solution with defensive copies for tests*
+- 🔁 **Doubly Linked List**: O(k) navigation, O(n) space - *Models real browser back/forward stacks with explicit node management*
+
+**Examples**:
+```java
+DesignBrowserHistory.BrowserHistoryArray history =
+        new DesignBrowserHistory.BrowserHistoryArray("leetcode.com");
+history.visit("google.com");
+history.visit("facebook.com");
+history.back(1);      // returns "google.com"
+history.forward(1);   // returns "facebook.com"
+history.visit("linkedin.com"); // drops forward history
+```
+
+**Special Features**:
+- 🎯 **Shared Validation Utilities**: Centralized URL and step validation with descriptive exceptions
+- 📊 **Snapshot Support**: Immutable history snapshots to aid debugging and testing
+- ⚡ **Forward Pruning**: Automatic removal of stale forward history upon visiting new pages
+- 🔄 **Bidirectional Navigation**: Handles overflows gracefully by clamping to the available range
+- 🧪 **Cross-Approach Consistency**: Both implementations guarantee identical external behaviour
+
+**Testing**: Comprehensive JUnit tests covering LeetCode examples, forward-history pruning, immutability, validation edge cases, and parity between approaches!
+
+### 67. Merge and Sort Intervals (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/MergeAndSortIntervals.java`
 - **Description**: Merge all overlapping intervals and return a list of non-overlapping intervals sorted by start time
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -2570,7 +2708,7 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 64. Ice Cream Parlor (HackerRank)
+### 68. Ice Cream Parlor (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/IceCreamParlor.java`
 - **Description**: Given a list of ice cream prices and a budget, find the indices (1-based) of two distinct flavors that sum to exactly the budget
 - **Multiple Approaches**: 2 different algorithms with comprehensive analysis
@@ -2605,7 +2743,7 @@ Input: m = 20, cost = [1, 2, 3, 4, 5, 15] -> Output: [5, 6]
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **3288+ comprehensive test cases** across all solutions
+- ✅ **3310+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -2696,7 +2834,10 @@ Input: m = 20, cost = [1, 2, 3, 4, 5, 15] -> Output: [5, 6]
 ./gradlew test --tests "*PowerOfTwo*"
 ./gradlew test --tests "*FindDisappearedNumbers*"
 ./gradlew test --tests "*AssignCookies*"
+./gradlew test --tests "*TopKFrequentElements*"
 ./gradlew test --tests "*RansomNote*"
+./gradlew test --tests "*NetworkDelayTime*"
+./gradlew test --tests "*MyCalendarI*"
 ./gradlew test --tests "*AlertUsingKeyCard*"
 ./gradlew test --tests "*IceCreamParlor*"
 ./gradlew test --tests "*PlusMinus*"
@@ -2708,7 +2849,7 @@ Input: m = 20, cost = [1, 2, 3, 4, 5, 15] -> Output: [5, 6]
 ```bash
 ./gradlew clean              # Clean build artifacts
 ./gradlew compileJava        # Compile source code
-./gradlew test               # Run all 3267+ tests
+./gradlew test               # Run all 3310+ tests
 ./gradlew build              # Build the entire project
 ./gradlew run                # Run with all algorithm demonstrations
 ```
@@ -2790,13 +2931,17 @@ This project serves as:
 | Power of Two | Easy | O(1) time, O(1) space | 8 approaches | Comprehensive |
 | Find Disappeared Numbers | Easy | O(n) time, O(1) space | 8 approaches | Comprehensive |
 | Assign Cookies | Easy | O(n log n + m log m) time, O(log n + log m) space | 5 approaches | Comprehensive |
+| Top K Frequent Elements | Medium | O(n) time, O(n) space | 4 approaches | Comprehensive |
 | Ransom Note | Easy | O(m + n) time, O(1) space | 4 approaches | Comprehensive |
+| Network Delay Time | Medium | O(E log V) time, O(V + E) space | 4 approaches | Comprehensive |
+| My Calendar I | Medium | O(log n) time, O(n) space | 3 approaches | Comprehensive |
+| Design Browser History | Medium | O(n) visit, O(steps) navigation | 2 approaches | Comprehensive |
 | Alert Using Key-Card | Medium | O(N log N) time, O(N) space | 4 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 | Depth-First Search (DFS) | Educational | O(V + E) time, O(V) space | 10 implementations | Working examples |
 
-**Total**: 66 algorithm problems + 2 Algorithm tutorials = **3637+ test cases** and **365 different algorithmic approaches**!
+**Total**: 70 algorithm problems + 2 Algorithm tutorials = **3740+ test cases** and **378 different algorithmic approaches**!
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
