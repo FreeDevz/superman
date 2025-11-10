@@ -81,7 +81,8 @@ src/
 │       ├── RansomNote.java # LeetCode #383: Ransom Note
 │       ├── NetworkDelayTime.java # LeetCode #743: Network Delay Time
 │       ├── MyCalendarI.java # LeetCode #729: My Calendar I
-│       └── DesignBrowserHistory.java # LeetCode #1472: Design Browser History
+│       ├── DesignBrowserHistory.java # LeetCode #1472: Design Browser History
+│       └── DesignSnakeGame.java # LeetCode #353: Design Snake Game
 ├── hackerrank/
 │   ├── IceCreamParlor.java # HackerRank: Ice Cream Parlor
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
@@ -156,7 +157,8 @@ src/
         ├── RansomNoteTest.java # LeetCode #383 tests (comprehensive test cases!)
         ├── NetworkDelayTimeTest.java # LeetCode #743 tests (comprehensive test cases!)
         ├── MyCalendarITest.java # LeetCode #729 tests (comprehensive test cases!)
-        └── DesignBrowserHistoryTest.java # LeetCode #1472 tests (comprehensive test cases!)
+        ├── DesignBrowserHistoryTest.java # LeetCode #1472 tests (comprehensive test cases!)
+        └── DesignSnakeGameTest.java # LeetCode #353 tests (comprehensive test cases!)
     └── hackerrank/
         ├── IceCreamParlorTest.java # HackerRank tests (27 comprehensive test cases!)
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
@@ -182,7 +184,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ### Run Tests
 ```bash
-./gradlew test                          # Run all tests (3310+ test cases!)
+./gradlew test                          # Run all tests (3750+ test cases!)
 ./gradlew test --tests "*LeetCode*"     # Run only LeetCode tests
 ./gradlew test --tests "*BigO*"         # Run Big O complexity tests
 ```
@@ -281,7 +283,7 @@ java -cp build/libs/superman-1.0.0.jar com.example.algorithms.BreadthFirstSearch
 
 ## LeetCode Solutions
 
-This project features **70 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **71 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Two Sum (LeetCode #1)
 - **Location**: `src/main/java/com/example/leetcode/TwoSum.java`
@@ -2674,7 +2676,33 @@ history.visit("linkedin.com"); // drops forward history
 
 **Testing**: Comprehensive JUnit tests covering LeetCode examples, forward-history pruning, immutability, validation edge cases, and parity between approaches!
 
-### 67. Merge and Sort Intervals (HackerRank)
+### 67. Design Snake Game (LeetCode #353)
+- **Location**: `src/main/java/com/example/leetcode/DesignSnakeGame.java`
+- **Description**: Design the classic Snake game on a finite grid with predetermined food locations, ensuring accurate growth, collision detection, and scoring.
+- **Multiple Approaches**: 2 complementary implementations highlighting deque-backed bodies versus explicit node chains.
+
+**Algorithms implemented**:
+- 🏆 **Deque + HashSet**: O(1) per move - *Encodes cells and removes the tail before collision checks, mirroring best practices for passing tricky edge cases.*
+- 🔗 **Doubly Linked List + Hash Set**: O(1) per move - *Maintains explicit head/tail pointers for educational clarity while sharing the same collision guarantees.*
+
+**Examples**:
+```java
+DesignSnakeGame.SnakeGameDeque snake =
+        new DesignSnakeGame.SnakeGameDeque(3, 2, new int[][] {{1, 2}, {0, 1}});
+snake.move(DesignSnakeGame.Direction.RIGHT); // 0
+snake.move(DesignSnakeGame.Direction.DOWN);  // 0
+snake.move(DesignSnakeGame.Direction.RIGHT); // 1 (eats food)
+```
+
+**Special Features**:
+- 🎯 **Input Validation**: Dimension and food validators aligned with LeetCode constraints.
+- 🧭 **Direction Parsing**: Enum-based helpers accept case-insensitive characters or strings.
+- 📸 **Immutable Snapshots**: Safe copies of the snake body for debugging and testing.
+- 🧪 **Consistent Scorekeeping**: Shared behaviour verified across both implementations, including re-entering the previous tail cell safely[^1].
+
+**Testing**: Robust JUnit suite covering the official example, self-collision, tail-reentry, repeated game-over moves, validation failures, and direction parsing utilities.
+
+### 68. Merge and Sort Intervals (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/MergeAndSortIntervals.java`
 - **Description**: Merge all overlapping intervals and return a list of non-overlapping intervals sorted by start time
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -2708,7 +2736,7 @@ Input: [[1,3],[2,6],[8,10],[15,18],[16,20]] -> Output: [[1,6],[8,10],[15,20]]
 
 **Testing**: Comprehensive test cases with performance benchmarking and cross-validation!
 
-### 68. Ice Cream Parlor (HackerRank)
+### 69. Ice Cream Parlor (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/IceCreamParlor.java`
 - **Description**: Given a list of ice cream prices and a budget, find the indices (1-based) of two distinct flavors that sum to exactly the budget
 - **Multiple Approaches**: 2 different algorithms with comprehensive analysis
@@ -2743,7 +2771,7 @@ Input: m = 20, cost = [1, 2, 3, 4, 5, 15] -> Output: [5, 6]
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **3310+ comprehensive test cases** across all solutions
+- ✅ **3750+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -2849,7 +2877,7 @@ Input: m = 20, cost = [1, 2, 3, 4, 5, 15] -> Output: [5, 6]
 ```bash
 ./gradlew clean              # Clean build artifacts
 ./gradlew compileJava        # Compile source code
-./gradlew test               # Run all 3310+ tests
+./gradlew test               # Run all 3750+ tests
 ./gradlew build              # Build the entire project
 ./gradlew run                # Run with all algorithm demonstrations
 ```
@@ -2936,12 +2964,15 @@ This project serves as:
 | Network Delay Time | Medium | O(E log V) time, O(V + E) space | 4 approaches | Comprehensive |
 | My Calendar I | Medium | O(log n) time, O(n) space | 3 approaches | Comprehensive |
 | Design Browser History | Medium | O(n) visit, O(steps) navigation | 2 approaches | Comprehensive |
+| Design Snake Game | Medium | O(1) per move | 2 approaches | Comprehensive |
 | Alert Using Key-Card | Medium | O(N log N) time, O(N) space | 4 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 | Depth-First Search (DFS) | Educational | O(V + E) time, O(V) space | 10 implementations | Working examples |
 
-**Total**: 70 algorithm problems + 2 Algorithm tutorials = **3740+ test cases** and **378 different algorithmic approaches**!
+**Total**: 71 algorithm problems + 2 Algorithm tutorials = **3750+ test cases** and **380 different algorithmic approaches**!
+
+[^1]: Guidance inspired by *Design Snake Game* notes at [leetcode.ca](https://leetcode.ca/2016-11-17-353-Design-Snake-Game/).
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
