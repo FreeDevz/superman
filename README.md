@@ -83,7 +83,8 @@ src/
 │       ├── MyCalendarI.java # LeetCode #729: My Calendar I
 │       ├── DesignBrowserHistory.java # LeetCode #1472: Design Browser History
 │       ├── DesignSnakeGame.java # LeetCode #353: Design Snake Game
-│       └── DesignHitCounter.java # LeetCode #362: Design Hit Counter
+│       ├── DesignHitCounter.java # LeetCode #362: Design Hit Counter
+│       └── DesignSearchAutocompleteSystem.java # LeetCode #642: Design Search Autocomplete System
 ├── hackerrank/
 │   ├── IceCreamParlor.java # HackerRank: Ice Cream Parlor
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
@@ -160,7 +161,8 @@ src/
         ├── MyCalendarITest.java # LeetCode #729 tests (comprehensive test cases!)
         ├── DesignBrowserHistoryTest.java # LeetCode #1472 tests (comprehensive test cases!)
         ├── DesignSnakeGameTest.java # LeetCode #353 tests (comprehensive test cases!)
-        └── DesignHitCounterTest.java # LeetCode #362 tests (comprehensive test cases!)
+        ├── DesignHitCounterTest.java # LeetCode #362 tests (comprehensive test cases!)
+        └── DesignSearchAutocompleteSystemTest.java # LeetCode #642 tests (comprehensive test cases!)
     └── hackerrank/
         ├── IceCreamParlorTest.java # HackerRank tests (27 comprehensive test cases!)
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
@@ -186,7 +188,7 @@ This will demonstrate ALL LeetCode solutions with live examples, performance com
 
 ### Run Tests
 ```bash
-./gradlew test                          # Run all tests (3760+ test cases!)
+./gradlew test                          # Run all tests (3770+ test cases!)
 ./gradlew test --tests "*LeetCode*"     # Run only LeetCode tests
 ./gradlew test --tests "*BigO*"         # Run Big O complexity tests
 ```
@@ -285,7 +287,7 @@ java -cp build/libs/superman-1.0.0.jar com.example.algorithms.BreadthFirstSearch
 
 ## LeetCode Solutions
 
-This project features **72 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **73 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Two Sum (LeetCode #1)
 - **Location**: `src/main/java/com/example/leetcode/TwoSum.java`
@@ -2735,6 +2737,34 @@ counter.getHits(301); // returns 3
 
 **Testing**: Comprehensive JUnit coverage across official examples, bursty traffic, eviction boundaries, and validation safeguards for both implementations.
 
+### 69. Design Search Autocomplete System (LeetCode #642)
+- **Location**: `src/main/java/com/example/leetcode/DesignSearchAutocompleteSystem.java`
+- **Description**: Design a search autocomplete engine that streams the top three historical sentences matching the active prefix, updating its corpus as new queries are finished.[^3]
+- **Approach Implemented**: Trie-backed autocomplete with prefix candidate caching for fast lookups.
+
+**Algorithm implemented**:
+- 🧠 **Trie + Frequency Map**: O(p + m log m) time, O(sum |sentence|) space - *Traverses the trie once per character while sorting only the candidates stored on the prefix node (typically small for LeetCode constraints).*
+
+**Example**:
+```java
+DesignSearchAutocompleteSystem.AutocompleteSystem system =
+        new DesignSearchAutocompleteSystem.AutocompleteSystem(
+                new String[] {"i love you", "island", "i love leetcode"},
+                new int[] {5, 3, 2});
+system.input('i'); // ["i love you", "island", "i love leetcode"]
+system.input(' '); // ["i love you", "i love leetcode"]
+system.input('#'); // commits the query to history
+```
+
+**Special Features**:
+- 🎯 **Prefix Candidate Caching**: Stores sentence references per trie node to avoid repeated DFS traversals.
+- 🔣 **ASCII-Aware Ranking**: Breaks frequency ties using ASCII order, matching the online judge's specification.
+- 🧹 **Strict Validation**: Rejects unsupported characters and non-positive seed frequencies early.
+- 🧠 **Session Learning**: Immediately reuses sentences added during the current input session after {@code '#'} is typed.
+- ⚡ **Incremental Traversal**: Maintains the current trie cursor to keep per-keystroke work proportional to a single node transition.
+
+**Testing**: JUnit coverage exercises the canonical example, ASCII tie-breaking, on-the-fly learning, and validation failures.
+
 ### 69. Merge and Sort Intervals (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/MergeAndSortIntervals.java`
 - **Description**: Merge all overlapping intervals and return a list of non-overlapping intervals sorted by start time
@@ -2804,7 +2834,7 @@ Input: m = 20, cost = [1, 2, 3, 4, 5, 15] -> Output: [5, 6]
 
 - ✅ **Java 21** with Gradle 8.14.3 Kotlin DSL
 - ✅ **JUnit 5** testing framework with parameterized tests
-- ✅ **3760+ comprehensive test cases** across all solutions
+- ✅ **3770+ comprehensive test cases** across all solutions
 - ✅ **Multiple algorithmic approaches** for each problem
 - ✅ **Performance analysis** and complexity comparisons
 - ✅ **Algorithm visualization** and pattern demonstration
@@ -2899,6 +2929,10 @@ Input: m = 20, cost = [1, 2, 3, 4, 5, 15] -> Output: [5, 6]
 ./gradlew test --tests "*RansomNote*"
 ./gradlew test --tests "*NetworkDelayTime*"
 ./gradlew test --tests "*MyCalendarI*"
+./gradlew test --tests "*DesignBrowserHistory*"
+./gradlew test --tests "*DesignSnakeGame*"
+./gradlew test --tests "*DesignHitCounter*"
+./gradlew test --tests "*DesignSearchAutocompleteSystem*"
 ./gradlew test --tests "*AlertUsingKeyCard*"
 ./gradlew test --tests "*IceCreamParlor*"
 ./gradlew test --tests "*PlusMinus*"
@@ -2910,7 +2944,7 @@ Input: m = 20, cost = [1, 2, 3, 4, 5, 15] -> Output: [5, 6]
 ```bash
 ./gradlew clean              # Clean build artifacts
 ./gradlew compileJava        # Compile source code
-./gradlew test               # Run all 3760+ tests
+./gradlew test               # Run all 3770+ tests
 ./gradlew build              # Build the entire project
 ./gradlew run                # Run with all algorithm demonstrations
 ```
@@ -2999,15 +3033,17 @@ This project serves as:
 | Design Browser History | Medium | O(n) visit, O(steps) navigation | 2 approaches | Comprehensive |
 | Design Snake Game | Medium | O(1) per move | 2 approaches | Comprehensive |
 | Design Hit Counter | Medium | O(1) amortised time | 2 approaches | Comprehensive |
+| Design Search Autocomplete System | Hard | O(p + m log m) time, O(sum |sentence|) space | 1 approach | Comprehensive |
 | Alert Using Key-Card | Medium | O(N log N) time, O(N) space | 4 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 | Depth-First Search (DFS) | Educational | O(V + E) time, O(V) space | 10 implementations | Working examples |
 
-**Total**: 72 algorithm problems + 2 Algorithm tutorials = **3760+ test cases** and **382 different algorithmic approaches**!
+**Total**: 73 algorithm problems + 2 Algorithm tutorials = **3770+ test cases** and **383 different algorithmic approaches**!
 
 [^1]: Guidance inspired by *Design Snake Game* notes at [leetcode.ca](https://leetcode.ca/2016-11-17-353-Design-Snake-Game/).
 [^2]: Solution nuances cross-checked with *Design Hit Counter* coverage at [leetcode.ca](https://leetcode.ca/2016-11-26-362-Design-Hit-Counter/).
+[^3]: Autocomplete design insights referenced from [leetcode.ca](https://leetcode.ca/2017-09-02-642-Design-Search-Autocomplete-System/).
 
 Happy coding! 🚀 Ready for your next technical interview! 💪
