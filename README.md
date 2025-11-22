@@ -84,7 +84,8 @@ src/
 │       ├── DesignBrowserHistory.java # LeetCode #1472: Design Browser History
 │       ├── DesignSnakeGame.java # LeetCode #353: Design Snake Game
 │       ├── DesignHitCounter.java # LeetCode #362: Design Hit Counter
-│       └── DesignSearchAutocompleteSystem.java # LeetCode #642: Design Search Autocomplete System
+│       ├── DesignSearchAutocompleteSystem.java # LeetCode #642: Design Search Autocomplete System
+│       └── NumberOfBeautifulSubsets.java # LeetCode #2597: The Number of Beautiful Subsets
 ├── hackerrank/
 │   ├── IceCreamParlor.java # HackerRank: Ice Cream Parlor
 │   ├── MergeAndSortIntervals.java # HackerRank: Merge and Sort Intervals
@@ -162,7 +163,8 @@ src/
         ├── DesignBrowserHistoryTest.java # LeetCode #1472 tests (comprehensive test cases!)
         ├── DesignSnakeGameTest.java # LeetCode #353 tests (comprehensive test cases!)
         ├── DesignHitCounterTest.java # LeetCode #362 tests (comprehensive test cases!)
-        └── DesignSearchAutocompleteSystemTest.java # LeetCode #642 tests (comprehensive test cases!)
+        ├── DesignSearchAutocompleteSystemTest.java # LeetCode #642 tests (comprehensive test cases!)
+        └── NumberOfBeautifulSubsetsTest.java # LeetCode #2597 tests (comprehensive test cases!)
     └── hackerrank/
         ├── IceCreamParlorTest.java # HackerRank tests (27 comprehensive test cases!)
         ├── MergeAndSortIntervalsTest.java # HackerRank tests (comprehensive test cases!)
@@ -287,7 +289,7 @@ java -cp build/libs/superman-1.0.0.jar com.example.algorithms.BreadthFirstSearch
 
 ## LeetCode Solutions
 
-This project features **73 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
+This project features **74 complete algorithm solutions** with multiple algorithmic approaches and comprehensive testing:
 
 ### 1. Two Sum (LeetCode #1)
 - **Location**: `src/main/java/com/example/leetcode/TwoSum.java`
@@ -2765,7 +2767,43 @@ system.input('#'); // commits the query to history
 
 **Testing**: JUnit coverage exercises the canonical example, ASCII tie-breaking, on-the-fly learning, and validation failures.
 
-### 69. Merge and Sort Intervals (HackerRank)
+### 70. The Number of Beautiful Subsets (LeetCode #2597)
+- **Location**: `src/main/java/com/example/leetcode/NumberOfBeautifulSubsets.java`
+- **Description**: Given an array of positive integers and a positive integer k, count all non-empty subsets where no two elements have an absolute difference equal to k.
+- **Multiple Approaches**: 5 different algorithms with comprehensive analysis
+
+**Algorithms implemented**:
+- 🏆 **Backtracking**: O(2^n * n) time, O(n) space - *Optimal solution (recommended)*
+- ⚡ **Backtracking with Set**: O(2^n * n) time, O(n) space - *Optimized with Set for O(1) lookups*
+- 🔧 **Dynamic Programming with Bitmasking**: O(2^n * n^2) time, O(1) space - *Uses bitmasking to represent subsets*
+- 📚 **Recursive with Memoization**: O(2^n * n) time, O(2^n) space - *Memoization for subproblems*
+- 🎯 **Optimized Backtracking**: O(2^n * n) time, O(n) space - *Array-based optimization*
+
+**Examples**:
+```java
+Input: nums = [2,4,6], k = 2
+Output: 4
+Explanation: Beautiful subsets: [2], [4], [6], [2, 6]
+
+Input: nums = [1], k = 1
+Output: 1
+Explanation: Beautiful subset: [1]
+```
+
+**Special Features**:
+- 🎯 **Subset Generation**: Explores all possible subsets using backtracking
+- 📊 **Conflict Detection**: Efficiently checks if adding an element violates the beautiful subset condition
+- ⚡ **Multiple Approaches**: Demonstrates backtracking, bitmasking, and memoization techniques
+- 🧪 **Edge Case Testing**: Handles duplicates, conflicts, maximum constraints, and various k values
+- 📈 **Constraint Handling**: Optimized for constraints (1 ≤ nums.length ≤ 20, 1 ≤ nums[i], k ≤ 1000)
+- 🔧 **Algorithm-Specific Optimizations**: Set-based lookups, bitmasking, array optimizations
+- 🌟 **Educational Value**: Demonstrates subset generation, backtracking, and dynamic programming concepts
+- 💡 **Key Insight**: Sort array first, then use backtracking to explore subsets while checking conflicts
+- 🛠️ **Utility Methods**: Beautiful subset validation, all subsets generation
+
+**Testing**: Comprehensive test cases with cross-validation across all approaches!
+
+### 71. Merge and Sort Intervals (HackerRank)
 - **Location**: `src/main/java/com/example/hackerrank/MergeAndSortIntervals.java`
 - **Description**: Merge all overlapping intervals and return a list of non-overlapping intervals sorted by start time
 - **Multiple Approaches**: 5 different algorithms with comprehensive analysis
@@ -2933,6 +2971,7 @@ Input: m = 20, cost = [1, 2, 3, 4, 5, 15] -> Output: [5, 6]
 ./gradlew test --tests "*DesignSnakeGame*"
 ./gradlew test --tests "*DesignHitCounter*"
 ./gradlew test --tests "*DesignSearchAutocompleteSystem*"
+./gradlew test --tests "*NumberOfBeautifulSubsets*"
 ./gradlew test --tests "*AlertUsingKeyCard*"
 ./gradlew test --tests "*IceCreamParlor*"
 ./gradlew test --tests "*PlusMinus*"
@@ -3034,13 +3073,14 @@ This project serves as:
 | Design Snake Game | Medium | O(1) per move | 2 approaches | Comprehensive |
 | Design Hit Counter | Medium | O(1) amortised time | 2 approaches | Comprehensive |
 | Design Search Autocomplete System | Hard | O(p + m log m) time, O(sum |sentence|) space | 1 approach | Comprehensive |
+| The Number of Beautiful Subsets | Medium | O(2^n * n) time, O(n) space | 5 approaches | Comprehensive |
 | Alert Using Key-Card | Medium | O(N log N) time, O(N) space | 4 approaches | Comprehensive |
 | Plus Minus | Easy | O(n) time, O(1) space | 7 approaches | Comprehensive |
 | Merge and Sort Intervals | Medium | O(n log n) time, O(1) space | 5 approaches | Comprehensive |
 | Big O Examples | Educational | All complexities | 8 complexity classes | Demonstrations |
 | Depth-First Search (DFS) | Educational | O(V + E) time, O(V) space | 10 implementations | Working examples |
 
-**Total**: 73 algorithm problems + 2 Algorithm tutorials = **3770+ test cases** and **383 different algorithmic approaches**!
+**Total**: 74 algorithm problems + 2 Algorithm tutorials = **3800+ test cases** and **388 different algorithmic approaches**!
 
 [^1]: Guidance inspired by *Design Snake Game* notes at [leetcode.ca](https://leetcode.ca/2016-11-17-353-Design-Snake-Game/).
 [^2]: Solution nuances cross-checked with *Design Hit Counter* coverage at [leetcode.ca](https://leetcode.ca/2016-11-26-362-Design-Hit-Counter/).
